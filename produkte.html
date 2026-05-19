@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produkte – Amiri Import &amp; Export, Hamburg</title>
+  <meta name="description" content="Amiri Import &amp; Export – Elektronische Haushaltsgeräte: Föhn, Grill, Bügeleisen, Waschmaschinen, Kühlschränke und Gebrauchtgeräte. Groß- und Außenhandel, Hamburg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── Page Hero ── */
+    .page-hero {
+      padding: 160px 0 90px;
+      background: var(--dark2);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,110,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 90% at 30% 50%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 90% at 30% 50%, #000 30%, transparent 75%);
+      pointer-events: none;
+    }
+    .page-hero-ghost {
+      position: absolute; bottom: -8%; right: -2%;
+      font-family: 'Playfair Display', serif; font-weight: 800;
+      font-size: clamp(4rem, 16vw, 14rem);
+      line-height: 1; white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(200,169,110,.04);
+      pointer-events: none; user-select: none;
+    }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 700px; }
+    .page-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -.03em; color: var(--text);
+      margin-bottom: 20px;
+    }
+    .page-hero-title em { font-style: italic; color: var(--gold); }
+    .page-hero-sub {
+      font-size: 1.1rem; color: var(--text-muted);
+      line-height: 1.75; max-width: 560px;
+    }
+
+    /* ── Gebraucht info box ── */
+    .gebraucht-box {
+      background: var(--dark3);
+      border: 1px solid var(--hairline);
+      border-left: 3px solid var(--gold);
+      padding: 48px 52px;
+      display: flex; gap: 36px; align-items: flex-start;
+    }
+    .gb-icon {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      background: rgba(200,169,110,.06);
+      border: 1px solid var(--ring);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); margin-top: 4px;
+    }
+    .gb-content {}
+    .gb-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem; font-weight: 600;
+      color: var(--text); margin-bottom: 14px;
+    }
+    .gb-desc {
+      font-size: 14.5px; color: var(--text-muted);
+      line-height: 1.78; margin-bottom: 24px;
+      max-width: 580px;
+    }
+    .gb-checks {
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+    .gb-check {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+    }
+    .gb-check svg { color: var(--gold); flex-shrink: 0; }
+
+    /* ── Nav active state ── */
+    .nav-links a.active { color: var(--gold-light); }
+    .nav-links a.active::after { width: 100%; }
+    .drawer-nav a.active { color: var(--gold-light); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .page-hero { padding: 130px 0 64px; }
+      .gebraucht-box { flex-direction: column; gap: 22px; padding: 32px 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Scroll-Progress-Balken -->
+<div id="progress"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke-width="1.3"/>
+      <path d="M11 15.5H27.5" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M29 24.5H12.5" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-name">
+      <b>Amiri</b> Import &amp; Export
+      <small>Groß- &amp; Außenhandel · Hamburg</small>
+    </span>
+  </a>
+
+  <div style="display:flex;align-items:center;gap:36px;">
+    <nav class="nav-links">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="ueber-uns.html">Über Uns</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a href="kontakt.html" class="nav-btn">
+      <span class="dot"></span>Jetzt anfragen
+    </a>
+    <!-- Hamburger (nur mobil sichtbar) -->
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     MOBILE DRAWER NAVIGATION
+═══════════════════════════════════════════ -->
+<div id="drawer-overlay" role="presentation"></div>
+<aside id="drawer" aria-label="Navigation" role="dialog" aria-modal="true">
+  <div class="drawer-head">
+    <span class="drawer-logo"><b>Amiri</b> Import &amp; Export</span>
+    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="leistungen.html"><em>Leistungen</em><span>01</span></a>
+    <a href="produkte.html"><em>Produkte</em><span>02</span></a>
+    <a href="ueber-uns.html"><em>Über Uns</em><span>03</span></a>
+    <a href="kontakt.html"><em>Kontakt</em><span>04</span></a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="kontakt.html" class="drawer-cta">Jetzt anfragen →</a>
+    <p class="drawer-addr">📍 Billstraße 106 · 20539 Hamburg</p>
+  </div>
+</aside>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════════ -->
+<div class="page-hero">
+  <div class="page-hero-ghost" aria-hidden="true">SORTIMENT</div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="kicker">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">02</span>
+        <span class="kicker-label">Produkte</span>
+      </div>
+      <h1 class="page-hero-title">Unser <em>Sortiment</em></h1>
+      <p class="page-hero-sub">Elektronische Haushaltsgeräte – neu, gebraucht und im Großhandel verfügbar. Alle 6 Produktkategorien.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: ALLE PRODUKTE
+═══════════════════════════════════════════ -->
+<section id="produkte" style="padding:120px 0;background:var(--dark2);">
+  <div class="container">
+
+    <div class="produkte-head reveal">
+      <div>
+        <div class="kicker">
+          <span class="kicker-rule"></span>
+          <span class="kicker-num">01</span>
+          <span class="kicker-label">Sortiment</span>
+        </div>
+        <h2 class="section-title">Alle <em>Kategorien</em></h2>
+        <p class="ph-sub">Von Haushaltsgeräten bis Profi-Equipment – neu, gebraucht und im Großhandel verfügbar.</p>
+      </div>
+      <div class="ph-count">— 06 Kategorien</div>
+    </div>
+
+    <div class="produkt-list">
+
+      <!-- 1: Föhn & Haartrockner -->
+      <article class="pi reveal">
+        <div class="pi-vis">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=85" alt="Föhn und Haartrockner" loading="lazy"/>
+          <div class="pi-vis-shade"></div>
+          <span class="pi-badge b-nu">Neu &amp; Gebraucht</span>
+          <div class="pi-fallback">
+            <svg width="52" height="52" viewBox="0 0 40 40" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="1.2">
+              <circle cx="20" cy="20" r="18"/>
+              <path d="M11 15.5H27.5" stroke-linecap="round"/><path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M29 24.5H12.5" stroke-linecap="round"/><path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pi-fallback-lbl">Föhn &amp; Haartrockner</span>
+          </div>
+        </div>
+        <div class="pi-body">
+          <div class="pi-cat">Kategorie 01</div>
+          <h3 class="pi-title">Föhn &amp; Haartrockner</h3>
+          <p class="pi-desc">Leistungsstarke Haartrockner für Friseure und Haushalt – verschiedene Leistungsstufen, inkl. gebrauchte Geräte in einwandfreiem Zustand.</p>
+          <div class="pi-tags">
+            <span class="pi-tag">500–2400 W</span>
+            <span class="pi-tag">Großhandel</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2: Kontaktgrill -->
+      <article class="pi reveal">
+        <div class="pi-vis">
+          <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&q=85" alt="Kontaktgrill und Tischgrill" loading="lazy"/>
+          <div class="pi-vis-shade"></div>
+          <span class="pi-badge b-nu">Neu &amp; Gebraucht</span>
+          <div class="pi-fallback">
+            <svg width="52" height="52" viewBox="0 0 40 40" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="1.2">
+              <circle cx="20" cy="20" r="18"/>
+              <path d="M11 15.5H27.5" stroke-linecap="round"/><path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M29 24.5H12.5" stroke-linecap="round"/><path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pi-fallback-lbl">Kontaktgrill &amp; Tischgrill</span>
+          </div>
+        </div>
+        <div class="pi-body">
+          <div class="pi-cat">Kategorie 02</div>
+          <h3 class="pi-title">Kontaktgrill &amp; Tischgrill</h3>
+          <p class="pi-desc">Elektrische Kontaktgrills und Tischgrills für Küche und Gastronomie – antihaftbeschichtet, leicht zu reinigen, für Profi und Haushalt.</p>
+          <div class="pi-tags">
+            <span class="pi-tag">Haushalt</span>
+            <span class="pi-tag">Gastronomie</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3: Bügeleisen -->
+      <article class="pi reveal">
+        <div class="pi-vis">
+          <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=85" alt="Bügeleisen und Dampfbügler" loading="lazy"/>
+          <div class="pi-vis-shade"></div>
+          <span class="pi-badge b-nu">Neu &amp; Gebraucht</span>
+          <div class="pi-fallback">
+            <svg width="52" height="52" viewBox="0 0 40 40" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="1.2">
+              <circle cx="20" cy="20" r="18"/>
+              <path d="M11 15.5H27.5" stroke-linecap="round"/><path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M29 24.5H12.5" stroke-linecap="round"/><path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pi-fallback-lbl">Bügeleisen &amp; Dampfbügler</span>
+          </div>
+        </div>
+        <div class="pi-body">
+          <div class="pi-cat">Kategorie 03</div>
+          <h3 class="pi-title">Bügeleisen &amp; Dampfbügler</h3>
+          <p class="pi-desc">Dampfbügeleisen und Dampfstationen für Haushalt und Gewerbe – auch gebrauchte Profi-Geräte in gepflegtem Zustand verfügbar.</p>
+          <div class="pi-tags">
+            <span class="pi-tag">Dampf</span>
+            <span class="pi-tag">Profi</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4: Waschmaschinen -->
+      <article class="pi reveal">
+        <div class="pi-vis">
+          <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=85" alt="Waschmaschinen und Trockner" loading="lazy"/>
+          <div class="pi-vis-shade"></div>
+          <span class="pi-badge b-new">Neu</span>
+          <div class="pi-fallback">
+            <svg width="52" height="52" viewBox="0 0 40 40" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="1.2">
+              <circle cx="20" cy="20" r="18"/>
+              <path d="M11 15.5H27.5" stroke-linecap="round"/><path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M29 24.5H12.5" stroke-linecap="round"/><path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pi-fallback-lbl">Waschmaschinen &amp; Trockner</span>
+          </div>
+        </div>
+        <div class="pi-body">
+          <div class="pi-cat">Kategorie 04</div>
+          <h3 class="pi-title">Waschmaschinen &amp; Trockner</h3>
+          <p class="pi-desc">Energieeffiziente Frontlader und Toplader namhafter Marken – einzeln oder als Großlieferung für Händler und Wiederverkäufer.</p>
+          <div class="pi-tags">
+            <span class="pi-tag">A-Energie</span>
+            <span class="pi-tag">Großhandel</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5: Kühlschränke -->
+      <article class="pi reveal">
+        <div class="pi-vis">
+          <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=85" alt="Kühlschränke und Gefriergeräte" loading="lazy"/>
+          <div class="pi-vis-shade"></div>
+          <span class="pi-badge b-new">Neu</span>
+          <div class="pi-fallback">
+            <svg width="52" height="52" viewBox="0 0 40 40" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="1.2">
+              <circle cx="20" cy="20" r="18"/>
+              <path d="M11 15.5H27.5" stroke-linecap="round"/><path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M29 24.5H12.5" stroke-linecap="round"/><path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pi-fallback-lbl">Kühlschränke &amp; Gefriergeräte</span>
+          </div>
+        </div>
+        <div class="pi-body">
+          <div class="pi-cat">Kategorie 05</div>
+          <h3 class="pi-title">Kühlschränke &amp; Gefriergeräte</h3>
+          <p class="pi-desc">Kühl-Gefrier-Kombinationen, Side-by-Side und Standgeräte – für Haushalt, Gastronomie und Handel. Export in alle Kontinente.</p>
+          <div class="pi-tags">
+            <span class="pi-tag">No Frost</span>
+            <span class="pi-tag">Export</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6: Gebrauchte Geräte -->
+      <article class="pi reveal">
+        <div class="pi-vis">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85" alt="Gebrauchte Haushaltsgeräte" loading="lazy"/>
+          <div class="pi-vis-shade"></div>
+          <span class="pi-badge b-used">Gebraucht</span>
+          <div class="pi-fallback">
+            <svg width="52" height="52" viewBox="0 0 40 40" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="1.2">
+              <circle cx="20" cy="20" r="18"/>
+              <path d="M11 15.5H27.5" stroke-linecap="round"/><path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M29 24.5H12.5" stroke-linecap="round"/><path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="pi-fallback-lbl">Gebrauchte Haushaltsgeräte</span>
+          </div>
+        </div>
+        <div class="pi-body">
+          <div class="pi-cat">Kategorie 06</div>
+          <h3 class="pi-title">Gebrauchte Haushaltsgeräte</h3>
+          <p class="pi-desc">Geprüfte Gebrauchtgeräte zu attraktiven Preisen – Kaffeemaschinen, Staubsauger, Kleingeräte u.v.m. Alle Geräte werden vor dem Verkauf kontrolliert.</p>
+          <div class="pi-tags">
+            <span class="pi-tag pi-tag-o">Geprüft</span>
+            <span class="pi-tag pi-tag-o">Günstig</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: GEBRAUCHTE GERÄTE INFO
+═══════════════════════════════════════════ -->
+<section style="padding:100px 0;background:var(--dark);">
+  <div class="container reveal">
+
+    <div style="text-align:center;margin-bottom:64px;">
+      <div class="kicker" style="justify-content:center;">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">02</span>
+        <span class="kicker-label">Qualitätssicherung</span>
+      </div>
+      <h2 class="section-title" style="text-align:center;">Gebraucht. Geprüft. <em>Verlässlich.</em></h2>
+    </div>
+
+    <div class="gebraucht-box">
+      <div class="gb-icon">
+        <!-- CheckCircle icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <div class="gb-content">
+        <div class="gb-title">Unsere Gebrauchtgeräte – Qualität geprüft</div>
+        <p class="gb-desc">
+          Alle gebrauchten Geräte durchlaufen eine sorgfältige Prüfung vor dem Verkauf.
+          Geräte die unseren Standards nicht entsprechen werden nicht angeboten.
+          So können unsere Kunden auch beim Kauf gebrauchter Ware auf Qualität und
+          Funktionssicherheit vertrauen.
+        </p>
+        <div class="gb-checks">
+          <div class="gb-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Sichtprüfung
+          </div>
+          <div class="gb-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Funktionstest
+          </div>
+          <div class="gb-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Reinigung &amp; Aufbereitung
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: KONTAKT CTA
+═══════════════════════════════════════════ -->
+<section style="padding:100px 0;background:var(--dark2);border-top:1px solid var(--hairline);text-align:center;">
+  <div class="container reveal">
+    <div class="kicker" style="justify-content:center;">
+      <span class="kicker-rule"></span>
+      <span class="kicker-num">03</span>
+      <span class="kicker-label">Kontakt</span>
+    </div>
+    <h2 class="section-title" style="text-align:center;">Konkrete Anfrage stellen? <em>Wir erstellen Ihnen sofort ein Angebot.</em></h2>
+    <p style="color:var(--text-muted);max-width:500px;margin:0 auto 40px;">
+      Wir beraten Sie gerne persönlich und erstellen Ihnen ein individuelles Angebot.
+    </p>
+    <a href="kontakt.html" class="btn-prim">
+      Jetzt anfragen
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-wm" aria-hidden="true">AMIRI</div>
+  <div class="container">
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand">
+          <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#c8a96e" stroke-width="1.3"/>
+            <path d="M11 15.5H27.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M29 24.5H12.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="nav-name"><b>Amiri</b> Import &amp; Export<small>Groß- &amp; Außenhandel · Hamburg</small></span>
+        </a>
+        <p class="footer-stmt">
+          Verlässlichkeit, Qualität und partnerschaftliche
+          Zusammenarbeit – die Grundpfeiler unseres globalen Handels.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="ueber-uns.html">Über Uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="kontakt.html">Billstraße 106, Hamburg</a></li>
+          <li><a href="mailto:info@amiri-import-export.de">info@amiri-import-export.de</a></li>
+          <li><a href="kontakt.html">+49 (0)40 – XXXXXXXX</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Amiri Import &amp; Export · Ali Amiri · Hamburg</p>
+      <span class="footer-made">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+        Made in Hamburg
+      </span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+  /* ── Scroll-Progress & Nav ── */
+  const prog = document.getElementById('progress');
+  const nav  = document.getElementById('nav');
+  function onScroll() {
+    const h = document.documentElement;
+    prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── IntersectionObserver: Reveal ── */
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  /* ── Count-Up ── */
+  const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, to = +el.dataset.to;
+      if (noMotion) { el.textContent = to; co.unobserve(el); return; }
+      const t0 = performance.now();
+      const dur = 1500;
+      (function tick(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * to);
+        if (p < 1) requestAnimationFrame(tick);
+        else { el.textContent = to; co.unobserve(el); }
+      })(t0);
+    });
+  }, { threshold: 0.7 });
+  document.querySelectorAll('.cnt').forEach(el => co.observe(el));
+
+  /* ── Marquee duplizieren ── */
+  const mt = document.getElementById('mTrack');
+  if (mt) mt.innerHTML += mt.innerHTML;
+
+  /* ── Produkt-Bild-Fallback ── */
+  document.querySelectorAll('.pi-vis').forEach(vis => {
+    const img = vis.querySelector('img');
+    const fb  = vis.querySelector('.pi-fallback');
+    if (!img || !fb) return;
+    const show = () => { img.style.display = 'none'; fb.classList.add('show'); };
+    img.addEventListener('error', show, { once: true });
+    if (img.complete && img.naturalWidth === 0) show();
+  });
+
+  /* ── Mobile Drawer ── */
+  const burger  = document.getElementById('burger');
+  const drawer  = document.getElementById('drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const dClose  = document.getElementById('drawer-close');
+
+  function openDrawer() {
+    overlay.classList.add('show');
+    requestAnimationFrame(() => {
+      overlay.classList.add('visible');
+      drawer.classList.add('open');
+    });
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    overlay.classList.remove('visible');
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(() => overlay.classList.remove('show'), 380);
+  }
+
+  burger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  dClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+  /* ── Active nav ── */
+  const page = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .drawer-nav a').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+</script>
+
+</body>
+</html>
