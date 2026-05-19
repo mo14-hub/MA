@@ -313,7 +313,9 @@
       display: flex;
       align-items: center;
       overflow: hidden;
-      background-color: var(--dark);
+      background:
+        radial-gradient(ellipse 72% 60% at 50% 28%, rgba(200,169,110,0.05), transparent 70%),
+        var(--dark);
       padding: 140px 0 90px;
     }
 
@@ -321,20 +323,20 @@
     .hero-blob {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(95px);
       pointer-events: none;
-      opacity: 0.55;
+      opacity: 0.38;
     }
     .hero-blob.b1 {
-      width: 540px; height: 540px;
-      top: -120px; right: -80px;
-      background: radial-gradient(circle, rgba(200,169,110,0.16), transparent 65%);
+      width: 440px; height: 440px;
+      top: -230px; right: -210px;
+      background: radial-gradient(circle, rgba(200,169,110,0.13), transparent 62%);
       animation: drift1 18s ease-in-out infinite alternate;
     }
     .hero-blob.b2 {
-      width: 460px; height: 460px;
-      bottom: -160px; left: -100px;
-      background: radial-gradient(circle, rgba(224,123,58,0.10), transparent 65%);
+      width: 400px; height: 400px;
+      bottom: -250px; left: -210px;
+      background: radial-gradient(circle, rgba(224,123,58,0.07), transparent 62%);
       animation: drift2 22s ease-in-out infinite alternate;
     }
     @keyframes drift1 {
@@ -362,12 +364,13 @@
     /* Maus-Spotlight (nur Desktop) */
     #hero .spotlight {
       position: absolute;
-      width: 600px; height: 600px;
+      width: 520px; height: 520px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,169,110,0.10), transparent 60%);
+      background: radial-gradient(circle, rgba(200,169,110,0.09), transparent 60%);
       transform: translate(-50%, -50%);
       left: 50%; top: 45%;
       pointer-events: none;
+      opacity: 0;
       transition: opacity 0.4s ease;
       will-change: left, top;
     }
@@ -898,34 +901,59 @@
       position: relative;
       overflow: hidden;
       height: 230px;
+      background: linear-gradient(135deg, var(--dark3), var(--dark2));
     }
     .produkt-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* Duotone-Behandlung: entsättigt + gedämpft */
-      filter: grayscale(0.6) brightness(0.74) contrast(1.06);
-      transition: transform 0.8s cubic-bezier(.16,.7,.3,1), filter 0.6s ease;
+      /* Dezente Entsättigung – Bild bleibt klar erkennbar */
+      filter: grayscale(0.12) contrast(1.02);
+      transition: transform 0.7s cubic-bezier(.16,.7,.3,1), filter 0.5s ease;
     }
-    /* Gold/Dunkel-Verlauf über dem Bild */
+    /* Leichter Verlauf nur für die Badge-Lesbarkeit */
     .produkt-img-wrap::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg,
-        rgba(200,169,110,0.20) 0%,
-        rgba(14,14,14,0.30) 45%,
-        rgba(14,14,14,0.75) 100%);
-      mix-blend-mode: multiply;
-      transition: opacity 0.55s ease;
+        rgba(14,14,14,0.14) 0%,
+        rgba(14,14,14,0.02) 38%,
+        rgba(14,14,14,0.34) 100%);
+      transition: opacity 0.5s ease;
       z-index: 1;
     }
-    /* Hover: Bild kommt in voller Farbe & zoomt leicht */
+    /* Hover: volle Farbe & leichter Zoom */
     .produkt-card:hover .produkt-img-wrap img {
-      filter: grayscale(0) brightness(0.92) contrast(1.02);
+      filter: grayscale(0) brightness(1.04) contrast(1.02);
       transform: scale(1.06);
     }
-    .produkt-card:hover .produkt-img-wrap::after { opacity: 0.35; }
+    .produkt-card:hover .produkt-img-wrap::after { opacity: 0.6; }
+
+    /* Eleganter Platzhalter, falls ein Bild nicht lädt */
+    .produkt-img-wrap.failed {
+      background-image:
+        linear-gradient(rgba(200,169,110,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,0.05) 1px, transparent 1px),
+        linear-gradient(135deg, var(--dark3), var(--dark2));
+      background-size: 26px 26px, 26px 26px, 100% 100%;
+    }
+    .produkt-img-wrap.failed::after { opacity: 0; }
+    .img-fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 26px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      color: rgba(200,169,110,0.5);
+    }
     .produkt-badge {
       position: absolute;
       top: 16px; left: 16px;
@@ -1420,9 +1448,11 @@
       /* Navigation: nur Logo, kein Menü/CTA */
       .nav-menu, .nav-cta { display: none; }
 
-      #hero { padding: 130px 0 80px; }
+      #hero { padding: 124px 0 76px; }
       .hero-h1 { font-size: clamp(2.5rem, 11vw, 3.4rem); }
-      .hero-ghost { font-size: 30vw; }
+      .hero-ghost { font-size: 30vw; bottom: 2%; }
+      .hero-blob { opacity: 0.2; filter: blur(80px); }
+      .spotlight { display: none; }
       .scroll-cue { display: none; }
 
       /* Stats: 2×2 */
@@ -2255,6 +2285,24 @@
     // ── Lauftext-Band: Inhalt für nahtlose Schleife duplizieren ──
     const track = document.getElementById('marqueeTrack');
     if (track) track.innerHTML += track.innerHTML;
+
+    // ── Bild-Fallback: eleganter Platzhalter bei Ladefehler ──────
+    document.querySelectorAll('.produkt-img-wrap').forEach(wrap => {
+      const img = wrap.querySelector('img');
+      if (!img) return;
+      const fail = () => {
+        if (wrap.classList.contains('failed')) return;
+        wrap.classList.add('failed');
+        img.style.display = 'none';
+        const title = wrap.parentElement.querySelector('.produkt-title');
+        const label = document.createElement('span');
+        label.className = 'img-fallback';
+        label.textContent = title ? title.textContent.trim() : 'Amiri Import & Export';
+        wrap.appendChild(label);
+      };
+      img.addEventListener('error', fail, { once: true });
+      if (img.complete && img.naturalWidth === 0) fail();
+    });
 
     // ── Hero-Spotlight folgt der Maus (nur Desktop) ──────────────
     const spotlight = document.getElementById('spotlight');
