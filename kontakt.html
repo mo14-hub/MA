@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="de"><head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kontakt – Amiri Import &amp; Export</title>
+  <meta name="description" content="Kontakt zu Amiri Import &amp; Export – Ali Amiri, Billstraße 106, 20539 Hamburg. Für Anfragen, Angebote oder persönliche Beratung. info@amiri-import-export.de"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Contact section ── */
+    .kontakt-section { padding: 120px 0; background: var(--dark2); }
+    .kontakt-grid {
+      display: grid; grid-template-columns: 1fr 1.25fr;
+      gap: 64px;
+    }
+
+    /* Contact info */
+    .ki-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem; color: var(--text); margin-bottom: 36px;
+    }
+    .ki-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: 18px 0; border-bottom: 1px solid var(--hairline);
+    }
+    .ki-item:last-child { border-bottom: none; }
+    .ki-ico {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: rgba(200,169,110,.05);
+      border: 1px solid var(--ring);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      transition: background .3s, border-color .3s;
+    }
+    .ki-item:hover .ki-ico { background: rgba(200,169,110,.11); border-color: var(--gold); }
+    .ki-lbl {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 5px;
+    }
+    .ki-val { font-size: 15px; color: var(--text); }
+
+    .ki-note {
+      margin-top: 32px; padding: 22px 26px;
+      background: var(--dark3);
+      border: 1px solid var(--hairline);
+      border-left: 3px solid var(--gold);
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 0.98rem; color: var(--text-muted); line-height: 1.72;
+    }
+
+    /* Contact form */
+    .form-box {
+      position: relative; overflow: hidden;
+      background: var(--dark3); border: 1px solid var(--ring);
+      padding: 52px 48px;
+    }
+    .form-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--grad-gold);
+    }
+    .fg { margin-bottom: 22px; }
+    .fg label {
+      display: block; font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 9px;
+    }
+    .fg input, .fg textarea {
+      width: 100%;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--hairline);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      padding: 13px 16px; outline: none;
+      -webkit-appearance: none; border-radius: 0;
+      transition: border-color .3s, background .3s;
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(154,144,128,.4); }
+    .fg input:focus, .fg textarea:focus {
+      border-color: var(--gold); background: rgba(255,255,255,.05);
+    }
+    .fg textarea { height: 128px; resize: vertical; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%; display: inline-flex; align-items: center;
+      justify-content: center; gap: 10px;
+      padding: 17px;
+      background: var(--grad-gold); color: #1a140a;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+      letter-spacing: .5px; border: none; cursor: pointer; margin-top: 8px;
+      transition: transform .25s, box-shadow .3s;
+    }
+    .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 20px 44px -16px rgba(200,169,110,.55); }
+
+    /* Map */
+    #karte {
+      height: 310px;
+      background: var(--dark);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    #karte::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,110,.048) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,.048) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at 50% 44%, #000 26%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle at 50% 44%, #000 26%, transparent 72%);
+    }
+    .map-rings {
+      position: absolute; top: 40%; left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .map-rings span {
+      position: absolute; inset: -20px;
+      border: 1px solid var(--gold);
+      border-radius: 50%; opacity: 0;
+      animation: ripple 3.6s ease-out infinite;
+    }
+    .map-rings span:nth-child(2) { animation-delay: 1.2s; }
+    .map-rings span:nth-child(3) { animation-delay: 2.4s; }
+    @keyframes ripple {
+      0%   { transform: scale(.3); opacity: .8; }
+      80%  { opacity: 0; }
+      100% { transform: scale(5); opacity: 0; }
+    }
+    .map-ico { position: relative; z-index: 2; color: var(--gold); animation: mapbob 2.8s ease-in-out infinite; }
+    @keyframes mapbob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    .map-addr {
+      position: relative; z-index: 2; margin-top: 18px;
+      font-family: 'Playfair Display', serif; font-size: 1.12rem;
+      color: var(--text); letter-spacing: .4px;
+    }
+    .map-coord {
+      position: relative; z-index: 2; margin-top: 7px;
+      font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--text-dim);
+    }
+
+    /* FAQ section */
+    .faq-section { padding: 120px 0; background: var(--dark2); border-top: 1px solid var(--hairline); }
+    .faq-head { text-align: center; margin-bottom: 72px; }
+    .faq-head .kicker { justify-content: center; }
+    .faq-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 2px;
+    }
+    .faq-card {
+      background: var(--dark3);
+      border: 1px solid var(--hairline);
+      padding: 44px 40px;
+      position: relative;
+      transition: border-color .35s;
+    }
+    .faq-card:hover { border-color: var(--ring); }
+    .faq-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--grad-gold);
+    }
+    .faq-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.18rem; font-weight: 600;
+      color: var(--text); margin-bottom: 16px; line-height: 1.3;
+    }
+    .faq-a { font-size: 14px; color: var(--text-muted); line-height: 1.78; }
+
+    /* CTA section */
+    .cta-section { padding: 110px 0; background: var(--dark); border-top: 1px solid var(--hairline); }
+    .cta-inner { text-align: center; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .kontakt-section, .faq-section { padding: 72px 0; }
+      .kontakt-grid { grid-template-columns: 1fr; gap: 44px; }
+      .fg-row { grid-template-columns: 1fr; }
+      .form-box { padding: 36px 26px; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Scroll-Progress-Balken -->
+<div id="progress"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke-width="1.3"/>
+      <path d="M11 15.5H27.5" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M29 24.5H12.5" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-name">
+      <b>Amiri</b> Import &amp; Export
+      <small>Groß- &amp; Außenhandel · Hamburg</small>
+    </span>
+  </a>
+
+  <div style="display:flex;align-items:center;gap:36px;">
+    <nav class="nav-links">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="ueber-uns.html">Über Uns</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a href="kontakt.html" class="nav-btn">
+      <span class="dot"></span>Jetzt anfragen
+    </a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     MOBILE DRAWER NAVIGATION
+═══════════════════════════════════════════ -->
+<div id="drawer-overlay" role="presentation"></div>
+<aside id="drawer" aria-label="Navigation" role="dialog" aria-modal="true">
+  <div class="drawer-head">
+    <span class="drawer-logo"><b>Amiri</b> Import &amp; Export</span>
+    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="leistungen.html"><em>Leistungen</em><span>01</span></a>
+    <a href="produkte.html"><em>Produkte</em><span>02</span></a>
+    <a href="ueber-uns.html"><em>Über Uns</em><span>03</span></a>
+    <a href="kontakt.html"><em>Kontakt</em><span>04</span></a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="kontakt.html" class="drawer-cta">Jetzt anfragen →</a>
+    <p class="drawer-addr">📍 Billstraße 106 · 20539 Hamburg</p>
+  </div>
+</aside>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════════ -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner reveal">
+      <div class="kicker">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">05</span>
+        <span class="kicker-label">Kontakt</span>
+      </div>
+      <h1 class="page-hero-title">Nehmen Sie <em>Kontakt</em> auf</h1>
+      <p class="page-hero-sub">Für Anfragen, Angebote oder persönliche Beratung – wir antworten schnell und persönlich.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: KONTAKT-GRID
+═══════════════════════════════════════════ -->
+<section class="kontakt-section">
+  <div class="container">
+    <div class="kontakt-grid">
+
+      <!-- Kontaktinformationen -->
+      <div class="reveal">
+        <h2 class="ki-title">Kontaktdaten</h2>
+
+        <div class="ki-item">
+          <div class="ki-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="ki-lbl">Adresse</div>
+            <div class="ki-val">Billstraße 106, 20539 Hamburg</div>
+          </div>
+        </div>
+
+        <div class="ki-item">
+          <div class="ki-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <div class="ki-lbl">Inhaber</div>
+            <div class="ki-val">Ali Amiri</div>
+          </div>
+        </div>
+
+        <div class="ki-item">
+          <div class="ki-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="ki-lbl">E-Mail</div>
+            <div class="ki-val"><a href="mailto:info@amiri-import-export.de" style="color:var(--text);">info@amiri-import-export.de</a></div>
+          </div>
+        </div>
+
+        <div class="ki-item">
+          <div class="ki-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.12 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="ki-lbl">Telefon</div>
+            <div class="ki-val">+49 (0)40 – XXXXXXXX</div>
+          </div>
+        </div>
+
+        <div class="ki-item">
+          <div class="ki-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="ki-lbl">Öffnungszeiten</div>
+            <div class="ki-val">Mo–Fr 08–18 Uhr · Sa 09–14 Uhr</div>
+          </div>
+        </div>
+
+        <div class="ki-note">
+          Ali Amiri steht Ihnen persönlich zur Verfügung. Sprechen Sie uns an —
+          auf Arabisch, Deutsch oder Englisch.
+        </div>
+      </div>
+
+      <!-- Kontaktformular -->
+      <div class="reveal d1">
+        <div class="form-box">
+          <form id="form">
+            <div class="fg-row">
+              <div class="fg">
+                <label for="f-name">Name / Firma</label>
+                <input type="text" id="f-name" placeholder="Max Mustermann GmbH" required/>
+              </div>
+              <div class="fg">
+                <label for="f-email">E-Mail-Adresse</label>
+                <input type="email" id="f-email" placeholder="max@firma.de" required/>
+              </div>
+            </div>
+            <div class="fg">
+              <label for="f-betreff">Betreff</label>
+              <input type="text" id="f-betreff" placeholder="Ihr Anliegen …" required/>
+            </div>
+            <div class="fg">
+              <label for="f-msg">Nachricht</label>
+              <textarea id="f-msg" placeholder="Ihre Nachricht an uns …" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Anfrage absenden
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: KARTE
+═══════════════════════════════════════════ -->
+<div id="karte" aria-label="Standort Billstraße 106, 20539 Hamburg">
+  <div class="map-rings" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="map-ico">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+  </div>
+  <div class="map-addr">Billstraße 106 · 20539 Hamburg</div>
+  <div class="map-coord">53.5333° N · 10.0500° E</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: FAQ
+═══════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="container">
+
+    <div class="faq-head reveal">
+      <div class="kicker" style="justify-content:center;">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">—</span>
+        <span class="kicker-label">Häufige Fragen</span>
+      </div>
+      <h2 class="section-title" style="text-align:center;">Ihre <em>Fragen</em>, unsere Antworten</h2>
+    </div>
+
+    <div class="faq-grid">
+
+      <div class="faq-card reveal d1">
+        <div class="faq-q">Bieten Sie auch Einzelmengen an?</div>
+        <p class="faq-a">Ja, wir liefern sowohl Einzelgeräte als auch Großmengen. Kein Auftrag ist zu klein – wir beraten Sie gerne zu den jeweils besten Konditionen.</p>
+      </div>
+
+      <div class="faq-card reveal d2">
+        <div class="faq-q">In welche Länder liefern Sie?</div>
+        <p class="faq-a">Wir liefern weltweit in über 30 Länder – mit vollständiger Zollabwicklung, korrekter Dokumentation und zuverlässiger Frachtkoordination.</p>
+      </div>
+
+      <div class="faq-card reveal d3">
+        <div class="faq-q">Wie schnell erhalte ich ein Angebot?</div>
+        <p class="faq-a">In der Regel innerhalb von 24 Stunden nach Ihrer Anfrage. Bei dringenden Aufträgen kontaktieren Sie uns gerne direkt per Telefon.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-wm" aria-hidden="true">AMIRI</div>
+  <div class="container">
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand">
+          <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#c8a96e" stroke-width="1.3"/>
+            <path d="M11 15.5H27.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M29 24.5H12.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="nav-name"><b>Amiri</b> Import &amp; Export<small>Groß- &amp; Außenhandel · Hamburg</small></span>
+        </a>
+        <p class="footer-stmt">
+          Verlässlichkeit, Qualität und partnerschaftliche
+          Zusammenarbeit – die Grundpfeiler unseres globalen Handels.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="ueber-uns.html">Über Uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="kontakt.html">Billstraße 106, Hamburg</a></li>
+          <li><a href="mailto:info@amiri-import-export.de">info@amiri-import-export.de</a></li>
+          <li><a href="kontakt.html">+49 (0)40 – XXXXXXXX</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Amiri Import &amp; Export · Ali Amiri · Hamburg</p>
+      <span class="footer-made">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+        Made in Hamburg
+      </span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+  const prog=document.getElementById('progress');
+  const nav=document.getElementById('nav');
+  function onScroll(){const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';nav.classList.toggle('scrolled',window.scrollY>60);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.10,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  // Drawer
+  const burger=document.getElementById('burger'),drawer=document.getElementById('drawer'),overlay=document.getElementById('drawer-overlay'),dClose=document.getElementById('drawer-close');
+  function openDrawer(){overlay.classList.add('show');requestAnimationFrame(()=>{overlay.classList.add('visible');drawer.classList.add('open');});burger.classList.add('open');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeDrawer(){overlay.classList.remove('visible');drawer.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>overlay.classList.remove('show'),380);}
+  burger.addEventListener('click',()=>drawer.classList.contains('open')?closeDrawer():openDrawer());
+  dClose.addEventListener('click',closeDrawer);overlay.addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+  // Active nav
+  const page=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-links a, .drawer-nav a').forEach(a=>{if(a.getAttribute('href')===page)a.classList.add('active');});
+  // Form
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    alert('Vielen Dank für Ihre Anfrage!\n\nWir melden uns schnellstmöglich bei Ihnen.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
