@@ -912,12 +912,120 @@
     /* ═══════════════════════════════════════════
        RESPONSIVE ≤ 900px
     ═══════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════
+       MOBILE DRAWER
+    ═══════════════════════════════════════════ */
+    .burger {
+      display: none;
+      flex-direction: column; justify-content: center;
+      gap: 5px; width: 42px; height: 42px;
+      background: none; border: 1px solid var(--hairline);
+      cursor: pointer; padding: 10px;
+      transition: border-color .3s;
+    }
+    .burger:hover { border-color: var(--gold); }
+    .burger span {
+      display: block; height: 1.5px;
+      background: var(--gold-light);
+      transition: transform .35s ease, opacity .3s ease, width .3s ease;
+      transform-origin: center;
+    }
+    .burger span:nth-child(2) { width: 66%; }
+    /* open state */
+    .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Overlay backdrop */
+    #drawer-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    #drawer-overlay.show { display: block; }
+    #drawer-overlay.visible { opacity: 1; }
+
+    /* Slide-in drawer */
+    #drawer {
+      position: fixed; top: 0; right: 0;
+      width: min(340px, 88vw); height: 100dvh;
+      background: var(--dark2);
+      border-left: 1px solid var(--hairline);
+      z-index: 2000;
+      padding: 0;
+      display: flex; flex-direction: column;
+      transform: translateX(105%);
+      transition: transform .42s cubic-bezier(.16,.7,.3,1);
+    }
+    #drawer.open { transform: translateX(0); }
+
+    .drawer-head {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .drawer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600; color: var(--text);
+    }
+    .drawer-logo b { color: var(--gold); }
+    .drawer-close {
+      width: 38px; height: 38px;
+      background: none; border: 1px solid var(--hairline);
+      color: var(--text-muted); cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .25s, color .25s;
+    }
+    .drawer-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    .drawer-nav {
+      flex: 1; padding: 36px 28px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .drawer-nav a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.32rem; font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .25s, padding-left .25s;
+    }
+    .drawer-nav a:last-child { border-bottom: none; }
+    .drawer-nav a span { font-size: 10px; font-style: normal; color: var(--gold); font-family: 'DM Sans', sans-serif; letter-spacing: 1px; }
+    .drawer-nav a:hover { color: var(--gold-light); padding-left: 8px; }
+
+    .drawer-footer {
+      padding: 28px;
+      border-top: 1px solid var(--hairline);
+    }
+    .drawer-cta {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 16px;
+      background: var(--grad-gold);
+      color: #1a140a; font-weight: 700; font-size: 14px;
+      letter-spacing: .4px; border: none; cursor: pointer;
+      text-decoration: none;
+    }
+    .drawer-addr {
+      margin-top: 16px;
+      font-size: 12px; color: var(--text-dim);
+      text-align: center; letter-spacing: .3px;
+    }
+
     @media (max-width: 900px) {
       :root { --pad: 22px; }
 
       #nav { padding: 15px var(--pad); }
       #nav.scrolled { padding: 12px var(--pad); }
       .nav-links, .nav-btn { display: none; }
+      .burger { display: flex; }
 
       #hero { padding: 128px 0 80px; }
       .hero-inner { grid-template-columns: 1fr; gap: 0; }
@@ -1011,8 +1119,34 @@
     <a href="#kontakt" class="nav-btn">
       <span class="dot"></span>Jetzt anfragen
     </a>
+    <!-- Hamburger (nur mobil sichtbar) -->
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ═══════════════════════════════════════════
+     MOBILE DRAWER NAVIGATION
+═══════════════════════════════════════════ -->
+<div id="drawer-overlay" role="presentation"></div>
+<aside id="drawer" aria-label="Navigation" role="dialog" aria-modal="true">
+  <div class="drawer-head">
+    <span class="drawer-logo"><b>Amiri</b> Import &amp; Export</span>
+    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#leistungen"><em>Leistungen</em><span>01</span></a>
+    <a href="#ablauf"><em>Ablauf</em><span>02</span></a>
+    <a href="#produkte"><em>Produkte</em><span>03</span></a>
+    <a href="#ueber-uns"><em>Über Uns</em><span>04</span></a>
+    <a href="#kontakt"><em>Kontakt</em><span>05</span></a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="#kontakt" class="drawer-cta">Jetzt anfragen →</a>
+    <p class="drawer-addr">📍 Billstraße 106 · 20539 Hamburg</p>
+  </div>
+</aside>
 
 
 <!-- ═══════════════════════════════════════════
@@ -1826,6 +1960,37 @@
     img.addEventListener('error', show, { once: true });
     if (img.complete && img.naturalWidth === 0) show();
   });
+
+  /* ── Mobile Drawer ── */
+  const burger  = document.getElementById('burger');
+  const drawer  = document.getElementById('drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const dClose  = document.getElementById('drawer-close');
+
+  function openDrawer() {
+    overlay.classList.add('show');
+    requestAnimationFrame(() => {
+      overlay.classList.add('visible');
+      drawer.classList.add('open');
+    });
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    overlay.classList.remove('visible');
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(() => overlay.classList.remove('show'), 380);
+  }
+
+  burger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  dClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
   /* ── Formular ── */
   document.getElementById('form').addEventListener('submit', function(e) {
