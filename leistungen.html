@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leistungen – Amiri Import &amp; Export, Hamburg</title>
+  <meta name="description" content="Amiri Import &amp; Export – Unsere Leistungen: Großhandel, Export, Import und B2B-Beratung für elektronische Haushaltsgeräte. Billstraße 106, 20539 Hamburg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── Page Hero ── */
+    .page-hero {
+      padding: 160px 0 90px;
+      background: var(--dark2);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,110,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 90% at 30% 50%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 90% at 30% 50%, #000 30%, transparent 75%);
+      pointer-events: none;
+    }
+    .page-hero-ghost {
+      position: absolute; bottom: -8%; right: -2%;
+      font-family: 'Playfair Display', serif; font-weight: 800;
+      font-size: clamp(4rem, 16vw, 14rem);
+      line-height: 1; white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(200,169,110,.04);
+      pointer-events: none; user-select: none;
+    }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 700px; }
+    .page-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -.03em; color: var(--text);
+      margin-bottom: 20px;
+    }
+    .page-hero-title em { font-style: italic; color: var(--gold); }
+    .page-hero-sub {
+      font-size: 1.1rem; color: var(--text-muted);
+      line-height: 1.75; max-width: 560px;
+    }
+
+    /* ── Why columns ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .why-col {
+      background: var(--dark3);
+      border: 1px solid var(--hairline);
+      padding: 52px 44px;
+      position: relative;
+      transition: border-color .35s;
+    }
+    .why-col:hover { border-color: var(--ring); }
+    .why-col::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; width: 0;
+      background: var(--grad-gold);
+      transition: width .5s cubic-bezier(.16,.7,.3,1);
+    }
+    .why-col:hover::before { width: 100%; }
+    .why-ico {
+      width: 48px; height: 48px;
+      background: rgba(200,169,110,.06);
+      border: 1px solid var(--ring);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--text); margin-bottom: 14px;
+    }
+    .why-desc { font-size: 14px; color: var(--text-muted); line-height: 1.78; }
+
+    /* ── Nav active state ── */
+    .nav-links a.active { color: var(--gold-light); }
+    .nav-links a.active::after { width: 100%; }
+    .drawer-nav a.active { color: var(--gold-light); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .page-hero { padding: 130px 0 64px; }
+      .why-grid { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Scroll-Progress-Balken -->
+<div id="progress"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke-width="1.3"/>
+      <path d="M11 15.5H27.5" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M29 24.5H12.5" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-name">
+      <b>Amiri</b> Import &amp; Export
+      <small>Groß- &amp; Außenhandel · Hamburg</small>
+    </span>
+  </a>
+
+  <div style="display:flex;align-items:center;gap:36px;">
+    <nav class="nav-links">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="ueber-uns.html">Über Uns</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a href="kontakt.html" class="nav-btn">
+      <span class="dot"></span>Jetzt anfragen
+    </a>
+    <!-- Hamburger (nur mobil sichtbar) -->
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     MOBILE DRAWER NAVIGATION
+═══════════════════════════════════════════ -->
+<div id="drawer-overlay" role="presentation"></div>
+<aside id="drawer" aria-label="Navigation" role="dialog" aria-modal="true">
+  <div class="drawer-head">
+    <span class="drawer-logo"><b>Amiri</b> Import &amp; Export</span>
+    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="leistungen.html"><em>Leistungen</em><span>01</span></a>
+    <a href="produkte.html"><em>Produkte</em><span>02</span></a>
+    <a href="ueber-uns.html"><em>Über Uns</em><span>03</span></a>
+    <a href="kontakt.html"><em>Kontakt</em><span>04</span></a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="kontakt.html" class="drawer-cta">Jetzt anfragen →</a>
+    <p class="drawer-addr">📍 Billstraße 106 · 20539 Hamburg</p>
+  </div>
+</aside>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════════ -->
+<div class="page-hero">
+  <div class="page-hero-ghost" aria-hidden="true">LEISTUNGEN</div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="kicker">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">01</span>
+        <span class="kicker-label">Leistungen</span>
+      </div>
+      <h1 class="page-hero-title">Unsere <em>Leistungen</em></h1>
+      <p class="page-hero-sub">Groß- und Außenhandel mit elektronischen Haushaltsgeräten – maßgeschneidert für Ihre Anforderungen.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: WAS WIR TUN
+═══════════════════════════════════════════ -->
+<section style="padding:120px 0;background:var(--dark2);">
+  <div class="container reveal">
+
+    <div class="leistungen-head">
+      <div class="reveal">
+        <div class="kicker">
+          <span class="kicker-rule"></span>
+          <span class="kicker-num">01</span>
+          <span class="kicker-label">Was wir tun</span>
+        </div>
+        <h2 class="section-title">Handel auf<br><em>höchstem</em> Niveau</h2>
+      </div>
+      <div class="reveal d1">
+        <p>
+          Als erfahrener Groß- und Außenhändler mit Sitz in Hamburg bieten wir
+          maßgeschneiderte Lösungen im internationalen Handel mit elektronischen
+          Haushaltsgeräten. Von der Einzellieferung bis zum Container – wir
+          decken jede Größenordnung zuverlässig ab.
+        </p>
+        <p class="sig">— Ali Amiri, Inhaber</p>
+      </div>
+    </div>
+
+    <!-- Zeile 1: Großhandel -->
+    <div class="lr reveal">
+      <div class="lr-num">01</div>
+      <div>
+        <!-- Package icon -->
+        <svg class="lr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+        <div class="lr-title">Großhandel</div>
+        <p class="lr-desc">
+          Wir liefern elektronische Haushaltsgeräte in Großmengen zu wettbewerbsfähigen
+          Konditionen – direkt, ohne unnötige Zwischenstufen, ab Lager Hamburg.
+          Egal ob Einzelposten oder vollständige Container-Lieferungen: Unsere Abläufe
+          sind eingespielt und auf maximale Effizienz ausgerichtet. Jeder Auftrag wird
+          persönlich betreut, transparent abgewickelt und termingerecht ausgeliefert.
+        </p>
+      </div>
+      <div class="lr-tags">
+        <span class="lr-tag">Großmengen</span>
+        <span class="lr-tag">B2B</span>
+        <span class="lr-tag">Direktlieferung</span>
+        <span class="lr-tag">Container</span>
+      </div>
+    </div>
+
+    <!-- Zeile 2: Export -->
+    <div class="lr reveal d1">
+      <div class="lr-num">02</div>
+      <div>
+        <!-- Globe icon -->
+        <svg class="lr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <div class="lr-title">Export</div>
+        <p class="lr-desc">
+          Amiri Import &amp; Export liefert in über 30 Länder weltweit – von Europa
+          über den Nahen Osten bis nach Asien und Afrika. Wir übernehmen die gesamte
+          Exportabwicklung inklusive Zolldokumentation, Ursprungszeugnissen und
+          Frachtkoordination. Ob See- oder Luftfracht – wir wählen die für Sie
+          kosteneffizienteste und schnellste Route und halten Sie während des gesamten
+          Transportvorgangs informiert.
+        </p>
+      </div>
+      <div class="lr-tags">
+        <span class="lr-tag">30+ Länder</span>
+        <span class="lr-tag">Zollabwicklung</span>
+        <span class="lr-tag">Exportdokumente</span>
+        <span class="lr-tag">See-/Luftfracht</span>
+      </div>
+    </div>
+
+    <!-- Zeile 3: Import -->
+    <div class="lr reveal d2">
+      <div class="lr-num">03</div>
+      <div>
+        <!-- Anchor icon -->
+        <svg class="lr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="5" r="3"/>
+          <line x1="12" y1="22" x2="12" y2="8"/>
+          <path d="M5 12H2a10 10 0 0 0 20 0h-3"/>
+        </svg>
+        <div class="lr-title">Import</div>
+        <p class="lr-desc">
+          Dank unserer langjährigen Beziehungen zu namhaften Herstellern in Europa
+          und Asien ermöglichen wir Direktimporte ohne kostspielige Zwischenhändler.
+          So sichern wir unseren Kunden günstige Einkaufspreise bei gleichzeitig hoher
+          Produktqualität. Von der Bestellung über die Qualitätssicherung bis zur
+          Einlagerung in Hamburg – wir koordinieren jeden Schritt des Importprozesses
+          professionell und termingerecht.
+        </p>
+      </div>
+      <div class="lr-tags">
+        <span class="lr-tag">Direktimport</span>
+        <span class="lr-tag">Namhafte Hersteller</span>
+        <span class="lr-tag">Günstige Einkaufspreise</span>
+      </div>
+    </div>
+
+    <!-- Zeile 4: B2B-Beratung -->
+    <div class="lr reveal d3">
+      <div class="lr-num">04</div>
+      <div>
+        <!-- Users icon -->
+        <svg class="lr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <div class="lr-title">B2B-Beratung</div>
+        <p class="lr-desc">
+          Jedes Unternehmen hat individuelle Anforderungen – wir hören zu und
+          entwickeln passgenaue Handelslösungen für Ihre Situation. Ali Amiri
+          begleitet jeden Auftrag persönlich, von der ersten Anfrage bis zur
+          erfolgreichen Lieferung. Unsere Beratung umfasst Marktpreisanalysen,
+          Produktempfehlungen, Kondititionsverhandlungen und die vollständige
+          Begleitung aller Beschaffungs- und Lieferprozesse.
+        </p>
+      </div>
+      <div class="lr-tags">
+        <span class="lr-tag">Persönlich</span>
+        <span class="lr-tag">Individuelle Betreuung</span>
+        <span class="lr-tag">Ali Amiri</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: WARUM AMIRI?
+═══════════════════════════════════════════ -->
+<section style="padding:120px 0;background:var(--dark);">
+  <div class="container">
+
+    <div class="reveal" style="text-align:center;margin-bottom:72px;">
+      <div class="kicker" style="justify-content:center;">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">02</span>
+        <span class="kicker-label">Warum Amiri?</span>
+      </div>
+      <h2 class="section-title" style="text-align:center;">Drei gute Gründe für<br><em>Amiri Import &amp; Export</em></h2>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-col reveal">
+        <div class="why-ico">
+          <!-- Award icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
+        <div class="why-title">Erfahrung</div>
+        <p class="why-desc">
+          Jahrelange Praxis im internationalen Groß- und Außenhandel mit
+          elektronischen Haushaltsgeräten. Wir kennen die Märkte, die
+          Regularien und die Anforderungen unserer Kunden aus erster Hand.
+          Diese Erfahrung nutzt Ihnen täglich.
+        </p>
+      </div>
+
+      <div class="why-col reveal d1">
+        <div class="why-ico">
+          <!-- Share-2 / network icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </div>
+        <div class="why-title">Netzwerk</div>
+        <p class="why-desc">
+          Ein gewachsenes Netzwerk aus Herstellern, Spediteuren, Zollbehörden
+          und Handelspartnern auf mehreren Kontinenten. Dieses Netzwerk
+          ermöglicht uns schnelle Reaktionszeiten, günstige Konditionen
+          und zuverlässige Lieferungen weltweit.
+        </p>
+      </div>
+
+      <div class="why-col reveal d2">
+        <div class="why-ico">
+          <!-- Shield check icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <div class="why-title">Verlässlichkeit</div>
+        <p class="why-desc">
+          Klare Kommunikation, verbindliche Angebote und pünktliche Lieferungen –
+          das ist unser Standard. Wir stehen zu unseren Zusagen und betreuen
+          unsere Geschäftspartner langfristig und partnerschaftlich. Ihr Vertrauen
+          ist unser wichtigstes Gut.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: ABLAUF TIMELINE
+═══════════════════════════════════════════ -->
+<section id="ablauf" style="padding:120px 0;background:var(--dark2);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,110,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
+  <div class="container">
+
+    <div class="ablauf-head reveal">
+      <div class="kicker" style="justify-content:center;">
+        <span class="kicker-rule"></span>
+        <span class="kicker-num">03</span>
+        <span class="kicker-label">Ablauf</span>
+      </div>
+      <h2 class="section-title" style="text-align:center;">In 4 Schritten zur <em>Lieferung</em></h2>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal d1">
+        <div class="step-dot">01</div>
+        <div>
+          <div class="step-title">Anfrage</div>
+          <p class="step-desc">Sie schildern uns Ihren Bedarf – Produkt, Menge und Zielland.</p>
+        </div>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-dot">02</div>
+        <div>
+          <div class="step-title">Angebot</div>
+          <p class="step-desc">Wir erstellen ein transparentes, individuelles Angebot für Sie.</p>
+        </div>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-dot">03</div>
+        <div>
+          <div class="step-title">Zoll &amp; Logistik</div>
+          <p class="step-desc">Wir übernehmen Zollabwicklung, Verpackung und Transport.</p>
+        </div>
+      </div>
+      <div class="step reveal d4">
+        <div class="step-dot">04</div>
+        <div>
+          <div class="step-title">Lieferung</div>
+          <p class="step-desc">Pünktliche Lieferung – weltweit, sicher und zuverlässig.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4: KONTAKT CTA
+═══════════════════════════════════════════ -->
+<section style="padding:100px 0;background:var(--dark);border-top:1px solid var(--hairline);text-align:center;">
+  <div class="container reveal">
+    <div class="kicker" style="justify-content:center;">
+      <span class="kicker-rule"></span>
+      <span class="kicker-num">04</span>
+      <span class="kicker-label">Kontakt</span>
+    </div>
+    <h2 class="section-title" style="text-align:center;">Interessiert? <em>Nehmen Sie Kontakt auf.</em></h2>
+    <p style="color:var(--text-muted);max-width:500px;margin:0 auto 40px;">
+      Wir beraten Sie gerne persönlich und erstellen Ihnen ein individuelles Angebot.
+    </p>
+    <a href="kontakt.html" class="btn-prim">
+      Jetzt anfragen
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-wm" aria-hidden="true">AMIRI</div>
+  <div class="container">
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand">
+          <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#c8a96e" stroke-width="1.3"/>
+            <path d="M11 15.5H27.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M29 24.5H12.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="nav-name"><b>Amiri</b> Import &amp; Export<small>Groß- &amp; Außenhandel · Hamburg</small></span>
+        </a>
+        <p class="footer-stmt">
+          Verlässlichkeit, Qualität und partnerschaftliche
+          Zusammenarbeit – die Grundpfeiler unseres globalen Handels.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="ueber-uns.html">Über Uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="kontakt.html">Billstraße 106, Hamburg</a></li>
+          <li><a href="mailto:info@amiri-import-export.de">info@amiri-import-export.de</a></li>
+          <li><a href="kontakt.html">+49 (0)40 – XXXXXXXX</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Amiri Import &amp; Export · Ali Amiri · Hamburg</p>
+      <span class="footer-made">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+        Made in Hamburg
+      </span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+  /* ── Scroll-Progress & Nav ── */
+  const prog = document.getElementById('progress');
+  const nav  = document.getElementById('nav');
+  function onScroll() {
+    const h = document.documentElement;
+    prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── IntersectionObserver: Reveal ── */
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  /* ── Count-Up ── */
+  const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, to = +el.dataset.to;
+      if (noMotion) { el.textContent = to; co.unobserve(el); return; }
+      const t0 = performance.now();
+      const dur = 1500;
+      (function tick(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * to);
+        if (p < 1) requestAnimationFrame(tick);
+        else { el.textContent = to; co.unobserve(el); }
+      })(t0);
+    });
+  }, { threshold: 0.7 });
+  document.querySelectorAll('.cnt').forEach(el => co.observe(el));
+
+  /* ── Marquee duplizieren ── */
+  const mt = document.getElementById('mTrack');
+  if (mt) mt.innerHTML += mt.innerHTML;
+
+  /* ── Mobile Drawer ── */
+  const burger  = document.getElementById('burger');
+  const drawer  = document.getElementById('drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const dClose  = document.getElementById('drawer-close');
+
+  function openDrawer() {
+    overlay.classList.add('show');
+    requestAnimationFrame(() => {
+      overlay.classList.add('visible');
+      drawer.classList.add('open');
+    });
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    overlay.classList.remove('visible');
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(() => overlay.classList.remove('show'), 380);
+  }
+
+  burger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  dClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+  /* ── Active nav ── */
+  const page = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .drawer-nav a').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+</script>
+
+</body>
+</html>
