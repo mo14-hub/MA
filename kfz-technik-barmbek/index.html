@@ -4,599 +4,763 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KFZ Technik Barmbek Nord – Ihre Werkstatt in Hamburg</title>
-  <meta name="description" content="KFZ Technik Barmbek Nord – Ihre zuverlässige Kfz-Werkstatt in Hamburg. Alter Teichweg 79, 22307 Hamburg. HU/TÜV, Reparaturen, Reifenservice & mehr." />
-  <meta name="keywords" content="KFZ Werkstatt Hamburg, Barmbek, Alter Teichweg, HU TÜV, Reparatur, Reifenwechsel, Inspektion" />
+  <meta name="description" content="KFZ Technik Barmbek Nord – professionelle Kfz-Werkstatt in Hamburg, Alter Teichweg 79. HU/TÜV, Inspektion, Reparaturen & Fahrzeugstatus online prüfen." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-main">KFZ <span>Technik</span></span>
-        <span class="logo-sub">Barmbek Nord · Hamburg</span>
+<!-- ═══ NAVBAR ════════════════════════════════════════════════════ -->
+<nav id="navbar" class="on-dark">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">KFZ <em>Technik</em></span>
+      <span class="logo-sub">Barmbek Nord · Hamburg</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#fahrzeugstatus">Fahrzeugstatus</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+4940XXXXXXXX" class="nav-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        040 – XX XX XX XX
       </a>
-
-      <ul class="nav-links">
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#ueber-uns">Über uns</a></li>
-        <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a href="tel:+4940XXXXXXXX" class="nav-phone">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Anrufen
-        </a>
-        <a href="#kontakt" class="btn btn-red">Termin anfragen</a>
-      </div>
-
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#fahrzeugstatus" class="btn btn-red">Fahrzeugstatus prüfen</a>
     </div>
-  </nav>
-
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#leistungen"     onclick="closeMobileNav()">Leistungen</a>
-    <a href="#ueber-uns"      onclick="closeMobileNav()">Über uns</a>
-    <a href="#oeffnungszeiten" onclick="closeMobileNav()">Öffnungszeiten</a>
-    <a href="#kontakt"        onclick="closeMobileNav()">Kontakt</a>
-    <a href="tel:+4940XXXXXXXX" class="btn btn-red btn-lg">Jetzt anrufen</a>
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</nav>
 
-  <!-- ── HERO ───────────────────────────────────────────────────── -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            Ihre Werkstatt in Hamburg Barmbek Nord
-          </div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#fahrzeugstatus"  onclick="closeMobileNav()">Fahrzeugstatus</a>
+  <a href="#leistungen"      onclick="closeMobileNav()">Leistungen</a>
+  <a href="#ueber-uns"       onclick="closeMobileNav()">Über uns</a>
+  <a href="#oeffnungszeiten" onclick="closeMobileNav()">Öffnungszeiten</a>
+  <a href="#kontakt"         onclick="closeMobileNav()">Kontakt</a>
+  <a href="tel:+4940XXXXXXXX" class="btn btn-red btn-lg">Jetzt anrufen</a>
+</div>
 
-          <h1 class="hero-title">
-            Professionelle<br/>
-            <span class="accent">KFZ-Technik</span><br/>
-            in Hamburg
-          </h1>
-
-          <p class="hero-sub">
-            Von der Inspektion bis zur Unfallreparatur – wir kümmern uns mit Fachkompetenz
-            und modernster Technik um Ihr Fahrzeug. Schnell, zuverlässig und fair.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#kontakt" class="btn btn-red btn-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Termin vereinbaren
-            </a>
-            <a href="#leistungen" class="btn btn-outline btn-lg">
-              Unsere Leistungen
-            </a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat-item">
-              <div class="stat-num">15<span>+</span></div>
-              <div class="stat-label">Jahre Erfahrung</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num">5000<span>+</span></div>
-              <div class="stat-label">Zufriedene Kunden</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num">100<span>%</span></div>
-              <div class="stat-label">Fachbetrieb</div>
-            </div>
-          </div>
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag"><span class="pulse"></span>Fachwerkstatt in Hamburg Barmbek Nord</div>
+        <h1 class="hero-h1">
+          Ihre <em class="gold">Werkstatt</em><br/>
+          der <span class="red">nächsten</span><br/>
+          Generation.
+        </h1>
+        <p class="hero-p">Modernste Fahrzeugtechnik, transparente Preise und ein persönlicher Service – seit über 15 Jahren Ihr vertrauensvoller Partner rund um Ihr Fahrzeug.</p>
+        <div class="hero-btns">
+          <a href="#fahrzeugstatus" class="btn btn-red btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Fahrzeugstatus prüfen
+          </a>
+          <a href="#kontakt" class="btn btn-outline-light btn-lg">Termin anfragen</a>
         </div>
-
-        <div class="hero-visual">
-          <div class="hero-card-stack">
-            <!-- Öffnungszeiten Card -->
-            <div class="info-card">
-              <div class="info-card-header">
-                <div class="info-card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <span class="info-card-title">Öffnungszeiten</span>
-              </div>
-              <div class="info-card-body">
-                <div class="hours-grid">
-                  <span class="hours-day">Mo – Fr</span>
-                  <span class="hours-time">08:00 – 18:00 Uhr</span>
-                  <span class="hours-day">Samstag</span>
-                  <span class="hours-time">09:00 – 14:00 Uhr</span>
-                  <span class="hours-day">Sonntag</span>
-                  <span class="hours-time" style="color:var(--text-muted)">Geschlossen</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Adresse Card -->
-            <div class="info-card">
-              <div class="info-card-header">
-                <div class="info-card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <span class="info-card-title">Standort</span>
-              </div>
-              <div class="info-card-body">
-                Alter Teichweg 79<br/>
-                22307 Hamburg – Barmbek Nord<br/>
-                <span style="color:var(--red);font-size:.82rem;margin-top:.35rem;display:block;">→ Leicht erreichbar per U-Bahn &amp; Bus</span>
-              </div>
-            </div>
-
-            <!-- Sofort-Hilfe Card -->
-            <div class="info-card">
-              <div class="info-card-header">
-                <div class="info-card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </div>
-                <span class="info-card-title">Expresstermin</span>
-              </div>
-              <div class="info-card-body">
-                Pannen-Service &amp; kurzfristige Reparaturen – rufen Sie uns einfach an, wir helfen schnell!
-                <a href="tel:+4940XXXXXXXX" style="color:var(--red);font-weight:600;display:block;margin-top:.5rem;font-size:.9rem;">☎ 040 – XX XX XX XX</a>
-              </div>
-            </div>
-          </div>
+        <div class="hero-stats">
+          <div class="h-stat"><div class="h-stat-n">15<sup>+</sup></div><div class="h-stat-l">Jahre Erfahrung</div></div>
+          <div class="h-stat"><div class="h-stat-n">5k<sup>+</sup></div><div class="h-stat-l">Zufriedene Kunden</div></div>
+          <div class="h-stat"><div class="h-stat-n">100<sup>%</sup></div><div class="h-stat-l">Meisterbetrieb</div></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ── USP STRIP ──────────────────────────────────────────────── -->
-  <div id="usp-strip">
-    <div class="container">
-      <div class="usp-grid">
-        <div class="usp-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>Meisterbetrieb &amp; Fachwerkstatt</span>
-        </div>
-        <div class="usp-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Alle Marken &amp; Modelle</span>
-        </div>
-        <div class="usp-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Schnelle Bearbeitungszeiten</span>
-        </div>
-        <div class="usp-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          <span>Faire &amp; transparente Preise</span>
-        </div>
-        <div class="usp-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
-          <span>HU / TÜV Abnahme</span>
+      <div class="hero-right">
+        <div class="hero-cards">
+          <div class="h-card">
+            <div class="h-card-top">
+              <div class="h-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <span class="h-card-title">Fahrzeugstatus live</span>
+            </div>
+            <div class="h-card-body">Kennzeichen eingeben → sofort sehen was an Ihrem Fahrzeug gemacht wird. Kein Anruf nötig.</div>
+          </div>
+          <div class="h-card">
+            <div class="h-card-top">
+              <div class="h-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="h-card-title">Öffnungszeiten</span>
+            </div>
+            <div class="h-card-body">
+              <div class="hours-mini">
+                <span class="hm-day">Mo – Fr</span><span class="hm-time">08:00 – 18:00 Uhr</span>
+                <span class="hm-day">Samstag</span><span class="hm-time">09:00 – 14:00 Uhr</span>
+                <span class="hm-day">Sonntag</span><span class="hm-time" style="color:rgba(255,255,255,.3)">Geschlossen</span>
+              </div>
+            </div>
+          </div>
+          <div class="h-card">
+            <div class="h-card-top">
+              <div class="h-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="h-card-title">Standort</span>
+            </div>
+            <div class="h-card-body">Alter Teichweg 79 · 22307 Hamburg<br/><span style="color:rgba(255,96,96,.8);font-size:.8rem;">Kostenlose Parkplätze direkt vor Ort</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ── LEISTUNGEN ─────────────────────────────────────────────── -->
-  <section id="leistungen">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Was wir anbieten</span>
-        <h2>Unsere Leistungen</h2>
-        <p>Wir bieten ein umfassendes Serviceangebot für alle Fahrzeugmarken und -modelle – von der einfachen Inspektion bis zur komplexen Motorinstandsetzung.</p>
+<!-- ═══ USP ═══════════════════════════════════════════════════════ -->
+<div id="usp">
+  <div class="container">
+    <div class="usp-row">
+      <div class="usp-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Zertifizierter Meisterbetrieb</span>
+      </div>
+      <div class="usp-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span>Alle Fahrzeugmarken</span>
+      </div>
+      <div class="usp-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Faire &amp; transparente Preise</span>
+      </div>
+      <div class="usp-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>HU / TÜV Abnahme</span>
+      </div>
+      <div class="usp-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Schnelle Bearbeitung</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FAHRZEUGSTATUS ════════════════════════════════════════════ -->
+<section id="fahrzeugstatus">
+  <div class="container">
+    <div class="section-hd reveal">
+      <span class="label">Live-Tracking</span>
+      <h2>Fahrzeugstatus prüfen</h2>
+      <p>Geben Sie Ihr Kennzeichen ein und sehen Sie sofort, was an Ihrem Fahrzeug gemacht wird – transparent und in Echtzeit.</p>
+    </div>
+
+    <div class="status-search-box reveal">
+      <div class="kennzeichen-form">
+        <h3>Kennzeichen eingeben</h3>
+        <p style="color:var(--text-muted);font-size:.88rem;margin-top:.4rem;margin-bottom:0">Ihr Kennzeichen finden Sie auf Ihrem Fahrzeugschein.</p>
+        <div class="kz-input-wrap" style="margin-top:1.4rem">
+          <div class="kz-flag">
+            <span class="eu-stars">★★★</span>
+            <span class="eu-d">D</span>
+          </div>
+          <input
+            class="kz-input"
+            id="kzInput"
+            type="text"
+            placeholder="z.B.  HH – AB 1234"
+            maxlength="12"
+            autocomplete="off"
+          />
+          <button class="kz-btn" onclick="searchKennzeichen()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Suchen
+          </button>
+        </div>
+        <p class="kz-hint">Demofahrzeuge: HH-KT 100 · HH-KT 200 · HH-KT 300</p>
+
+        <!-- Result -->
+        <div id="statusResult">
+          <div id="resultContent"></div>
+        </div>
+        <div id="notFound" class="sr-not-found">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          <p style="font-weight:600;color:var(--text);margin-bottom:.4rem">Fahrzeug nicht gefunden</p>
+          <p style="font-size:.83rem">Dieses Kennzeichen ist bei uns nicht registriert.<br/>Bitte rufen Sie uns an: <a href="tel:+4940XXXXXXXX" style="color:var(--red)">040 – XX XX XX XX</a></p>
+        </div>
       </div>
 
-      <div class="services-grid">
-
-        <div class="service-card">
-          <span class="service-num">01</span>
-          <div class="service-icon">
+      <div class="status-features">
+        <div class="sf-item reveal reveal-delay-1">
+          <div class="sf-icon green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="sf-title">Echtzeit-Status</div>
+            <div class="sf-desc">Sehen Sie genau welche Arbeiten gerade durchgeführt werden – ohne Warteschleife.</div>
+          </div>
+        </div>
+        <div class="sf-item reveal reveal-delay-2">
+          <div class="sf-icon blue">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="sf-title">Abholbenachrichtigung</div>
+            <div class="sf-desc">Wir benachrichtigen Sie sobald Ihr Fahrzeug fertig ist – per SMS oder E-Mail.</div>
+          </div>
+        </div>
+        <div class="sf-item reveal reveal-delay-3">
+          <div class="sf-icon orange">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3>HU / TÜV &amp; AU</h3>
-          <p>Hauptuntersuchung und Abgasuntersuchung – wir bereiten Ihr Fahrzeug optimal vor und begleiten Sie durch den gesamten Prozess.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">02</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-          </div>
-          <h3>Inspektion &amp; Ölwechsel</h3>
-          <p>Regelmäßige Wartung nach Herstellervorgaben mit Original- oder Qualitätsteilen. Ölwechsel aller gängigen Motorenöle.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">03</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <h3>Reifen &amp; Felgen</h3>
-          <p>Reifenwechsel, Einlagerung, Auswuchten und Montage – für PKW, SUV und Transporter. Sommer-, Winter- und Ganzjahresreifen.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">04</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <h3>Bremsendienst</h3>
-          <p>Überprüfung, Reparatur und Austausch von Bremsscheiben, Bremsbelägen und Bremssätteln – für Ihre Sicherheit.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">05</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>Fahrzeugdiagnose</h3>
-          <p>Computergestützte Fehlerdiagnose mit modernsten OBD-Geräten – schnelle Ursachenermittlung für alle Fahrzeugsysteme.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">06</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <h3>Motor &amp; Getriebe</h3>
-          <p>Diagnose und Instandsetzung von Motor- und Getriebeschäden – fachgerecht und mit Gewährleistung.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">07</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          </div>
-          <h3>Klimaanlage</h3>
-          <p>Klimaanlagen-Service, Befüllung, Desinfektion und Reparatur. Damit Sie auch im Sommer angenehm fahren.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">08</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3>Elektrik &amp; Elektronik</h3>
-          <p>Reparatur elektrischer Systeme, Beleuchtung, Batterie und Lichtmaschine – für moderne Fahrzeuge aller Art.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-num">09</span>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <h3>Karosserie &amp; Lack</h3>
-          <p>Unfallinstandsetzung, Beulendoktoren, Lackreparaturen und Steinschlagreparaturen – Ihr Auto sieht wie neu aus.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ÜBER UNS ────────────────────────────────────────────────── -->
-  <section id="ueber-uns">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-wrapper">
-          <div class="about-img-box">
-            <div class="about-img-placeholder">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-              <span>KFZ Technik Barmbek Nord</span>
-            </div>
-          </div>
-          <div class="about-badge-box">
-            <div class="about-badge-num">15+</div>
-            <div class="about-badge-label">Jahre Erfahrung</div>
-          </div>
-        </div>
-
-        <div class="about-content">
-          <span class="section-label">Wer wir sind</span>
-          <h2>Ihr vertrauensvoller Partner rund ums Fahrzeug</h2>
-          <p>
-            KFZ Technik Barmbek Nord ist Ihre spezialisierte Kfz-Werkstatt im Herzen von Hamburg Barmbek Nord.
-            Seit über 15 Jahren kümmern wir uns kompetent und leidenschaftlich um alle Fahrzeugmarken und -modelle.
-          </p>
-          <p>
-            Unser Team aus erfahrenen Kfz-Meistern und Technikern arbeitet mit modernster Diagnosetechnik und
-            Qualitätswerkzeug. Wir legen größten Wert auf Transparenz – Sie erhalten immer einen detaillierten
-            Kostenvoranschlag vor jeder Reparatur.
-          </p>
-          <p>
-            Ob Routine-Inspektion, HU/TÜV-Vorbereitung oder große Motorüberholung – bei uns ist Ihr Fahrzeug
-            in den besten Händen. Kurze Wege, faire Preise und ein offenes Ohr für Ihre Anliegen.
-          </p>
-
-          <div class="about-features">
-            <div class="about-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Zertifizierter Meisterbetrieb</span>
-            </div>
-            <div class="about-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Alle Fahrzeugmarken</span>
-            </div>
-            <div class="about-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Kostenloser Kostenvoranschlag</span>
-            </div>
-            <div class="about-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Gewährleistung auf Arbeiten</span>
-            </div>
-            <div class="about-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Modernste Diagnosetechnik</span>
-            </div>
-            <div class="about-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Expresstermine möglich</span>
-            </div>
+          <div>
+            <div class="sf-title">HU / TÜV Erinnerung</div>
+            <div class="sf-desc">Nie wieder die HU vergessen – wir erinnern Sie rechtzeitig per E-Mail oder SMS.</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── ÖFFNUNGSZEITEN ─────────────────────────────────────────── -->
-  <section id="oeffnungszeiten">
-    <div class="container">
-      <div class="hours-section-grid">
-        <div class="hours-big-table">
-          <div class="hours-table-row" id="row-mo">
-            <span class="h-day">Montag</span>
-            <span class="h-time">08:00 – 18:00 Uhr</span>
-          </div>
-          <div class="hours-table-row" id="row-di">
-            <span class="h-day">Dienstag</span>
-            <span class="h-time">08:00 – 18:00 Uhr</span>
-          </div>
-          <div class="hours-table-row" id="row-mi">
-            <span class="h-day">Mittwoch</span>
-            <span class="h-time">08:00 – 18:00 Uhr</span>
-          </div>
-          <div class="hours-table-row" id="row-do">
-            <span class="h-day">Donnerstag</span>
-            <span class="h-time">08:00 – 18:00 Uhr</span>
-          </div>
-          <div class="hours-table-row" id="row-fr">
-            <span class="h-day">Freitag</span>
-            <span class="h-time">08:00 – 18:00 Uhr</span>
-          </div>
-          <div class="hours-table-row" id="row-sa">
-            <span class="h-day">Samstag</span>
-            <span class="h-time">09:00 – 14:00 Uhr</span>
-          </div>
-          <div class="hours-table-row" id="row-so">
-            <span class="h-day">Sonntag</span>
-            <span class="h-time h-closed">Geschlossen</span>
+<!-- ═══ LEISTUNGEN ════════════════════════════════════════════════ -->
+<section id="leistungen">
+  <div class="container">
+    <div class="section-hd reveal">
+      <span class="label">Unser Angebot</span>
+      <h2>Unsere Leistungen</h2>
+      <p>Vom einfachen Ölwechsel bis zur komplexen Motorinstandsetzung – wir bieten alles aus einer Hand.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal">
+        <span class="svc-num">01</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>HU / TÜV &amp; AU</h3>
+        <p>Hauptuntersuchung und Abgasuntersuchung – professionelle Vorbereitung und Begleitung durch den gesamten Prozess.</p>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-1">
+        <span class="svc-num">02</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <h3>Inspektion &amp; Ölwechsel</h3>
+        <p>Regelmäßige Wartung nach Herstellervorgaben mit Originalteilen oder Qualitätsalternativen.</p>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-2">
+        <span class="svc-num">03</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Reifen &amp; Felgen</h3>
+        <p>Reifenwechsel, Auswuchten, Einlagerung. Sommer-, Winter- und Ganzjahresreifen aller Marken.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <span class="svc-num">04</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h3>Bremsendienst</h3>
+        <p>Überprüfung und Austausch von Bremsscheiben, Bremsbelägen und Bremssätteln für Ihre Sicherheit.</p>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-1">
+        <span class="svc-num">05</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Fahrzeugdiagnose</h3>
+        <p>Modernste OBD-Diagnosegeräte für alle Fahrzeugsysteme – schnelle und präzise Fehlerermittlung.</p>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-2">
+        <span class="svc-num">06</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Motor &amp; Getriebe</h3>
+        <p>Diagnose und Instandsetzung von Motor- und Getriebeschäden. Fachgerecht und mit Gewährleistung.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <span class="svc-num">07</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+        <h3>Klimaanlage</h3>
+        <p>Service, Befüllung, Desinfektion und Reparatur. Damit Sie auch im Sommer komfortabel fahren.</p>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-1">
+        <span class="svc-num">08</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Elektrik &amp; Elektronik</h3>
+        <p>Reparatur aller elektrischen Systeme, Beleuchtung, Batterie und Lichtmaschine.</p>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-2">
+        <span class="svc-num">09</span>
+        <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>Karosserie &amp; Lack</h3>
+        <p>Unfallinstandsetzung, Dellendoktoren, Lackreparaturen – Ihr Fahrzeug glänzt wieder wie neu.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ÜBER UNS ══════════════════════════════════════════════════ -->
+<section id="ueber-uns">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-box">
+          <div class="about-icon-big">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
         </div>
+        <div class="about-counter">
+          <div class="about-counter-n">15+</div>
+          <div class="about-counter-l">Jahre Erfahrung</div>
+        </div>
+      </div>
 
-        <div class="hours-cta-box">
-          <span class="section-label">Wir sind für Sie da</span>
-          <h2>Öffnungszeiten</h2>
-          <p>
-            Montag bis Freitag sind wir von 08:00 bis 18:00 Uhr für Sie da.
-            Am Samstag haben wir von 09:00 bis 14:00 Uhr geöffnet.
-            Für Notfälle sind wir auch außerhalb der Öffnungszeiten erreichbar.
-          </p>
+      <div class="about-content reveal reveal-delay-1">
+        <span class="label">Wer wir sind</span>
+        <h2>Ihr vertrauensvoller Partner rund ums Fahrzeug</h2>
+        <p>KFZ Technik Barmbek Nord ist Ihre spezialisierte Kfz-Werkstatt im Herzen von Hamburg. Seit über 15 Jahren kümmern wir uns mit Leidenschaft und Fachkompetenz um Fahrzeuge aller Marken und Modelle.</p>
+        <p>Unser Team aus erfahrenen Kfz-Meistern arbeitet mit modernster Diagnosetechnik. Wir legen größten Wert auf Transparenz – Sie erhalten immer einen detaillierten Kostenvoranschlag, bevor wir mit der Arbeit beginnen.</p>
+        <div class="about-checks">
+          <div class="ac-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Zertifizierter Meisterbetrieb</span></div>
+          <div class="ac-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Alle Fahrzeugmarken</span></div>
+          <div class="ac-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Kostenloser Kostenvoranschlag</span></div>
+          <div class="ac-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Gewährleistung auf alle Arbeiten</span></div>
+          <div class="ac-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Modernste Diagnosetechnik</span></div>
+          <div class="ac-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Expresstermine möglich</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <a href="#kontakt" class="btn btn-red btn-lg">Termin vereinbaren</a>
+<!-- ═══ TÜV ERINNERUNG ════════════════════════════════════════════ -->
+<section id="tuev-erinnerung">
+  <div class="container">
+    <div class="tuev-grid">
+      <div class="tuev-text reveal">
+        <span class="label" style="color:#ff8090">TÜV Erinnerung</span>
+        <h2 style="color:#fff">Nie wieder die HU vergessen.</h2>
+        <p>Registrieren Sie Ihr Fahrzeug und wir erinnern Sie rechtzeitig an Ihren nächsten HU / TÜV Termin – kostenlos und automatisch.</p>
+        <div class="tuev-benefits">
+          <div class="tb-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Erinnerung 3 Monate, 1 Monat &amp; 2 Wochen vor Ablauf</span>
+          </div>
+          <div class="tb-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Per E-Mail oder SMS – Sie entscheiden</span>
+          </div>
+          <div class="tb-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Komplett kostenlos &amp; jederzeit abbestellbar</span>
+          </div>
+          <div class="tb-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Direkter Terminlink in der Erinnerung</span>
+          </div>
+        </div>
+      </div>
 
-          <div class="emergency-box">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            <div>
-              <strong>Pannenhilfe &amp; Notfall-Service</strong>
-              <span>Bei dringenden Fällen melden Sie sich telefonisch. Wir helfen so schnell wie möglich.</span>
+      <div class="reveal reveal-delay-1">
+        <div class="tuev-form-card">
+          <div id="tuevForm">
+            <h3>Jetzt registrieren</h3>
+            <p class="sub">Kostenlose HU-Erinnerung einrichten</p>
+
+            <div class="form-group">
+              <label class="form-label">Kennzeichen</label>
+              <input type="text" class="form-input kz-style" id="tuevKz" placeholder="HH – AB 1234" maxlength="12" />
             </div>
+
+            <div class="form-group">
+              <label class="form-label">HU / TÜV fällig</label>
+              <input type="month" class="form-input" id="tuevDatum" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Benachrichtigung per</label>
+              <div class="notify-options">
+                <label class="notify-opt selected" id="optEmail">
+                  <input type="radio" name="notify" value="email" checked />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span>E-Mail</span>
+                </label>
+                <label class="notify-opt" id="optSms">
+                  <input type="radio" name="notify" value="sms" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  <span>SMS</span>
+                </label>
+                <label class="notify-opt" id="optBeide">
+                  <input type="radio" name="notify" value="beide" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Beides</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" id="emailGroup">
+              <label class="form-label">E-Mail Adresse</label>
+              <input type="email" class="form-input" id="tuevEmail" placeholder="ihre@email.de" />
+            </div>
+
+            <div class="form-group" id="smsGroup" style="display:none">
+              <label class="form-label">Handynummer</label>
+              <input type="tel" class="form-input" id="tuevTel" placeholder="+49 170 0000000" />
+            </div>
+
+            <button class="btn btn-red form-submit" onclick="registerTuev()">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Erinnerung einrichten
+            </button>
+          </div>
+
+          <div class="tuev-success" id="tuevSuccess">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <h4>Erinnerung eingerichtet!</h4>
+            <p>Sie erhalten eine Bestätigung und werden rechtzeitig vor Ihrer HU benachrichtigt.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── KONTAKT ────────────────────────────────────────────────── -->
-  <section id="kontakt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">So erreichen Sie uns</span>
-        <h2>Kontakt &amp; Anfahrt</h2>
-        <p>Besuchen Sie uns direkt in Hamburg Barmbek Nord, rufen Sie uns an oder schreiben Sie uns eine E-Mail. Wir freuen uns auf Sie!</p>
+<!-- ═══ ÖFFNUNGSZEITEN ════════════════════════════════════════════ -->
+<section id="oeffnungszeiten">
+  <div class="container">
+    <div class="hours-layout">
+      <div class="hours-table reveal">
+        <div class="h-row" id="row-mo"><span class="h-day">Montag</span><span class="h-time">08:00 – 18:00 Uhr</span></div>
+        <div class="h-row" id="row-di"><span class="h-day">Dienstag</span><span class="h-time">08:00 – 18:00 Uhr</span></div>
+        <div class="h-row" id="row-mi"><span class="h-day">Mittwoch</span><span class="h-time">08:00 – 18:00 Uhr</span></div>
+        <div class="h-row" id="row-do"><span class="h-day">Donnerstag</span><span class="h-time">08:00 – 18:00 Uhr</span></div>
+        <div class="h-row" id="row-fr"><span class="h-day">Freitag</span><span class="h-time">08:00 – 18:00 Uhr</span></div>
+        <div class="h-row" id="row-sa"><span class="h-day">Samstag</span><span class="h-time">09:00 – 14:00 Uhr</span></div>
+        <div class="h-row" id="row-so"><span class="h-day">Sonntag</span><span class="h-time h-closed">Geschlossen</span></div>
       </div>
-
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-block">
-            <div class="contact-block-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="contact-block-label">Adresse</div>
-              <div class="contact-block-val">
-                Alter Teichweg 79<br/>
-                22307 Hamburg
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-block-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="contact-block-label">Telefon</div>
-              <div class="contact-block-val">
-                <a href="tel:+4940XXXXXXXX">040 – XX XX XX XX</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-block-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-block-label">E-Mail</div>
-              <div class="contact-block-val">
-                <a href="mailto:info@kfz-technik-barmbek.de">info@kfz-technik-barmbek.de</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-block-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div>
-              <div class="contact-block-label">Öffnungszeiten</div>
-              <div class="contact-block-val">
-                Mo – Fr: 08:00 – 18:00 Uhr<br/>
-                Sa: 09:00 – 14:00 Uhr
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-block-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <div>
-              <div class="contact-block-label">Anfahrt &amp; Parken</div>
-              <div class="contact-block-val" style="font-size:.88rem;font-weight:400;color:var(--text-muted)">
-                Kostenlose Parkplätze direkt vor der Werkstatt. Gut erreichbar per U-Bahn (U1, Haltestelle Farmsen) und Bus.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="map-wrapper">
-          <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=10.042,53.600,10.080,53.620&layer=mapnik&marker=53.6095,10.062"
-            title="Standort KFZ Technik Barmbek Nord"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
-          <div class="map-cta">
-            <div class="map-address">
-              <strong>KFZ Technik Barmbek Nord</strong>
-              Alter Teichweg 79, 22307 Hamburg
-            </div>
-            <a
-              href="https://www.google.com/maps/search/Alter+Teichweg+79+22307+Hamburg"
-              target="_blank" rel="noopener"
-              class="btn btn-outline">
-              In Google Maps öffnen
-            </a>
+      <div class="hours-cta reveal reveal-delay-1">
+        <span class="label">Wir sind für Sie da</span>
+        <h2>Öffnungszeiten</h2>
+        <p>Montag bis Freitag von 08:00 bis 18:00 Uhr und samstags von 09:00 bis 14:00 Uhr – wir sind fast immer für Sie erreichbar.</p>
+        <a href="#kontakt" class="btn btn-red btn-lg">Termin vereinbaren</a>
+        <div class="emergency-block">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div>
+            <strong>Pannenhilfe &amp; Notfall-Service</strong>
+            <span>Auch außerhalb der Öffnungszeiten erreichbar. Rufen Sie einfach an!</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="logo-main">KFZ <span>Technik</span></div>
-          <div class="logo-sub">Barmbek Nord · Hamburg</div>
-          <p>Ihre zuverlässige Kfz-Werkstatt in Hamburg Barmbek Nord. Fachkompetent, transparent und fair – seit über 15 Jahren.</p>
+<!-- ═══ KONTAKT ═══════════════════════════════════════════════════ -->
+<section id="kontakt">
+  <div class="container">
+    <div class="section-hd reveal">
+      <span class="label">Anfahrt &amp; Kontakt</span>
+      <h2>So finden Sie uns</h2>
+      <p>Besuchen Sie uns direkt in Hamburg Barmbek Nord – kostenlose Parkplätze direkt vor der Werkstatt.</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-blocks">
+        <div class="c-block reveal">
+          <div class="c-block-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="c-label">Adresse</div><div class="c-val">Alter Teichweg 79<br/>22307 Hamburg</div></div>
         </div>
-
-        <div class="footer-col">
-          <h4>Leistungen</h4>
-          <ul>
-            <li><a href="#leistungen">HU / TÜV &amp; AU</a></li>
-            <li><a href="#leistungen">Inspektion &amp; Ölwechsel</a></li>
-            <li><a href="#leistungen">Reifen &amp; Felgen</a></li>
-            <li><a href="#leistungen">Bremsendienst</a></li>
-            <li><a href="#leistungen">Fahrzeugdiagnose</a></li>
-            <li><a href="#leistungen">Klimaanlage</a></li>
-          </ul>
+        <div class="c-block reveal">
+          <div class="c-block-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="c-label">Telefon</div><div class="c-val"><a href="tel:+4940XXXXXXXX">040 – XX XX XX XX</a></div></div>
         </div>
-
-        <div class="footer-col">
-          <h4>Kontakt</h4>
-          <ul>
-            <li><a href="#">Alter Teichweg 79</a></li>
-            <li><a href="#">22307 Hamburg</a></li>
-            <li><a href="tel:+4940XXXXXXXX">040 – XX XX XX XX</a></li>
-            <li><a href="mailto:info@kfz-technik-barmbek.de">info@kfz-technik-barmbek.de</a></li>
-          </ul>
+        <div class="c-block reveal">
+          <div class="c-block-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="c-label">E-Mail</div><div class="c-val"><a href="mailto:info@kfz-technik-barmbek.de">info@kfz-technik-barmbek.de</a></div></div>
+        </div>
+        <div class="c-block reveal">
+          <div class="c-block-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="c-label">Öffnungszeiten</div><div class="c-val">Mo – Fr: 08:00 – 18:00<br/>Sa: 09:00 – 14:00 Uhr</div></div>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>© 2025 KFZ Technik Barmbek Nord · Alter Teichweg 79, 22307 Hamburg</p>
-        <div class="footer-legal">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+      <div class="map-box reveal reveal-delay-1">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=10.042,53.600,10.080,53.620&layer=mapnik&marker=53.6095,10.062"
+          title="KFZ Technik Barmbek Nord" loading="lazy" allowfullscreen>
+        </iframe>
+        <div class="map-footer">
+          <div class="map-address-text">
+            <strong>KFZ Technik Barmbek Nord</strong>
+            <span>Alter Teichweg 79, 22307 Hamburg</span>
+          </div>
+          <a href="https://www.google.com/maps/search/Alter+Teichweg+79+22307+Hamburg" target="_blank" rel="noopener" class="btn btn-outline-dark">
+            In Google Maps öffnen
+          </a>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Back to Top -->
-  <button class="back-top" id="backTop" aria-label="Nach oben scrollen">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-logo-main">KFZ <em>Technik</em></div>
+        <div class="f-logo-sub">Barmbek Nord · Hamburg</div>
+        <p>Ihre zuverlässige Kfz-Werkstatt in Hamburg Barmbek Nord. Fachkompetent, transparent und fair.</p>
+      </div>
+      <div class="f-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#leistungen">HU / TÜV &amp; AU</a></li>
+          <li><a href="#leistungen">Inspektion &amp; Ölwechsel</a></li>
+          <li><a href="#leistungen">Reifen &amp; Felgen</a></li>
+          <li><a href="#leistungen">Bremsendienst</a></li>
+          <li><a href="#leistungen">Fahrzeugdiagnose</a></li>
+          <li><a href="#leistungen">Klimaanlage</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">Alter Teichweg 79, 22307 Hamburg</a></li>
+          <li><a href="tel:+4940XXXXXXXX">040 – XX XX XX XX</a></li>
+          <li><a href="mailto:info@kfz-technik-barmbek.de">info@kfz-technik-barmbek.de</a></li>
+          <li><a href="#fahrzeugstatus">Fahrzeugstatus prüfen</a></li>
+          <li><a href="#tuev-erinnerung">TÜV Erinnerung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2025 KFZ Technik Barmbek Nord · Alter Teichweg 79, 22307 Hamburg</p>
+      <div class="f-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
+<button class="back-top" id="backTop" aria-label="Nach oben">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          navLinks.forEach(a => a.classList.remove('active'));
-          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(s => observer.observe(s));
+<script>
+/* ── Demo Fahrzeuge ────────────────────────────────────────────── */
+const VEHICLES = {
+  'HH-KT 100': {
+    marke: 'Volkswagen', modell: 'Golf VIII', farbe: 'Schwarz', baujahr: 2020,
+    status: 'fertig', statusText: 'Fertig zur Abholung',
+    arbeit: 'Inspektion &amp; Ölwechsel abgeschlossen',
+    step: 3,
+    hu: { text: 'HU gültig bis 03/2026', cls: 'ok' },
+    besuch: '20.05.2025'
+  },
+  'HH-KT 200': {
+    marke: 'BMW', modell: '3er (G20)', farbe: 'Alpinweiß', baujahr: 2021,
+    status: 'in-arbeit', statusText: 'In Bearbeitung',
+    arbeit: 'Bremsenwechsel vorne &amp; hinten',
+    step: 2,
+    hu: { text: 'HU fällig: 08/2025 – Bald!', cls: 'warn' },
+    besuch: '20.05.2025'
+  },
+  'HH-KT 300': {
+    marke: 'Mercedes-Benz', modell: 'C-Klasse W205', farbe: 'Silber', baujahr: 2018,
+    status: 'wartend', statusText: 'Wartet auf Ersatzteil',
+    arbeit: 'Getriebeschaden – Ersatzteil bestellt',
+    step: 1,
+    hu: { text: 'HU abgelaufen: 11/2023!', cls: 'bad' },
+    besuch: '19.05.2025'
+  }
+};
 
-    // Mobile nav toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav  = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-    });
-    function closeMobileNav() {
-      hamburger.classList.remove('open');
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
+const STEPS = ['Angenommen', 'In Bearbeitung', 'Qualitätsprüfung', 'Fertig'];
+
+function normalizeKz(v) {
+  return v.toUpperCase().replace(/\s+/g, ' ').trim();
+}
+
+function searchKennzeichen() {
+  const raw = document.getElementById('kzInput').value;
+  const kz  = normalizeKz(raw);
+  const res  = document.getElementById('statusResult');
+  const nf   = document.getElementById('notFound');
+  const cont = document.getElementById('resultContent');
+
+  res.style.display = 'none';
+  nf.style.display  = 'none';
+
+  if (!kz) return;
+
+  const v = VEHICLES[kz];
+  if (!v) {
+    nf.style.display = 'block';
+    return;
+  }
+
+  const badgeMap = {
+    'fertig':   'fertig',
+    'in-arbeit':'in-arbeit',
+    'wartend':  'wartend'
+  };
+
+  const timelineHtml = STEPS.map((label, i) => {
+    const real = i + 1;
+    let dotCls = 'wait', lineCls = '';
+    if (real < v.step)       { dotCls = 'done'; lineCls = 'done'; }
+    else if (real === v.step) { dotCls = 'active'; }
+    const activeLbl = real <= v.step ? (real === v.step ? 'active' : 'done') : '';
+    const lineHtml  = i < STEPS.length - 1 ? `<div class="t-line ${lineCls}"></div>` : '';
+    return `
+      <div class="t-step">
+        <div class="t-dot ${dotCls}">${real}</div>
+        <div class="t-label ${activeLbl}">${label}</div>
+      </div>
+      ${lineHtml}`;
+  }).join('');
+
+  const huIcon = v.hu.cls === 'ok'
+    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+
+  cont.innerHTML = `
+    <div class="sr-header">
+      <span class="sr-kz">${kz}</span>
+      <span class="sr-badge ${badgeMap[v.status]}">${v.statusText}</span>
+    </div>
+    <div class="sr-body">
+      <div class="sr-info-group"><label>Fahrzeug</label><span>${v.marke} ${v.modell}</span></div>
+      <div class="sr-info-group"><label>Baujahr / Farbe</label><span>${v.baujahr} · ${v.farbe}</span></div>
+      <div class="sr-info-group"><label>Aktuell</label><span>${v.arbeit}</span></div>
+    </div>
+    <div class="sr-timeline">
+      <h4>Fortschritt</h4>
+      <div class="timeline-steps">${timelineHtml}</div>
+    </div>
+    <div class="sr-huev">
+      <div class="huev-badge ${v.hu.cls}">${huIcon} ${v.hu.text}</div>
+      <span class="huev-text">Letzter Besuch: ${v.besuch}</span>
+    </div>
+  `;
+
+  res.style.display = 'block';
+}
+
+document.getElementById('kzInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') searchKennzeichen();
+});
+
+/* ── TÜV Erinnerung ────────────────────────────────────────────── */
+document.querySelectorAll('.notify-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.notify-opt').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    const val = opt.querySelector('input').value;
+    document.getElementById('emailGroup').style.display = (val === 'sms') ? 'none' : 'block';
+    document.getElementById('smsGroup').style.display   = (val === 'email') ? 'none' : 'block';
+  });
+});
+
+function registerTuev() {
+  const kz = document.getElementById('tuevKz').value.trim();
+  const dt = document.getElementById('tuevDatum').value;
+  if (!kz || !dt) { alert('Bitte Kennzeichen und HU-Datum eingeben.'); return; }
+  document.getElementById('tuevForm').style.display    = 'none';
+  document.getElementById('tuevSuccess').style.display = 'block';
+}
+
+/* ── Navbar ─────────────────────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+const heroEl = document.getElementById('hero');
+
+function updateNavbar() {
+  const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+  const scrolled   = window.scrollY > 50;
+  const pastHero   = window.scrollY > heroBottom - 100;
+  navbar.classList.toggle('scrolled', scrolled);
+  if (pastHero) {
+    navbar.classList.remove('on-dark');
+  } else {
+    navbar.classList.add('on-dark');
+  }
+}
+window.addEventListener('scroll', updateNavbar);
+updateNavbar();
+
+/* ── Active nav ─────────────────────────────────────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
     }
-
-    // Back to top
-    const backTop = document.getElementById('backTop');
-    window.addEventListener('scroll', () => {
-      backTop.classList.toggle('visible', window.scrollY > 400);
+  });
+}, { rootMargin: '-40% 0px -55% 0px' }).observe.call(
+  { observe: s => sections.forEach(s2 => new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
     });
-    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe(s)) },
+  null
+);
+sections.forEach(s => {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe(s);
+});
 
-    // Highlight today's opening hours
-    const days = ['so', 'mo', 'di', 'mi', 'do', 'fr', 'sa'];
-    const today = days[new Date().getDay()];
-    const todayRow = document.getElementById('row-' + today);
-    if (todayRow) todayRow.classList.add('today');
-  </script>
+/* ── Hamburger ──────────────────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobileNav() {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── Back to top ─────────────────────────────────────────────────── */
+const bt = document.getElementById('backTop');
+window.addEventListener('scroll', () => bt.classList.toggle('visible', window.scrollY > 400));
+bt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ── Heute hervorheben ───────────────────────────────────────────── */
+const days = ['so','mo','di','mi','do','fr','sa'];
+const todayRow = document.getElementById('row-' + days[new Date().getDay()]);
+if (todayRow) todayRow.classList.add('today');
+
+/* ── Scroll-Reveal ───────────────────────────────────────────────── */
+const reveals = document.querySelectorAll('.reveal');
+new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 }).observe.call(
+  { observe: () => {} }, null
+);
+reveals.forEach(el => {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 }).observe(el);
+});
+</script>
 
 </body>
 </html>
