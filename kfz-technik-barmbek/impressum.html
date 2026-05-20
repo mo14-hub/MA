@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – KFZ Technik Barmbek Nord</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .legal-content { max-width: 760px; padding: 80px 0 120px; }
+    .legal-content h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; }
+    .legal-content p, .legal-content address { font-size: .95rem; color: var(--text-muted); line-height: 1.9; font-style: normal; }
+    .legal-content a { color: var(--red); }
+    .legal-content a:hover { text-decoration: underline; }
+    .legal-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-main">KFZ <span>Technik</span></span>
+        <span class="logo-sub">Barmbek Nord · Hamburg</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#ueber-uns">Über uns</a></li>
+        <li><a href="index.html#oeffnungszeiten">Öffnungszeiten</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#kontakt" class="btn btn-red">Termin anfragen</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="section-label">Rechtliches</span>
+      <h1>Impressum</h1>
+      <p>Angaben gemäß § 5 TMG</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="legal-content">
+
+      <h2>Anbieter</h2>
+      <address>
+        KFZ Technik Barmbek Nord<br/>
+        Alter Teichweg 79<br/>
+        22307 Hamburg<br/>
+        Deutschland
+      </address>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: <a href="tel:+4940XXXXXXXX">040 – XX XX XX XX</a><br/>
+        E-Mail: <a href="mailto:info@kfz-technik-barmbek.de">info@kfz-technik-barmbek.de</a>
+      </p>
+
+      <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+      <p>
+        Berufsbezeichnung: Kraftfahrzeugtechnik-Meisterbetrieb<br/>
+        Zuständige Kammer: Handwerkskammer Hamburg<br/>
+        Berufsrechtliche Regelungen: Handwerksordnung (HwO)
+      </p>
+
+      <hr/>
+
+      <h2>Streitschlichtung</h2>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a><br/>
+        Unsere E-Mail-Adresse finden Sie oben im Impressum.
+      </p>
+      <p>
+        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+      <hr/>
+
+      <h2>Haftungsausschluss</h2>
+      <p>
+        Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
+        Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom" style="padding: 24px 0 0;">
+        <p>© 2025 KFZ Technik Barmbek Nord · Alter Teichweg 79, 22307 Hamburg</p>
+        <div class="footer-legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    navbar.classList.add('scrolled');
+  </script>
+</body>
+</html>
