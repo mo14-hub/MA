@@ -708,6 +708,241 @@
     .footer-social:hover { border-color: var(--gold); background: rgba(201,168,76,.06); }
     .footer-social:hover svg { fill: var(--gold); }
 
+    /* ─── PREISE ─────────────────────────────────────────────────────── */
+    #preise {
+      padding: 120px 60px;
+      background: var(--black2);
+      border-top: 1px solid var(--border2);
+    }
+
+    .price-group { max-width: 1100px; margin: 0 auto; }
+
+    .price-divider {
+      display: flex; align-items: center; gap: 28px;
+      margin: 80px 0 48px;
+    }
+    .price-divider-line { flex: 1; height: 1px; background: var(--border2); }
+    .price-divider-label {
+      font-size: .62rem; font-weight: 800; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* — Package cards (3-col) — */
+    .packages-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      border: 1px solid var(--border2);
+    }
+
+    .package-card {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border2);
+      position: relative; overflow: hidden;
+      background: var(--black2);
+      transition: background .3s;
+    }
+    .package-card:last-child { border-right: none; }
+    .package-card:hover { background: var(--black3); }
+
+    .package-card.featured {
+      background: var(--black3);
+      border-right: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+      margin: -1px 0;
+      z-index: 2;
+      box-shadow: 0 0 80px rgba(201,168,76,.1);
+    }
+    .package-card.featured::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+      background-size: 200% 100%;
+      animation: shimmer 3s ease infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    .package-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 14px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: .58rem; font-weight: 900; letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .package-name {
+      font-size: .72rem; font-weight: 800; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--off-white);
+      margin-bottom: 6px;
+    }
+    .package-type {
+      font-size: .7rem; color: var(--gray2); letter-spacing: .06em;
+      min-height: 18px;
+    }
+
+    .package-price-wrap {
+      padding: 28px 0;
+      margin: 24px 0;
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+    }
+    .package-price {
+      display: flex; align-items: flex-start; gap: 3px;
+      line-height: 1; margin-bottom: 10px;
+    }
+    .p-cur {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--gold); margin-top: 7px;
+    }
+    .p-int {
+      font-size: 3.8rem; font-weight: 900; letter-spacing: -.03em;
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 45%, var(--gold-light) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: .95;
+    }
+    .featured .p-int { font-size: 4.5rem; }
+    .p-dec {
+      font-size: 1.3rem; font-weight: 800;
+      color: var(--gold); margin-top: 10px;
+    }
+    .p-period {
+      display: block; font-size: .68rem; color: var(--gray2);
+      letter-spacing: .1em; margin-top: 4px;
+    }
+    .p-note {
+      display: block; font-size: .62rem; color: var(--gray2);
+      letter-spacing: .06em; margin-top: 4px;
+    }
+
+    .pkg-features {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 13px;
+      margin-bottom: 36px;
+    }
+    .pkg-features li {
+      display: flex; align-items: flex-start; gap: 11px;
+      font-size: .8rem; color: var(--off-white); line-height: 1.5;
+    }
+    .pkg-features li svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; }
+
+    .pkg-cta {
+      display: block; width: 100%; padding: 14px;
+      text-align: center; text-decoration: none;
+      font-size: .68rem; font-weight: 800; letter-spacing: .18em;
+      text-transform: uppercase; transition: all .3s;
+    }
+    .pkg-cta-gold {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-mid));
+      color: var(--black);
+    }
+    .pkg-cta-gold:hover { box-shadow: 0 8px 28px rgba(201,168,76,.35); transform: translateY(-2px); }
+    .pkg-cta-outline {
+      border: 1px solid rgba(201,168,76,.35);
+      color: var(--gold);
+    }
+    .pkg-cta-outline:hover { border-color: var(--gold); background: rgba(201,168,76,.07); }
+
+    /* — Alt services (2-col) — */
+    .services-alt {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border2);
+      margin-top: 1px;
+    }
+
+    .svc {
+      padding: 44px;
+      border-right: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 20px; align-items: start;
+      position: relative; overflow: hidden;
+      background: var(--black2);
+      transition: background .3s;
+    }
+    .svc:nth-child(2n) { border-right: none; }
+    .svc:nth-last-child(-n+2) { border-bottom: none; }
+    .svc::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transition: width .45s ease;
+    }
+    .svc:hover { background: var(--black3); }
+    .svc:hover::before { width: 100%; }
+
+    .svc.creator {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr 1fr;
+      background: linear-gradient(135deg, var(--black3) 0%, var(--black2) 100%);
+      border-right: none;
+      border-top: 1px solid rgba(201,168,76,.15);
+    }
+
+    .svc-left h3 {
+      font-size: .75rem; font-weight: 800; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 8px;
+    }
+    .svc-left p {
+      font-size: .8rem; color: var(--gray); line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .svc-features {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 9px;
+    }
+    .svc-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .775rem; color: var(--gray); line-height: 1.5;
+    }
+    .svc-features li svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; }
+
+    .svc-right { text-align: right; min-width: 120px; }
+    .svc-price {
+      font-size: 1.9rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; white-space: nowrap;
+    }
+    .svc-price.range { font-size: 1.35rem; }
+    .svc-price-note {
+      display: block; font-size: .62rem; color: var(--gray2);
+      letter-spacing: .06em; margin-top: 6px; white-space: nowrap;
+    }
+    .svc-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px;
+      font-size: .65rem; font-weight: 800; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold); text-decoration: none;
+      transition: gap .25s;
+    }
+    .svc-cta:hover { gap: 12px; }
+    .anfrage-pill {
+      display: inline-block; padding: 4px 12px;
+      border: 1px solid var(--gold);
+      font-size: .6rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--gold);
+    }
+
+    /* Responsive preise */
+    @media (max-width: 1024px) {
+      #preise { padding: 80px 24px; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .package-card { border-right: none; border-bottom: 1px solid var(--border2); }
+      .package-card.featured { border: 1px solid var(--gold); margin: 0; }
+      .services-alt { grid-template-columns: 1fr; }
+      .svc { grid-template-columns: 1fr; border-right: none; }
+      .svc.creator { grid-template-columns: 1fr; grid-column: 1; }
+      .svc-right { text-align: left; }
+      .svc:nth-last-child(-n+2) { border-bottom: 1px solid var(--border2); }
+      .svc:last-child { border-bottom: none; }
+    }
+
     /* ─── Scroll reveal ──────────────────────────────────────────────── */
     .reveal {
       opacity: 0; transform: translateY(28px);
@@ -727,7 +962,7 @@
       #hero { padding: 120px 30px 80px; }
       #zahlen { padding: 80px 30px; }
       .zahlen-grid { grid-template-columns: repeat(2,1fr); }
-      #leistungen, #erstgespraech, #ablauf, #warum, #cta { padding-left: 30px; padding-right: 30px; }
+      #leistungen, #preise, #erstgespraech, #ablauf, #warum, #cta { padding-left: 30px; padding-right: 30px; }
       .services-grid { grid-template-columns: 1fr; }
       .consult-inner { grid-template-columns: 1fr; gap: 48px; }
       .ablauf-grid { grid-template-columns: repeat(2,1fr); }
@@ -778,6 +1013,7 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#preise">Preise</a></li>
         <li><a href="#ablauf">Ablauf</a></li>
         <li><a href="#warum">Über uns</a></li>
         <li><a href="#erstgespraech">Kontakt</a></li>
@@ -933,6 +1169,243 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- PREISE -->
+  <section id="preise">
+
+    <div class="price-group">
+      <div class="section-header reveal" style="max-width:1100px;margin:0 auto 0;">
+        <span class="label">Transparente Preise</span>
+        <div class="divider"></div>
+        <h2>Unsere<br /><span class="gold">Dienstleistungen</span></h2>
+        <p style="font-size:.875rem;color:var(--gray);margin-top:12px;max-width:480px;line-height:1.8;">Klare Pakete. Faire Preise. Messbare Ergebnisse.</p>
+      </div>
+
+      <!-- Divider label -->
+      <div class="price-divider reveal">
+        <div class="price-divider-line"></div>
+        <span class="price-divider-label">Social Media Pakete</span>
+        <div class="price-divider-line"></div>
+      </div>
+
+      <!-- 3 packages -->
+      <div class="packages-grid reveal">
+
+        <!-- Einmalig -->
+        <div class="package-card">
+          <p class="package-name">Social Media Werbung</p>
+          <p class="package-type">Einmalige Buchung – keine Laufzeit</p>
+          <div class="package-price-wrap">
+            <div class="package-price">
+              <span class="p-cur">€</span>
+              <span class="p-int">459</span>
+              <span class="p-dec">,99</span>
+            </div>
+            <span class="p-note">inkl. MwSt. · Einmalig</span>
+          </div>
+          <ul class="pkg-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              4 Posts auf Instagram &amp; Facebook
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              2 TikTok-Videos
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Reichweitenoptimierung
+            </li>
+          </ul>
+          <a href="#erstgespraech" class="pkg-cta pkg-cta-outline">Jetzt anfragen →</a>
+        </div>
+
+        <!-- 12 Monate – FEATURED -->
+        <div class="package-card featured">
+          <span class="package-badge">★ Beliebt</span>
+          <p class="package-name">Unternehmens­betreuung</p>
+          <p class="package-type">12 Monate Laufzeit</p>
+          <div class="package-price-wrap">
+            <div class="package-price">
+              <span class="p-cur">€</span>
+              <span class="p-int">359</span>
+            </div>
+            <span class="p-period">pro Monat</span>
+            <span class="p-note">12 Monate Laufzeit · zzgl. MwSt.</span>
+          </div>
+          <ul class="pkg-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#e8c97a" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Tägliche Betreuung Ihrer Kanäle
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#e8c97a" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              2 TikTok-Videos pro Monat
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#e8c97a" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              3 Posts auf Instagram &amp; Facebook
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#e8c97a" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Fokus auf Kundengewinnung
+            </li>
+          </ul>
+          <a href="#erstgespraech" class="pkg-cta pkg-cta-gold">Paket starten →</a>
+        </div>
+
+        <!-- Quartal -->
+        <div class="package-card">
+          <p class="package-name">Quartals­betreuung</p>
+          <p class="package-type">3 Monate · flexible Laufzeit</p>
+          <div class="package-price-wrap">
+            <div class="package-price">
+              <span class="p-cur">€</span>
+              <span class="p-int">400</span>
+            </div>
+            <span class="p-period">pro Monat</span>
+            <span class="p-note">3 Monate Laufzeit · zzgl. MwSt.</span>
+          </div>
+          <ul class="pkg-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Tägliche Betreuung Ihrer Kanäle
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              2 TikTok-Videos pro Monat
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              3 Posts auf Instagram &amp; Facebook
+            </li>
+          </ul>
+          <a href="#erstgespraech" class="pkg-cta pkg-cta-outline">Jetzt anfragen →</a>
+        </div>
+
+      </div><!-- /packages-grid -->
+
+      <!-- Divider label -->
+      <div class="price-divider reveal">
+        <div class="price-divider-line"></div>
+        <span class="price-divider-label">Weitere Leistungen</span>
+        <div class="price-divider-line"></div>
+      </div>
+
+      <!-- Alt services -->
+      <div class="services-alt reveal">
+
+        <!-- Content Creator -->
+        <div class="svc creator">
+          <div class="svc-left">
+            <h3>Content Creator Aufbau</h3>
+            <p>Für Privatpersonen, die Reichweite aufbauen und als Creator wachsen möchten. Wir begleiten dich auf dem Weg zur eigenen Marke – von Null zu tausenden Followern.</p>
+            <ul class="svc-features">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Persönliche Strategie &amp; Nischenanalyse
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Content-Plan &amp; Community-Aufbau
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Coaching &amp; individuelle Begleitung
+              </li>
+            </ul>
+          </div>
+          <div class="svc-right">
+            <span class="anfrage-pill">Preis auf Anfrage</span>
+            <a href="#erstgespraech" class="svc-cta" style="display:flex;margin-top:20px;">Jetzt anfragen <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Webseite -->
+        <div class="svc">
+          <div class="svc-left">
+            <h3>Webseiten-Erstellung</h3>
+            <p>Professionelle Webseite, die Besucher in Kunden verwandelt.</p>
+            <ul class="svc-features">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Modernes, professionelles Design
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Mobil optimiert &amp; schnell
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                SEO-Grundoptimierung inklusive
+              </li>
+            </ul>
+          </div>
+          <div class="svc-right">
+            <div class="svc-price">1.559 €</div>
+            <span class="svc-price-note">inkl. MwSt. · Einmalig</span>
+            <a href="#erstgespraech" class="svc-cta">Anfragen <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Einrichtung -->
+        <div class="svc">
+          <div class="svc-left">
+            <h3>Social-Media Einrichtung</h3>
+            <p>Professioneller Start auf allen relevanten Plattformen.</p>
+            <ul class="svc-features">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Instagram, Facebook, TikTok &amp; X
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Profil, Bio &amp; Einstellungen
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Professionelle Ersteinrichtung
+              </li>
+            </ul>
+          </div>
+          <div class="svc-right">
+            <div class="svc-price">459 €</div>
+            <span class="svc-price-note">inkl. MwSt. · Einmalig</span>
+            <a href="#erstgespraech" class="svc-cta">Anfragen <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- App -->
+        <div class="svc">
+          <div class="svc-left">
+            <h3>App-Entwicklung</h3>
+            <p>Individuelle App ganz nach Ihren Vorstellungen.</p>
+            <ul class="svc-features">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Android &amp; iOS verfügbar
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                100% nach Kundenwunsch
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Angebot nach individuellem Briefing
+              </li>
+            </ul>
+          </div>
+          <div class="svc-right">
+            <div class="svc-price range">5.000 –<br />7.000 €</div>
+            <span class="svc-price-note">ab · zzgl. MwSt.</span>
+            <a href="#erstgespraech" class="svc-cta">Anfragen <span>→</span></a>
+          </div>
+        </div>
+
+      </div><!-- /services-alt -->
+    </div><!-- /price-group -->
+
   </section>
 
   <!-- ERSTGESPRÄCH -->
