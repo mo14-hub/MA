@@ -3,538 +3,747 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zarnabgroup – Social Media, Videoproduktion & Webseiten</title>
-  <meta name="description" content="Zarnabgroup – Dein Partner für Social Media Betreuung, Sichtbarkeit, Kundengewinnung, Videoproduktion und Webseiten. Jetzt kostenloses Erstgespräch sichern!" />
+  <title>Zarnab Group – Social Media Marketing</title>
+  <meta name="description" content="Zarnab Group – Wir bringen Ihr Unternehmen nach vorne. Social Media Betreuung, Sichtbarkeit, Kundengewinnung, Videoproduktion und Webseiten. Jetzt kostenloses Erstgespräch sichern!" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-    /* ─── Reset & Base ─────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ─── Variables ─────────────────────────────────────────────────── */
     :root {
-      --bg:        #0a0a0f;
-      --bg2:       #111118;
-      --bg3:       #16161f;
-      --accent:    #8b5cf6;
-      --accent2:   #a78bfa;
-      --accent3:   #c4b5fd;
-      --gold:      #f59e0b;
-      --gold2:     #fbbf24;
-      --white:     #ffffff;
-      --gray:      #94a3b8;
-      --gray2:     #64748b;
-      --border:    rgba(139,92,246,0.18);
-      --glow:      rgba(139,92,246,0.3);
-      --tiktok:    #010101;
-      --insta:     #e1306c;
-      --fb:        #1877f2;
-      --r:         16px;
-      --r2:        24px;
-      --shadow:    0 8px 40px rgba(0,0,0,0.5);
+      --black:      #080808;
+      --black2:     #0e0e0e;
+      --black3:     #141414;
+      --black4:     #1a1a1a;
+      --gold:       #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dark:  #8b6914;
+      --gold-mid:   #d4a843;
+      --white:      #ffffff;
+      --off-white:  #e8e8e8;
+      --gray:       #888888;
+      --gray2:      #555555;
+      --border:     rgba(201,168,76,0.2);
+      --border2:    rgba(201,168,76,0.08);
+      --glow:       rgba(201,168,76,0.25);
     }
 
+    /* ─── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
       color: var(--white);
-      line-height: 1.6;
       overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Gold gradient text helper ─────────────────────────────────── */
+    .gold {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 70%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* ─── Noise texture overlay ────────────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0;
-      opacity: .4;
+    /* ─── Divider ───────────────────────────────────────────────────── */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px 0;
+    }
+    .divider.center { margin: 20px auto; }
+    .divider.long { width: 120px; }
+
+    /* ─── Section label ─────────────────────────────────────────────── */
+    .label {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); display: block;
     }
 
-    /* ─── Nav ──────────────────────────────────────────────────────── */
+    /* ─── ZG Logo mark (SVG) ─────────────────────────────────────────── */
+    .zg-mark {
+      display: inline-block;
+    }
+
+    /* ─── NAV ───────────────────────────────────────────────────────── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 20px 40px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0 60px;
+      height: 80px;
       display: flex; align-items: center; justify-content: space-between;
-      background: rgba(10,10,15,0.8);
-      backdrop-filter: blur(20px);
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      transition: all .3s;
     }
 
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem; font-weight: 700;
-      background: linear-gradient(135deg, var(--accent2), var(--gold2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-decoration: none;
+    .nav-brand {
+      display: flex; align-items: center; gap: 14px;
     }
 
-    .nav-logo span { font-weight: 300; opacity: .7; }
+    .nav-logo-svg { width: 36px; height: 30px; }
+
+    .nav-name {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-name .top {
+      font-size: .95rem; font-weight: 800; letter-spacing: .3em;
+      color: var(--white);
+    }
+    .nav-name .bottom {
+      font-size: .55rem; font-weight: 400; letter-spacing: .35em;
+      color: var(--gold); margin-top: 3px;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 32px; }
+
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gray);
+      transition: color .25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
 
     .nav-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 22px; border-radius: 50px;
-      background: linear-gradient(135deg, var(--accent), #6d28d9);
-      color: var(--white); font-weight: 600; font-size: .875rem;
-      text-decoration: none;
-      box-shadow: 0 0 20px var(--glow);
+      padding: 10px 24px;
+      border: 1px solid var(--gold);
+      font-size: .7rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold);
       transition: all .3s;
     }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--glow); }
+    .nav-cta:hover {
+      background: var(--gold); color: var(--black);
+    }
 
-    /* ─── Hero ─────────────────────────────────────────────────────── */
+    /* ─── HERO ──────────────────────────────────────────────────────── */
     #hero {
       min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 140px 40px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 140px 60px 80px;
       position: relative; overflow: hidden;
+      background: var(--black);
     }
 
-    /* animated gradient orbs */
-    .orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(80px); opacity: .25; pointer-events: none;
-      animation: float 8s ease-in-out infinite;
-    }
-    .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; right: -100px; animation-delay: 0s; }
-    .orb-2 { width: 400px; height: 400px; background: var(--gold); bottom: -100px; left: -50px; animation-delay: 3s; }
-    .orb-3 { width: 300px; height: 300px; background: #ec4899; top: 40%; left: 40%; animation-delay: 1.5s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-30px) scale(1.05); }
+    /* large "Z" watermark background */
+    #hero::before {
+      content: 'Z';
+      position: absolute; right: -2%; bottom: -10%;
+      font-size: 55vw; font-weight: 900; line-height: 1;
+      color: rgba(201,168,76,0.025);
+      pointer-events: none; user-select: none;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: -.05em;
     }
 
-    .hero-inner {
-      max-width: 900px; margin: 0 auto;
+    /* subtle gold line top */
+    #hero::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .hero-content {
+      max-width: 800px;
       position: relative; z-index: 1;
-      text-align: center;
     }
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 18px; border-radius: 50px;
-      background: rgba(139,92,246,0.15);
-      border: 1px solid var(--border);
-      font-size: .8rem; font-weight: 500; color: var(--accent3);
-      margin-bottom: 32px; letter-spacing: .05em; text-transform: uppercase;
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 36px;
     }
-    .hero-badge .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent2);
-      animation: pulse 2s ease-in-out infinite;
+    .hero-eyebrow span {
+      font-size: .65rem; font-weight: 700; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--gold);
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .5; transform: scale(.8); }
+    .hero-eyebrow-line {
+      flex: 1; max-width: 80px; height: 1px;
+      background: var(--gold); opacity: .5;
     }
 
     h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 800; line-height: 1.05;
-      letter-spacing: -.03em;
-      margin-bottom: 24px;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900; line-height: .95;
+      letter-spacing: -.02em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    h1 .highlight {
-      background: linear-gradient(135deg, var(--accent2) 0%, var(--gold2) 100%);
+    h1 .line-gold {
+      display: block;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--gray);
-      max-width: 620px; margin: 0 auto 48px;
-      font-weight: 400;
+    .hero-tagline {
+      font-size: clamp(.75rem, 1.8vw, 1rem);
+      font-weight: 400; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--off-white);
+      margin: 32px 0 48px;
+      line-height: 2;
     }
+    .hero-tagline span { color: var(--gold); }
 
     .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      align-items: center;
+    }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-mid));
+      color: var(--black); font-weight: 800; font-size: .75rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .btn-gold::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background .3s;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--glow); }
+    .btn-gold:hover::after { background: rgba(255,255,255,.1); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 40px;
+      border: 1px solid rgba(201,168,76,.5);
+      color: var(--gold); font-weight: 700; font-size: .75rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      transition: all .3s;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,.06);
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 60px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: .65rem; letter-spacing: .2em; color: var(--gray2);
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 40px; height: 1px; background: var(--gold); opacity: .4;
+    }
+
+    /* ─── TICKER ─────────────────────────────────────────────────────── */
+    .ticker {
+      background: var(--gold);
+      padding: 14px 0;
+      overflow: hidden; white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex; gap: 0;
+      animation: ticker 25s linear infinite;
+    }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      font-size: .65rem; font-weight: 800; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--black);
+      padding: 0 32px;
+    }
+    .ticker-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(0,0,0,.4); flex-shrink: 0;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── INTRO NUMBERS ─────────────────────────────────────────────── */
+    #zahlen {
+      padding: 100px 60px;
+      background: var(--black2);
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+    }
+    .zahlen-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .zahl {
+      background: var(--black2);
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .zahl-num {
+      font-size: 3rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-variant-numeric: tabular-nums;
+    }
+    .zahl-label {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gray); margin-top: 10px;
+    }
+
+    /* ─── LEISTUNGEN ─────────────────────────────────────────────────── */
+    #leistungen { padding: 120px 60px; }
+
+    .section-header { margin-bottom: 72px; }
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.01em; line-height: 1.05;
+      margin-bottom: 0;
+    }
+
+    .services-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .service {
+      background: var(--black);
+      padding: 52px 48px;
+      position: relative; overflow: hidden;
+      transition: background .3s;
+    }
+    .service::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      transition: width .4s ease;
+    }
+    .service:hover { background: var(--black3); }
+    .service:hover::before { width: 100%; }
+
+    .service-num {
+      font-size: .65rem; font-weight: 700; letter-spacing: .2em;
+      color: var(--gold); opacity: .6; margin-bottom: 28px;
+    }
+
+    .service-icon-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.4);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      transition: border-color .3s, background .3s;
+    }
+    .service:hover .service-icon-circle {
+      border-color: var(--gold);
+      background: rgba(201,168,76,.08);
+    }
+    .service-icon-circle svg {
+      width: 22px; height: 22px;
+      stroke: var(--gold); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .service h3 {
+      font-size: 1.05rem; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 14px;
+      color: var(--white);
+    }
+
+    .service p {
+      font-size: .875rem; color: var(--gray); line-height: 1.75;
+    }
+
+    .service-tags {
+      margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .service-tag {
+      font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
+      padding: 4px 10px; border: 1px solid rgba(201,168,76,.25);
+      color: var(--gold); opacity: .7;
+    }
+
+    /* ─── ERSTGESPRÄCH ───────────────────────────────────────────────── */
+    #erstgespraech { padding: 0 60px 120px; }
+
+    .consult-wrap {
+      max-width: 1100px; margin: 0 auto;
+      background: var(--black3);
+      border: 1px solid rgba(201,168,76,.25);
+      padding: 80px 72px;
+      position: relative; overflow: hidden;
+    }
+    .consult-wrap::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .consult-wrap::after {
+      content: 'Z';
+      position: absolute; right: -5%; bottom: -20%;
+      font-size: 35vw; font-weight: 900;
+      color: rgba(201,168,76,.03);
+      pointer-events: none; line-height: 1;
+    }
+
+    .consult-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    .consult-left .free-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--gold);
+      font-size: .6rem; font-weight: 800; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .consult-left h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.01em; line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .consult-left h2 .line-gold {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .consult-left p {
+      font-size: .875rem; color: var(--gray);
+      line-height: 1.8; margin-bottom: 32px;
+    }
+
+    .consult-note {
+      font-size: .7rem; letter-spacing: .06em;
+      color: var(--gray2); margin-top: 24px;
+    }
+    .consult-note strong { color: var(--gold); }
+
+    .social-buttons {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+
+    .social-btn {
+      display: flex; align-items: center; gap: 18px;
+      padding: 18px 24px;
+      border: 1px solid rgba(201,168,76,.2);
+      background: var(--black4);
+      transition: all .3s;
+      cursor: pointer;
+    }
+    .social-btn:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,.06);
+      transform: translateX(6px);
+    }
+
+    .social-btn-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .social-btn-icon svg { width: 20px; height: 20px; }
+
+    .social-btn.tiktok .social-btn-icon { background: #010101; border: 1px solid rgba(255,255,255,.1); }
+    .social-btn.instagram .social-btn-icon { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .social-btn.facebook .social-btn-icon { background: #1877f2; }
+
+    .social-btn-text { flex: 1; }
+    .social-btn-platform {
+      font-size: .72rem; font-weight: 800; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--white);
+    }
+    .social-btn-action {
+      font-size: .65rem; color: var(--gray); margin-top: 2px;
+      letter-spacing: .05em;
+    }
+
+    .social-btn-arrow {
+      color: var(--gold); font-size: 1rem; opacity: 0;
+      transition: opacity .3s, transform .3s;
+    }
+    .social-btn:hover .social-btn-arrow { opacity: 1; transform: translateX(4px); }
+
+    /* ─── ABLAUF ─────────────────────────────────────────────────────── */
+    #ablauf {
+      padding: 120px 60px;
+      background: var(--black2);
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .ablauf-grid {
+      max-width: 1100px; margin: 72px auto 0;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .step {
+      background: var(--black2);
+      padding: 48px 36px;
+      position: relative;
+      transition: background .3s;
+    }
+    .step:hover { background: var(--black3); }
+
+    .step-num {
+      font-size: 3.5rem; font-weight: 900; line-height: 1;
+      color: rgba(201,168,76,.15); margin-bottom: 28px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.35);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .step-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--gold); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .step h3 {
+      font-size: .85rem; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .step p { font-size: .8rem; color: var(--gray); line-height: 1.7; }
+
+    /* ─── WARUM ──────────────────────────────────────────────────────── */
+    #warum { padding: 120px 60px; }
+
+    .warum-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+
+    .warum-left h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.01em; line-height: 1.05;
+      margin: 16px 0 32px;
+    }
+
+    .warum-left p {
+      font-size: .875rem; color: var(--gray); line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .warum-contact {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .contact-row {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .8rem; color: var(--off-white);
+    }
+    .contact-row svg {
+      width: 16px; height: 16px;
+      stroke: var(--gold); fill: none; flex-shrink: 0;
+      stroke-width: 1.5;
+    }
+
+    .warum-features {
+      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .feature {
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--border2);
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: background .3s;
+    }
+    .feature:last-child { border-bottom: none; }
+    .feature:hover { background: var(--black3); }
+
+    .feature-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.35);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .feature-icon svg {
+      width: 16px; height: 16px;
+      stroke: var(--gold); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .feature-body h4 {
+      font-size: .8rem; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 6px;
+    }
+    .feature-body p { font-size: .8rem; color: var(--gray); line-height: 1.6; }
+
+    /* ─── CTA FINAL ──────────────────────────────────────────────────── */
+    #cta { padding: 0 60px 120px; }
+
+    .cta-box {
+      max-width: 1100px; margin: 0 auto;
+      padding: 100px 80px;
+      background: var(--black2);
+      border: 1px solid rgba(201,168,76,.3);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .cta-box::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.01em; line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .cta-box p {
+      font-size: .9rem; color: var(--gray); letter-spacing: .05em;
+      max-width: 500px; margin: 0 auto 48px;
+    }
+
+    .cta-actions {
       display: flex; flex-wrap: wrap; gap: 16px;
       justify-content: center;
     }
 
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 16px 36px; border-radius: 50px;
-      background: linear-gradient(135deg, var(--accent) 0%, #6d28d9 100%);
-      color: var(--white); font-weight: 700; font-size: 1rem;
-      text-decoration: none;
-      box-shadow: 0 0 40px var(--glow);
-      transition: all .3s;
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 60px var(--glow); }
-
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 16px 36px; border-radius: 50px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--white); font-weight: 600; font-size: 1rem;
-      text-decoration: none;
-      transition: all .3s;
-    }
-    .btn-secondary:hover { border-color: var(--accent2); background: rgba(139,92,246,0.1); }
-
-    /* ─── Stats row ─────────────────────────────────────────────────── */
-    .stats {
-      padding: 60px 40px;
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      position: relative; z-index: 1;
-    }
-
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent2), var(--gold2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .stat-label { font-size: .875rem; color: var(--gray); margin-top: 6px; }
-
-    /* ─── Section Base ──────────────────────────────────────────────── */
-    section { position: relative; z-index: 1; }
-
-    .container {
-      max-width: 1100px; margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .section-label {
-      display: inline-block;
-      font-size: .75rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--accent2);
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700; line-height: 1.15;
-      letter-spacing: -.025em;
-      margin-bottom: 16px;
-    }
-
-    .section-desc {
-      font-size: 1.05rem; color: var(--gray);
-      max-width: 560px; margin-bottom: 64px;
-    }
-
-    /* ─── Services ──────────────────────────────────────────────────── */
-    #leistungen { padding: 100px 0; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--r2);
-      padding: 36px 32px;
-      position: relative; overflow: hidden;
-      transition: all .35s;
-      cursor: default;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--accent) 0%, transparent 60%);
-      opacity: 0; transition: opacity .35s;
-    }
-    .service-card:hover { transform: translateY(-6px); border-color: var(--accent2); box-shadow: 0 20px 60px rgba(139,92,246,.25); }
-    .service-card:hover::before { opacity: .06; }
-
-    .service-icon {
-      width: 56px; height: 56px; border-radius: var(--r);
-      background: linear-gradient(135deg, var(--accent), #6d28d9);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px; font-size: 1.5rem;
-      box-shadow: 0 8px 20px var(--glow);
-      position: relative; z-index: 1;
-    }
-
-    .service-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem; font-weight: 700;
-      margin-bottom: 12px; position: relative; z-index: 1;
-    }
-
-    .service-text {
-      font-size: .9rem; color: var(--gray);
-      line-height: 1.7; position: relative; z-index: 1;
-    }
-
-    .service-tag {
-      display: inline-block; margin-top: 20px;
-      padding: 4px 12px; border-radius: 50px;
-      background: rgba(139,92,246,.15);
-      border: 1px solid rgba(139,92,246,.3);
-      font-size: .75rem; color: var(--accent3);
-      position: relative; z-index: 1;
-    }
-
-    /* ─── Free Consultation ─────────────────────────────────────────── */
-    #erstgespraech {
-      padding: 80px 0;
-    }
-
-    .consult-box {
-      background: linear-gradient(135deg, #1a0a2e 0%, #0f172a 50%, #1a0a1a 100%);
-      border: 1px solid rgba(139,92,246,.4);
-      border-radius: 32px;
-      padding: 64px 48px;
-      text-align: center;
-      position: relative; overflow: hidden;
-      box-shadow: 0 0 80px rgba(139,92,246,.2);
-    }
-
-    .consult-box::before {
-      content: '';
-      position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(139,92,246,.3) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .free-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 20px; border-radius: 50px;
-      background: linear-gradient(135deg, var(--gold), #f97316);
-      color: #000; font-weight: 800; font-size: .9rem;
-      margin-bottom: 28px; letter-spacing: .05em;
-      box-shadow: 0 8px 30px rgba(245,158,11,.4);
-    }
-
-    .consult-box h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 16px;
-    }
-
-    .consult-box p {
-      color: var(--gray); font-size: 1.05rem;
-      max-width: 580px; margin: 0 auto 48px;
-    }
-
-    .social-channels {
-      display: flex; flex-wrap: wrap; gap: 16px;
-      justify-content: center; margin-bottom: 40px;
-    }
-
-    .social-btn {
-      display: inline-flex; align-items: center; gap: 12px;
-      padding: 14px 28px; border-radius: 50px;
-      font-weight: 700; font-size: .95rem;
-      text-decoration: none; transition: all .3s;
-    }
-    .social-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
-
-    .social-btn.tiktok {
-      background: linear-gradient(135deg, #010101, #1a1a2e);
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 0 0 0 rgba(1,1,1,.5);
-    }
-    .social-btn.tiktok:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,255,255,.1); }
-
-    .social-btn.instagram {
-      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: var(--white);
-      border: none;
-      box-shadow: 0 0 0 0 rgba(225,48,108,.5);
-    }
-    .social-btn.instagram:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(225,48,108,.4); }
-
-    .social-btn.facebook {
-      background: linear-gradient(135deg, #1877f2, #0d5fcf);
-      color: var(--white);
-      border: none;
-      box-shadow: 0 0 0 0 rgba(24,119,242,.5);
-    }
-    .social-btn.facebook:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(24,119,242,.4); }
-
-    .consult-note {
-      font-size: .85rem; color: var(--gray2);
-    }
-    .consult-note strong { color: var(--accent3); }
-
-    /* ─── Process ────────────────────────────────────────────────────── */
-    #ablauf { padding: 100px 0; background: var(--bg2); }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px; margin-top: 64px;
-    }
-
-    .step {
-      position: relative;
-      padding: 32px 28px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--r2);
-      transition: all .3s;
-    }
-    .step:hover { border-color: var(--accent2); transform: translateY(-4px); }
-
-    .step-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem; font-weight: 900;
-      background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1; margin-bottom: 16px;
-      opacity: .4;
-    }
-
-    .step h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.1rem; font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .step p { font-size: .875rem; color: var(--gray); line-height: 1.6; }
-
-    /* ─── Why Us ─────────────────────────────────────────────────────── */
-    #warum { padding: 100px 0; }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px; margin-top: 64px;
-    }
-
-    .why-item {
-      display: flex; gap: 20px; align-items: flex-start;
-      padding: 28px; background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--r2);
-      transition: all .3s;
-    }
-    .why-item:hover { border-color: var(--accent2); }
-
-    .why-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      border-radius: 12px;
-      background: rgba(139,92,246,.15);
-      border: 1px solid rgba(139,92,246,.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .why-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .why-item p { font-size: .875rem; color: var(--gray); line-height: 1.6; }
-
-    /* ─── CTA Banner ─────────────────────────────────────────────────── */
-    #cta { padding: 80px 0; }
-
-    .cta-banner {
-      background: linear-gradient(135deg, var(--accent) 0%, #6d28d9 50%, #7c3aed 100%);
-      border-radius: 32px;
-      padding: 72px 48px;
-      text-align: center;
-      position: relative; overflow: hidden;
-      box-shadow: 0 20px 80px rgba(139,92,246,.4);
-    }
-
-    .cta-banner::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='white' opacity='0.15'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-
-    .cta-banner h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 16px; position: relative; z-index: 1;
-    }
-
-    .cta-banner p {
-      font-size: 1.05rem; color: rgba(255,255,255,.8);
-      max-width: 500px; margin: 0 auto 40px;
-      position: relative; z-index: 1;
-    }
-
-    .btn-white {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 16px 40px; border-radius: 50px;
-      background: var(--white);
-      color: var(--accent); font-weight: 800; font-size: 1.05rem;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(0,0,0,.2);
-      transition: all .3s;
-      position: relative; z-index: 1;
-    }
-    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.3); }
-
-    /* ─── Footer ─────────────────────────────────────────────────────── */
+    /* ─── FOOTER ─────────────────────────────────────────────────────── */
     footer {
-      padding: 60px 40px 40px;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      text-align: center;
+      background: var(--black);
+      border-top: 1px solid var(--border2);
+      padding: 80px 60px 48px;
     }
 
-    .footer-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.8rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent2), var(--gold2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: 16px; display: block;
+    .footer-top {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 64px; padding-bottom: 64px;
+      border-bottom: 1px solid var(--border2);
     }
 
-    .footer-tagline {
-      color: var(--gray); font-size: .9rem;
-      margin-bottom: 32px;
+    .footer-brand .brand-logo {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 20px;
+    }
+    .footer-brand .brand-name-wrap { line-height: 1; }
+    .footer-brand .brand-name {
+      font-size: .95rem; font-weight: 800; letter-spacing: .3em;
+      color: var(--white);
+    }
+    .footer-brand .brand-sub {
+      font-size: .55rem; font-weight: 400; letter-spacing: .35em;
+      color: var(--gold); margin-top: 3px;
+    }
+    .footer-brand p {
+      font-size: .8rem; color: var(--gray2); line-height: 1.7;
+      max-width: 280px;
     }
 
-    .footer-socials {
-      display: flex; justify-content: center; gap: 16px;
-      margin-bottom: 40px;
+    .footer-col h4 {
+      font-size: .65rem; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
     }
 
-    .footer-social {
-      width: 44px; height: 44px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--border);
-      text-decoration: none; color: var(--gray);
-      transition: all .3s; font-size: 1.1rem;
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: .8rem; color: var(--gray2);
+      transition: color .25s; letter-spacing: .04em;
     }
-    .footer-social:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-3px); }
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-contact { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .footer-contact-row {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .78rem; color: var(--gray2);
+    }
+    .footer-contact-row svg {
+      width: 14px; height: 14px;
+      stroke: var(--gold); fill: none; flex-shrink: 0;
+      stroke-width: 1.5;
+    }
 
     .footer-bottom {
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      font-size: .8rem; color: var(--gray2);
+      max-width: 1100px; margin: 0 auto;
+      padding-top: 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
     }
+
+    .footer-bottom p {
+      font-size: .7rem; color: var(--gray2); letter-spacing: .06em;
+    }
+
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(201,168,76,.25);
+      display: flex; align-items: center; justify-content: center;
+      transition: all .3s;
+    }
+    .footer-social svg { width: 16px; height: 16px; fill: var(--gray2); transition: fill .3s; }
+    .footer-social:hover { border-color: var(--gold); background: rgba(201,168,76,.06); }
+    .footer-social:hover svg { fill: var(--gold); }
+
+    /* ─── Scroll reveal ──────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0; transform: translateX(-28px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal-left.in { opacity: 1; transform: translateX(0); }
 
     /* ─── Responsive ─────────────────────────────────────────────────── */
-    @media (max-width: 700px) {
-      nav { padding: 16px 20px; }
-      .nav-cta { display: none; }
-      #hero { padding: 120px 20px 60px; }
-      .container { padding: 0 20px; }
-      .consult-box { padding: 40px 24px; }
-      .cta-banner { padding: 48px 24px; }
-      .stats { padding: 40px 20px; gap: 24px; }
-      footer { padding: 40px 20px 30px; }
+    @media (max-width: 1024px) {
+      nav { padding: 0 30px; }
+      .nav-links { display: none; }
+      #hero { padding: 120px 30px 80px; }
+      #zahlen { padding: 80px 30px; }
+      .zahlen-grid { grid-template-columns: repeat(2,1fr); }
+      #leistungen, #erstgespraech, #ablauf, #warum, #cta { padding-left: 30px; padding-right: 30px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .consult-inner { grid-template-columns: 1fr; gap: 48px; }
+      .ablauf-grid { grid-template-columns: repeat(2,1fr); }
+      .warum-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; padding: 0 30px 48px; }
+      footer { padding: 60px 30px 40px; }
+      .footer-bottom { padding: 0 30px; padding-top: 32px; }
+      .cta-box { padding: 64px 32px; }
     }
 
-    /* ─── Scroll reveal placeholder ─────────────────────────────────── */
-    .reveal {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible {
-      opacity: 1; transform: translateY(0);
+    @media (max-width: 600px) {
+      h1 { font-size: 2.8rem; }
+      .zahlen-grid { grid-template-columns: 1fr 1fr; }
+      .ablauf-grid { grid-template-columns: 1fr; }
+      .consult-wrap { padding: 48px 28px; }
+      .hero-scroll { display: none; }
     }
   </style>
 </head>
@@ -542,250 +751,403 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Zarnab<span>group</span></a>
-    <a href="#erstgespraech" class="nav-cta">
-      <span>Kostenloses Gespräch</span>
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="#" class="nav-brand">
+      <svg class="nav-logo-svg" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b6914"/>
+            <stop offset="40%" stop-color="#c9a84c"/>
+            <stop offset="70%" stop-color="#e8c97a"/>
+            <stop offset="100%" stop-color="#c9a84c"/>
+          </linearGradient>
+        </defs>
+        <!-- Z shape -->
+        <line x1="8" y1="4" x2="52" y2="4" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="52" y1="4" x2="8" y2="46" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="8" y1="46" x2="52" y2="46" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
+        <!-- G arm -->
+        <line x1="52" y1="4" x2="52" y2="25" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="52" y1="25" x2="36" y2="25" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-name">
+        <span class="top">ZARNAB</span>
+        <span class="bottom">GROUP</span>
+      </div>
     </a>
+
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#warum">Über uns</a></li>
+        <li><a href="#erstgespraech">Kontakt</a></li>
+      </ul>
+      <a href="#erstgespraech" class="nav-cta">Erstgespräch</a>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Deine Wachstums-Agentur
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>Social Media Marketing</span>
+        <div class="hero-eyebrow-line"></div>
       </div>
+
       <h1>
-        Wir bringen dein<br />
-        Business <span class="highlight">nach vorne.</span>
+        Werde<br />
+        <span class="line-gold">zum Star.</span>
       </h1>
-      <p class="hero-sub">
-        Social Media Betreuung, Sichtbarkeit, Kundengewinnung, Videoproduktion & professionelle Webseiten – alles aus einer Hand.
+
+      <p class="hero-tagline">
+        Deine Marke. &nbsp;<span>·</span>&nbsp; Deine Reichweite. &nbsp;<span>·</span>&nbsp; <span>Dein Erfolg.</span>
       </p>
+
       <div class="hero-actions">
-        <a href="#erstgespraech" class="btn-primary">
+        <a href="#erstgespraech" class="btn-gold">
           Kostenloses Erstgespräch
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#leistungen" class="btn-secondary">
+        <a href="#leistungen" class="btn-outline">
           Unsere Leistungen
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats reveal">
-    <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Maßgeschneiderte Strategie</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Leistungsbereiche</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Social Media Kanäle</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">0 €</div>
-      <div class="stat-label">Erstgespräch – kostenlos</div>
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <!-- doubled for seamless loop -->
+      <span class="ticker-item">Social Media Betreuung <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Sichtbarkeit & Reichweite <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Kundengewinnung <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Videoproduktion <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Webseiten <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Kostenloses Erstgespräch <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Social Media Betreuung <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Sichtbarkeit & Reichweite <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Kundengewinnung <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Videoproduktion <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Webseiten <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Kostenloses Erstgespräch <span class="ticker-dot"></span></span>
     </div>
   </div>
 
-  <!-- SERVICES -->
+  <!-- ZAHLEN -->
+  <section id="zahlen">
+    <div class="zahlen-grid reveal">
+      <div class="zahl">
+        <div class="zahl-num">100%</div>
+        <div class="zahl-label">Maßgeschneidert</div>
+      </div>
+      <div class="zahl">
+        <div class="zahl-num">4</div>
+        <div class="zahl-label">Leistungsbereiche</div>
+      </div>
+      <div class="zahl">
+        <div class="zahl-num">3+</div>
+        <div class="zahl-label">Social-Media-Kanäle</div>
+      </div>
+      <div class="zahl">
+        <div class="zahl-num">0 €</div>
+        <div class="zahl-label">Erstgespräch</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
   <section id="leistungen">
-    <div class="container">
-      <span class="section-label reveal">Was wir machen</span>
-      <h2 class="reveal">Unsere Leistungen</h2>
-      <p class="section-desc reveal">Alles, was dein Business braucht, um online zu wachsen und neue Kunden zu gewinnen.</p>
+    <div class="section-header reveal">
+      <span class="label">Was wir bieten</span>
+      <div class="divider"></div>
+      <h2>Unsere<br /><span class="gold">Leistungen</span></h2>
+    </div>
 
-      <div class="services-grid">
+    <div class="services-grid reveal">
 
-        <div class="service-card reveal">
-          <div class="service-icon">📱</div>
-          <div class="service-title">Social Media Betreuung</div>
-          <p class="service-text">
-            Wir übernehmen deine Social Media Kanäle komplett – von der Content-Planung bis zur täglichen Pflege. Dein Profil wächst, während du dich aufs Wesentliche konzentrierst.
-          </p>
-          <span class="service-tag">TikTok · Instagram · Facebook</span>
+      <div class="service">
+        <div class="service-num">01</div>
+        <div class="service-icon-circle">
+          <!-- Phone/Social icon -->
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none" style="fill:var(--gold)"/></svg>
         </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🎯</div>
-          <div class="service-title">Sichtbarkeit & Kundengewinnung</div>
-          <p class="service-text">
-            Wir sorgen dafür, dass deine Zielgruppe dich findet. Mit gezielten Strategien steigern wir deine Reichweite und verwandeln Follower in zahlende Kunden.
-          </p>
-          <span class="service-tag">Reichweite · Leads · Wachstum</span>
+        <h3>Social Media Betreuung</h3>
+        <p>Wir übernehmen deine Social-Media-Kanäle komplett – von der Content-Planung bis zur täglichen Pflege. Dein Profil wächst, während du dich auf dein Business konzentrierst.</p>
+        <div class="service-tags">
+          <span class="service-tag">TikTok</span>
+          <span class="service-tag">Instagram</span>
+          <span class="service-tag">Facebook</span>
+          <span class="service-tag">YouTube</span>
         </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🎬</div>
-          <div class="service-title">Videoproduktion</div>
-          <p class="service-text">
-            Professionelle Videos, die überzeugen – von der Idee bis zum fertigen Schnitt. Reels, Unternehmensvideos, Werbeclips und vieles mehr für maximale Aufmerksamkeit.
-          </p>
-          <span class="service-tag">Reels · Werbeclips · Unternehmensfilm</span>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">💻</div>
-          <div class="service-title">Webseiten</div>
-          <p class="service-text">
-            Moderne, schnelle und überzeugende Webseiten, die Besucher in Kunden umwandeln. Optimiert für alle Geräte und suchmaschinenfreundlich von Anfang an.
-          </p>
-          <span class="service-tag">Design · SEO · Performance</span>
-        </div>
-
       </div>
+
+      <div class="service">
+        <div class="service-num">02</div>
+        <div class="service-icon-circle">
+          <!-- Chart icon -->
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Sichtbarkeit & Kundengewinnung</h3>
+        <p>Mit gezielten Strategien erhöhen wir deine Reichweite und verwandeln Follower in zahlende Kunden. Mehr Reichweite, mehr Kunden, mehr Erfolg.</p>
+        <div class="service-tags">
+          <span class="service-tag">Mehr Reichweite</span>
+          <span class="service-tag">Leads</span>
+          <span class="service-tag">Community</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">03</div>
+        <div class="service-icon-circle">
+          <!-- Video camera icon -->
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3>Videoproduktion</h3>
+        <p>Professionelle Videos, die überzeugen – von der Idee bis zum fertigen Schnitt. Reels, Unternehmensvideos, Werbeclips und vieles mehr für maximale Aufmerksamkeit.</p>
+        <div class="service-tags">
+          <span class="service-tag">Reels</span>
+          <span class="service-tag">Werbeclips</span>
+          <span class="service-tag">Unternehmensfilm</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">04</div>
+        <div class="service-icon-circle">
+          <!-- Monitor icon -->
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Webseiten</h3>
+        <p>Moderne, schnelle und überzeugende Webseiten, die Besucher in Kunden umwandeln. Optimiert für alle Geräte und suchmaschinenfreundlich von Anfang an.</p>
+        <div class="service-tags">
+          <span class="service-tag">Design</span>
+          <span class="service-tag">SEO</span>
+          <span class="service-tag">Performance</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- FREE CONSULTATION -->
+  <!-- ERSTGESPRÄCH -->
   <section id="erstgespraech">
-    <div class="container">
-      <div class="consult-box reveal">
-        <span class="free-badge">🎁 100% kostenlos</span>
-        <h2>Schreib uns auf Social Media –<br />dein Erstgespräch ist gratis!</h2>
-        <p>
-          Melde dich über TikTok, Instagram oder Facebook und sichere dir dein <strong style="color:#fff">kostenloses Erstgespräch</strong>. Wir analysieren deine Situation und zeigen dir, wie wir gemeinsam wachsen können.
-        </p>
+    <div class="consult-wrap reveal">
+      <div class="consult-inner">
 
-        <div class="social-channels">
-
-          <!-- TikTok -->
-          <a href="#" class="social-btn tiktok">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.87 4.87 0 01-1.01-.07z"/>
-            </svg>
-            TikTok
-          </a>
-
-          <!-- Instagram -->
-          <a href="#" class="social-btn instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-            Instagram
-          </a>
-
-          <!-- Facebook -->
-          <a href="#" class="social-btn facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-            Facebook
-          </a>
-
+        <div class="consult-left">
+          <span class="free-badge">100 % Kostenlos</span>
+          <h2>
+            Schreib uns –<br />
+            <span class="line-gold">dein Erstgespräch</span><br />
+            ist gratis!
+          </h2>
+          <p>
+            Melde dich über TikTok, Instagram oder Facebook und sichere dir dein kostenloses Erstgespräch. Wir analysieren deine Situation und zeigen dir, wie wir gemeinsam wachsen können – ohne Risiko, ohne Verpflichtung.
+          </p>
+          <p class="consult-note">
+            Wir melden uns <strong>innerhalb von 24 Stunden</strong> bei dir zurück.
+          </p>
         </div>
 
-        <p class="consult-note">
-          Einfach eine Nachricht schicken – wir melden uns <strong>innerhalb von 24 Stunden</strong> bei dir!
-        </p>
+        <div class="consult-right">
+          <div class="social-buttons">
+
+            <a href="#" class="social-btn tiktok">
+              <div class="social-btn-icon">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.87 4.87 0 01-1.01-.07z"/>
+                </svg>
+              </div>
+              <div class="social-btn-text">
+                <div class="social-btn-platform">TikTok</div>
+                <div class="social-btn-action">Jetzt Nachricht schreiben</div>
+              </div>
+              <span class="social-btn-arrow">→</span>
+            </a>
+
+            <a href="#" class="social-btn instagram">
+              <div class="social-btn-icon">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </div>
+              <div class="social-btn-text">
+                <div class="social-btn-platform">Instagram</div>
+                <div class="social-btn-action">Jetzt Nachricht schreiben</div>
+              </div>
+              <span class="social-btn-arrow">→</span>
+            </a>
+
+            <a href="#" class="social-btn facebook">
+              <div class="social-btn-icon">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div class="social-btn-text">
+                <div class="social-btn-platform">Facebook</div>
+                <div class="social-btn-action">Jetzt Nachricht schreiben</div>
+              </div>
+              <span class="social-btn-arrow">→</span>
+            </a>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- ABLAUF -->
   <section id="ablauf">
-    <div class="container">
-      <span class="section-label reveal">Wie es läuft</span>
-      <h2 class="reveal">Dein Weg zum Erfolg</h2>
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-header reveal">
+        <span class="label">Wie es funktioniert</span>
+        <div class="divider"></div>
+        <h2>Dein Weg<br /><span class="gold">zum Erfolg</span></h2>
+      </div>
 
-      <div class="process-steps">
-        <div class="step reveal">
+      <div class="ablauf-grid reveal">
+
+        <div class="step">
           <div class="step-num">01</div>
-          <h3>Kostenlose Analyse</h3>
-          <p>Im unverbindlichen Erstgespräch schauen wir uns deine aktuelle Situation an und finden heraus, wo das größte Potenzial steckt.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>Erstgespräch</h3>
+          <p>Im kostenlosen Erstgespräch lernen wir dich kennen, analysieren deine Situation und zeigen dir das Potenzial.</p>
         </div>
-        <div class="step reveal">
+
+        <div class="step">
           <div class="step-num">02</div>
-          <h3>Strategie entwickeln</h3>
-          <p>Wir erstellen eine individuelle Strategie, die genau zu deinem Business, deiner Zielgruppe und deinen Zielen passt.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
+          <h3>Strategie</h3>
+          <p>Wir entwickeln eine maßgeschneiderte Strategie, die genau zu deinem Business und deiner Zielgruppe passt.</p>
         </div>
-        <div class="step reveal">
+
+        <div class="step">
           <div class="step-num">03</div>
-          <h3>Umsetzung starten</h3>
-          <p>Unser Team übernimmt die komplette Umsetzung – von Content Creation über Videoproduktion bis hin zur Webseite.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <h3>Umsetzung</h3>
+          <p>Wir übernehmen die komplette Umsetzung – von Content Creation über Videoproduktion bis hin zur Webseite.</p>
         </div>
-        <div class="step reveal">
+
+        <div class="step">
           <div class="step-num">04</div>
-          <h3>Wachstum erleben</h3>
-          <p>Verfolge live, wie deine Reichweite und Kundenanfragen wachsen. Wir berichten transparent über alle Ergebnisse.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>Wachstum</h3>
+          <p>Verfolge, wie deine Reichweite und Kundenanfragen steigen. Wir liefern transparente Berichte über alle Ergebnisse.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
+  <!-- WARUM -->
   <section id="warum">
-    <div class="container">
-      <span class="section-label reveal">Warum Zarnabgroup</span>
-      <h2 class="reveal">Was uns auszeichnet</h2>
+    <div class="warum-inner">
 
-      <div class="why-grid">
-        <div class="why-item reveal">
-          <div class="why-icon">⚡</div>
-          <div>
-            <h3>Alles aus einer Hand</h3>
-            <p>Social Media, Video, Web – du brauchst keinen zweiten Ansprechpartner. Wir liefern alles aus einer Quelle.</p>
+      <div class="warum-left reveal-left">
+        <span class="label">Warum Zarnab Group</span>
+        <div class="divider"></div>
+        <h2>Wir bringen Ihr Unternehmen<br /><span class="gold">nach vorne.</span></h2>
+        <p>
+          Strategisches Social Media Marketing, das Ihre Marke stärkt, Ihre Reichweite erhöht und echte Ergebnisse liefert. Individuell auf Ihr Unternehmen zugeschnitten.
+        </p>
+
+        <div class="warum-contact">
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            <span>+49 1521 2100465</span>
           </div>
-        </div>
-        <div class="why-item reveal">
-          <div class="why-icon">🎯</div>
-          <div>
-            <h3>Ergebnisorientiert</h3>
-            <p>Wir messen was zählt: neue Kunden, mehr Reichweite, mehr Umsatz. Keine leeren Versprechen – nur echte Resultate.</p>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>zarnab-group@outlook.de</span>
           </div>
-        </div>
-        <div class="why-item reveal">
-          <div class="why-icon">🤝</div>
-          <div>
-            <h3>Persönliche Betreuung</h3>
-            <p>Du hast immer einen festen Ansprechpartner. Kurze Kommunikationswege, schnelle Reaktion, echte Partnerschaft.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <div class="why-icon">🚀</div>
-          <div>
-            <h3>Schneller Einstieg</h3>
-            <p>Kein endloser Onboarding-Prozess. Wir können schnell starten und erste Ergebnisse sind oft schon nach kurzer Zeit sichtbar.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <div class="why-icon">💡</div>
-          <div>
-            <h3>Kreative Ideen</h3>
-            <p>Wir denken über den Tellerrand – frischer Content, ungewöhnliche Kampagnen, Ideen, die wirklich auffallen.</p>
-          </div>
-        </div>
-        <div class="why-item reveal">
-          <div class="why-icon">🔒</div>
-          <div>
-            <h3>Transparenz & Vertrauen</h3>
-            <p>Wir berichten offen über Zahlen und Ergebnisse. Du weißt immer, was wir tun und warum – keine Blackbox.</p>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span>www.zarnabgroup.de</span>
           </div>
         </div>
       </div>
+
+      <div class="warum-features reveal">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="feature-body">
+            <h4>Mehr Reichweite</h4>
+            <p>Sichtbarkeit erhöhen und Ihre Zielgruppe genau dort erreichen, wo sie aktiv ist.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="feature-body">
+            <h4>Mehr Kunden</h4>
+            <p>Gezielte Inhalte, die Vertrauen schaffen und Interessenten zu zahlenden Kunden machen.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="feature-body">
+            <h4>Mehr Erfolg</h4>
+            <p>Nachhaltig wachsen durch langfristige Strategien und kontinuierliche Optimierung.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4 4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-4-4"/><path d="M18 3a4 4 0 010 8"/></svg>
+          </div>
+          <div class="feature-body">
+            <h4>Alles aus einer Hand</h4>
+            <p>Social Media, Video, Web – ein Ansprechpartner, eine Vision, ein gemeinsames Ziel.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 11h2a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7a2 2 0 012-2h2"/><rect x="9" y="2" width="6" height="11" rx="1"/></svg>
+          </div>
+          <div class="feature-body">
+            <h4>Ihr Partner</h4>
+            <p>Persönliche Betreuung, kurze Kommunikationswege und echte Partnerschaft auf Augenhöhe.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- CTA BANNER -->
+  <!-- CTA FINAL -->
   <section id="cta">
-    <div class="container">
-      <div class="cta-banner reveal">
-        <h2>Bereit, durchzustarten?</h2>
-        <p>Schreib uns heute noch und sichere dir dein kostenloses Erstgespräch. Ohne Risiko, ohne Verpflichtung.</p>
-        <a href="#erstgespraech" class="btn-white">
+    <div class="cta-box reveal">
+      <span class="label" style="justify-content:center;display:flex;">Lassen Sie uns gemeinsam wachsen</span>
+      <div class="divider center long" style="margin:20px auto 32px;"></div>
+      <h2>Bereit,<br /><span class="gold">durchzustarten?</span></h2>
+      <p>Schreib uns heute noch und sichere dir dein kostenloses Erstgespräch. Ohne Risiko. Ohne Verpflichtung.</p>
+      <div class="cta-actions">
+        <a href="#erstgespraech" class="btn-gold">
           Jetzt Erstgespräch sichern
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:+4915212100465" class="btn-outline">
+          +49 1521 2100465
         </a>
       </div>
     </div>
@@ -793,48 +1155,94 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">Zarnabgroup</span>
-    <p class="footer-tagline">Social Media · Videoproduktion · Webseiten</p>
+    <div class="footer-top">
 
-    <div class="footer-socials">
-      <a href="#" class="footer-social" title="TikTok">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.87 4.87 0 01-1.01-.07z"/>
-        </svg>
-      </a>
-      <a href="#" class="footer-social" title="Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-        </svg>
-      </a>
-      <a href="#" class="footer-social" title="Facebook">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
-      </a>
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <svg width="32" height="27" viewBox="0 0 60 50" fill="none">
+            <defs>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#8b6914"/>
+                <stop offset="50%" stop-color="#c9a84c"/>
+                <stop offset="100%" stop-color="#e8c97a"/>
+              </linearGradient>
+            </defs>
+            <line x1="8" y1="4" x2="52" y2="4" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
+            <line x1="52" y1="4" x2="8" y2="46" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
+            <line x1="8" y1="46" x2="52" y2="46" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
+            <line x1="52" y1="4" x2="52" y2="25" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
+            <line x1="52" y1="25" x2="36" y2="25" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-name-wrap">
+            <div class="brand-name">ZARNAB</div>
+            <div class="brand-sub">GROUP</div>
+          </div>
+        </div>
+        <p>Deine Marke. Deine Reichweite. Dein Erfolg. Strategisches Social Media Marketing für nachhaltiges Wachstum.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#leistungen">Social Media Betreuung</a></li>
+          <li><a href="#leistungen">Sichtbarkeit & Reichweite</a></li>
+          <li><a href="#leistungen">Kundengewinnung</a></li>
+          <li><a href="#leistungen">Videoproduktion</a></li>
+          <li><a href="#leistungen">Webseiten</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-row">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            +49 1521 2100465
+          </div>
+          <div class="footer-contact-row">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            zarnab-group@outlook.de
+          </div>
+          <div class="footer-contact-row">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            www.zarnabgroup.de
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Zarnabgroup · Alle Rechte vorbehalten</p>
+      <p>&copy; 2025 Zarnab Group – Social Media Marketing. Alle Rechte vorbehalten.</p>
+      <div class="footer-socials">
+        <!-- TikTok -->
+        <a href="#" class="footer-social" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.87 4.87 0 01-1.01-.07z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="footer-social" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" class="footer-social" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
 
   <script>
     // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
+          e.target.classList.add('in');
+          io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Smooth active nav on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navCta = document.querySelector('.nav-cta');
+    document.querySelectorAll('.reveal, .reveal-left').forEach(el => io.observe(el));
   </script>
 
 </body>
