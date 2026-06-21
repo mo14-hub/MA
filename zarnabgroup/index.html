@@ -943,6 +943,196 @@
       .svc:last-child { border-bottom: none; }
     }
 
+    /* ─── Hamburger ──────────────────────────────────────────────────── */
+    .hamburger {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; gap: 6px;
+      width: 44px; height: 44px; padding: 0;
+      cursor: pointer; background: none; border: none;
+      position: relative; z-index: 1001; flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block; width: 26px; height: 1.5px;
+      background: var(--white);
+      transition: transform .32s cubic-bezier(.4,0,.2,1),
+                  opacity .32s, width .32s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ─── Nav overlay menu ───────────────────────────────────────────── */
+    .nav-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: #050505;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity .42s ease, visibility .42s;
+    }
+    .nav-overlay::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .nav-overlay.open { opacity: 1; visibility: visible; }
+
+    .overlay-main { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+
+    .overlay-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 7vw, 4.5rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.02em; color: var(--white);
+      text-decoration: none; display: block;
+      padding: 6px 24px;
+      opacity: 0; transform: translateY(32px);
+      transition: color .22s ease, opacity .48s ease, transform .48s ease;
+    }
+    .nav-overlay.open .overlay-link { opacity: 1; transform: translateY(0); }
+    .overlay-link:hover { color: var(--gold); }
+    .overlay-main .overlay-link:nth-child(1) { transition-delay:.03s; }
+    .overlay-main .overlay-link:nth-child(2) { transition-delay:.09s; }
+    .overlay-main .overlay-link:nth-child(3) { transition-delay:.15s; }
+    .overlay-main .overlay-link:nth-child(4) { transition-delay:.21s; }
+    .overlay-main .overlay-link:nth-child(5) { transition-delay:.27s; }
+
+    .overlay-sep {
+      width: 48px; height: 1px;
+      background: rgba(201,168,76,.3);
+      margin: 24px 0;
+      opacity: 0; transition: opacity .5s .33s;
+    }
+    .nav-overlay.open .overlay-sep { opacity: 1; }
+
+    .overlay-sub { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .overlay-link-sm {
+      font-size: clamp(.7rem, 1.5vw, .85rem);
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: .2em; color: var(--gray2);
+      text-decoration: none; display: block; padding: 5px 24px;
+      opacity: 0; transform: translateY(16px);
+      transition: color .22s ease, opacity .45s ease, transform .45s ease;
+    }
+    .nav-overlay.open .overlay-link-sm { opacity: 1; transform: translateY(0); }
+    .overlay-sub .overlay-link-sm:nth-child(1) { transition-delay: .38s; }
+    .overlay-sub .overlay-link-sm:nth-child(2) { transition-delay: .44s; }
+    .overlay-link-sm:hover { color: var(--gold); }
+
+    .overlay-brand {
+      position: absolute; bottom: 36px;
+      font-size: .62rem; color: var(--gray2);
+      letter-spacing: .18em; text-transform: uppercase;
+      opacity: 0; transition: opacity .5s .48s;
+    }
+    .nav-overlay.open .overlay-brand { opacity: 1; }
+
+    /* ─── REFERENZEN ─────────────────────────────────────────────────── */
+    #referenzen { padding: 120px 60px; background: var(--black2); }
+
+    .ref-cards {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border2);
+      max-width: 1100px; margin: 0 auto;
+    }
+    .ref-card {
+      background: var(--black2); padding: 44px 40px;
+      position: relative; overflow: hidden; transition: background .3s;
+    }
+    .ref-card:hover { background: var(--black3); }
+    .ref-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transition: width .45s ease;
+    }
+    .ref-card:hover::before { width: 100%; }
+
+    .ref-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .58rem; font-weight: 800; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      border: 1px solid rgba(201,168,76,.3); padding: 5px 12px;
+      margin-bottom: 24px;
+    }
+    .ref-badge-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #22c55e; animation: sdot 1.6s ease infinite;
+    }
+    .ref-company {
+      font-size: 1.15rem; font-weight: 900;
+      color: var(--white); margin-bottom: 4px; line-height: 1.2;
+    }
+    .ref-industry {
+      font-size: .7rem; color: var(--gray2);
+      letter-spacing: .08em; margin-bottom: 28px;
+    }
+    .ref-stats-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      padding: 20px 0; margin-bottom: 20px;
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+    }
+    .ref-stat { padding: 0 12px; }
+    .ref-stat:first-child { padding-left: 0; border-right: 1px solid var(--border2); }
+    .ref-stat:last-child { padding-right: 0; }
+    .ref-stat-num {
+      font-size: 2rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ref-stat-label {
+      font-size: .6rem; color: var(--gray2);
+      letter-spacing: .08em; margin-top: 5px;
+    }
+    .ref-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .ref-tag {
+      font-size: .58rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 3px 9px;
+      background: rgba(201,168,76,.06);
+      border: 1px solid rgba(201,168,76,.2); color: var(--gold);
+    }
+    .ref-result { font-size: .78rem; color: var(--gray); line-height: 1.7; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────────────── */
+    .tcards {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border2);
+      max-width: 1100px; margin: 0 auto;
+    }
+    .tcard {
+      background: var(--black2); padding: 44px 40px;
+      position: relative; transition: background .3s;
+    }
+    .tcard:hover { background: var(--black3); }
+    .tcard-ql {
+      font-size: 5.5rem; line-height: .5;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: .25; display: block; margin-bottom: 20px;
+    }
+    .tcard-stars { display: flex; gap: 3px; margin-bottom: 18px; }
+    .tcard-stars span { color: var(--gold); font-size: .9rem; }
+    .tcard-text {
+      font-size: .825rem; color: var(--gray);
+      line-height: 1.88; font-style: italic; margin-bottom: 28px;
+    }
+    .tcard-line { width: 32px; height: 1px; background: rgba(201,168,76,.4); margin-bottom: 18px; }
+    .tcard-author {
+      font-size: .72rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--off-white);
+    }
+    .tcard-co { font-size: .66rem; color: var(--gold); letter-spacing: .08em; margin-top: 5px; }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      #referenzen { padding: 80px 24px; }
+      .ref-cards, .tcards { grid-template-columns: 1fr; }
+    }
+
     /* ─── Custom cursor ──────────────────────────────────────────────── */
     body { cursor: none; }
     .c-dot {
@@ -1122,6 +1312,23 @@
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <!-- NAV OVERLAY MENU -->
+  <div class="nav-overlay" id="navOverlay">
+    <div class="overlay-main">
+      <a href="#"              class="overlay-link" data-mc>Startseite</a>
+      <a href="#referenzen"    class="overlay-link" data-mc>Referenzen</a>
+      <a href="#preise"        class="overlay-link" data-mc>Angebote</a>
+      <a href="#warum"         class="overlay-link" data-mc>Über mich</a>
+      <a href="#erstgespraech" class="overlay-link" data-mc>Kontakt</a>
+    </div>
+    <div class="overlay-sep"></div>
+    <div class="overlay-sub">
+      <a href="impressum.html"    class="overlay-link-sm">Impressum</a>
+      <a href="datenschutz.html"  class="overlay-link-sm">Datenschutzerklärung</a>
+    </div>
+    <span class="overlay-brand">© 2025 Zarnab Group · Hamburg</span>
+  </div>
+
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-brand">
@@ -1149,14 +1356,10 @@
     </a>
 
     <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#preise">Preise</a></li>
-        <li><a href="#ablauf">Ablauf</a></li>
-        <li><a href="#warum">Über uns</a></li>
-        <li><a href="#erstgespraech">Kontakt</a></li>
-      </ul>
       <a href="#erstgespraech" class="nav-cta">Erstgespräch</a>
+      <button class="hamburger" id="menuBtn" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -1544,6 +1747,135 @@
       </div><!-- /services-alt -->
     </div><!-- /price-group -->
 
+  </section>
+
+  <!-- REFERENZEN -->
+  <section id="referenzen">
+    <div style="max-width:1100px;margin:0 auto;">
+
+      <div class="section-header reveal">
+        <span class="label">Referenzen &amp; Ergebnisse</span>
+        <div class="divider"></div>
+        <h2>Echte Ergebnisse<br /><span class="gold">für echte Betriebe.</span></h2>
+        <p style="font-size:.875rem;color:var(--gray);margin-top:12px;max-width:480px;line-height:1.8;">Social Media, Webseiten und Strategie – hier siehst du, was wir gemeinsam mit unseren Kunden erreicht haben.</p>
+      </div>
+
+      <!-- Result cards -->
+      <div class="ref-cards reveal">
+
+        <div class="ref-card">
+          <span class="ref-badge"><span class="ref-badge-dot"></span>Social Media Referenz</span>
+          <div class="ref-company">Barista &amp; Brot</div>
+          <div class="ref-industry">Café · Hamburg-Eimsbüttel</div>
+          <div class="ref-stats-row">
+            <div class="ref-stat">
+              <div class="ref-stat-num">280K+</div>
+              <div class="ref-stat-label">Aufrufe generiert</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-num">3.400</div>
+              <div class="ref-stat-label">Neue Follower</div>
+            </div>
+          </div>
+          <div class="ref-tags">
+            <span class="ref-tag">TikTok</span>
+            <span class="ref-tag">Instagram</span>
+            <span class="ref-tag">Content</span>
+          </div>
+          <p class="ref-result">Über 280.000 Aufrufe und 3.400 neue Follower in 3 Monaten durch professionelle Videos und gezielte Strategie.</p>
+        </div>
+
+        <div class="ref-card">
+          <span class="ref-badge"><span class="ref-badge-dot"></span>Social Media Referenz</span>
+          <div class="ref-company">Elite Cutz</div>
+          <div class="ref-industry">Barbershop · Hamburg-Altona</div>
+          <div class="ref-stats-row">
+            <div class="ref-stat">
+              <div class="ref-stat-num">+60%</div>
+              <div class="ref-stat-label">Mehr Neukunden</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-num">150K+</div>
+              <div class="ref-stat-label">Aufrufe</div>
+            </div>
+          </div>
+          <div class="ref-tags">
+            <span class="ref-tag">TikTok</span>
+            <span class="ref-tag">Instagram</span>
+            <span class="ref-tag">Facebook</span>
+          </div>
+          <p class="ref-result">Neukundenquote um 60% gesteigert. Tägliche Buchungsanfragen direkt über Instagram – innerhalb von 8 Wochen.</p>
+        </div>
+
+        <div class="ref-card">
+          <span class="ref-badge"><span class="ref-badge-dot"></span>Webseite &amp; Social Media</span>
+          <div class="ref-company">FitZone Hamburg</div>
+          <div class="ref-industry">Fitnessstudio · Hamburg-Mitte</div>
+          <div class="ref-stats-row">
+            <div class="ref-stat">
+              <div class="ref-stat-num">+80%</div>
+              <div class="ref-stat-label">Mehr Anfragen</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-num">2.600</div>
+              <div class="ref-stat-label">Neue Follower</div>
+            </div>
+          </div>
+          <div class="ref-tags">
+            <span class="ref-tag">Instagram</span>
+            <span class="ref-tag">Facebook</span>
+            <span class="ref-tag">Webseite</span>
+          </div>
+          <p class="ref-result">Neue Webseite + Social Media Betreuung: 80% mehr Mitgliedschaftsanfragen und 2.600 neue Follower in 2 Monaten.</p>
+        </div>
+
+      </div><!-- /ref-cards -->
+
+      <!-- Testimonials -->
+      <div class="price-divider reveal" style="max-width:none;margin:72px 0 48px;">
+        <div class="price-divider-line"></div>
+        <span class="price-divider-label">Kundenstimmen</span>
+        <div class="price-divider-line"></div>
+      </div>
+
+      <div class="tcards reveal">
+
+        <div class="tcard">
+          <span class="tcard-ql">"</span>
+          <div class="tcard-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="tcard-text">„Zarnab hat unser Social Media komplett übernommen und innerhalb von 3 Monaten haben wir täglich neue Kunden, die durch TikTok auf uns aufmerksam wurden. Die Videos sind professionell, die Strategie passt perfekt und die Kommunikation ist unkompliziert. Definitiv eine Zusammenarbeit, die sich lohnt."</p>
+          <div class="tcard-line"></div>
+          <div class="tcard-author">Kemal A.</div>
+          <div class="tcard-co">Barista &amp; Brot · Hamburg</div>
+        </div>
+
+        <div class="tcard">
+          <span class="tcard-ql">"</span>
+          <div class="tcard-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="tcard-text">„Seit der Zusammenarbeit mit Zarnabgroup sind unsere Buchungen um 60% gestiegen. Die Reels sehen aus wie bei großen Marken – aber bezahlbar. Man merkt sofort, dass hier jemand mit Erfahrung und echtem Verständnis für unsere Zielgruppe arbeitet."</p>
+          <div class="tcard-line"></div>
+          <div class="tcard-author">Thomas B.</div>
+          <div class="tcard-co">Elite Cutz · Hamburg-Altona</div>
+        </div>
+
+        <div class="tcard">
+          <span class="tcard-ql">"</span>
+          <div class="tcard-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="tcard-text">„Wir hatten vorher 400 Follower – nach 2 Monaten über 3.000. Und die neue Webseite hat unsere Anfragen explodieren lassen. Zarnabgroup versteht Social Media auf einem anderen Level. Ich empfehle sie jedem Unternehmer weiter."</p>
+          <div class="tcard-line"></div>
+          <div class="tcard-author">Melanie K.</div>
+          <div class="tcard-co">FitZone Hamburg · Geschäftsführerin</div>
+        </div>
+
+      </div><!-- /tcards -->
+
+    </div>
   </section>
 
   <!-- ERSTGESPRÄCH -->
@@ -1997,6 +2329,35 @@
       });
     }, { threshold:.08, rootMargin:'0px 0px -50px 0px' });
     document.querySelectorAll('.reveal,.reveal-left').forEach(el => io.observe(el));
+
+    /* ── Hamburger menu ─────────────────────────────────────────── */
+    const menuBtn   = document.getElementById('menuBtn');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function openMenu() {
+      menuBtn.classList.add('open');
+      navOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      menuBtn.setAttribute('aria-label', 'Menü schließen');
+    }
+    function closeMenu() {
+      menuBtn.classList.remove('open');
+      navOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      menuBtn.setAttribute('aria-label', 'Menü öffnen');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      navOverlay.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    document.querySelectorAll('[data-mc]').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
   </script>
 
 </body>
