@@ -943,6 +943,117 @@
       .svc:last-child { border-bottom: none; }
     }
 
+    /* ─── Custom cursor ──────────────────────────────────────────────── */
+    body { cursor: none; }
+    .c-dot {
+      position: fixed; left: 0; top: 0; z-index: 9999;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold); pointer-events: none;
+      will-change: transform; margin: -3.5px 0 0 -3.5px;
+    }
+    .c-ring {
+      position: fixed; left: 0; top: 0; z-index: 9998;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.45); pointer-events: none;
+      will-change: transform; margin: -18px 0 0 -18px;
+      transition: width .25s ease, height .25s ease, border-color .25s ease, opacity .25s;
+    }
+    .c-ring.big { width: 54px; height: 54px; border-color: var(--gold); margin: -27px 0 0 -27px; }
+    @media (hover: none) { .c-dot, .c-ring { display: none; } body { cursor: auto; } }
+
+    /* ─── Scroll progress bar ────────────────────────────────────────── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+      z-index: 9997; transition: width .08s linear;
+    }
+
+    /* ─── Typewriter ─────────────────────────────────────────────────── */
+    #typewriter {
+      display: inline-block;
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    /* ─── WhatsApp float ─────────────────────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 32px; right: 32px; z-index: 500;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,.4);
+      transition: transform .3s ease;
+      text-decoration: none;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-pulse {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 2px solid #25d366;
+      animation: wapulse 2.4s ease-out infinite;
+    }
+    @keyframes wapulse {
+      0%   { transform: scale(1); opacity: .7; }
+      100% { transform: scale(1.85); opacity: 0; }
+    }
+    .wa-label {
+      position: absolute; right: 70px; top: 50%;
+      transform: translateY(-50%);
+      background: var(--black3); border: 1px solid var(--border);
+      padding: 7px 14px; white-space: nowrap;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      color: var(--off-white);
+      opacity: 0; transition: opacity .25s; pointer-events: none;
+    }
+    .wa-float:hover .wa-label { opacity: 1; }
+
+    /* ─── Social proof toast ─────────────────────────────────────────── */
+    .sp-toast {
+      position: fixed; bottom: 108px; left: 28px; z-index: 480;
+      max-width: 295px;
+      background: rgba(12,12,12,0.97);
+      border: 1px solid rgba(201,168,76,.22);
+      border-left: 3px solid var(--gold);
+      padding: 14px 16px;
+      display: flex; align-items: flex-start; gap: 12px;
+      backdrop-filter: blur(16px);
+      transform: translateX(calc(-100% - 48px));
+      transition: transform .5s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
+    .sp-toast.visible { transform: translateX(0); }
+    .sp-avatar {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 900; color: var(--black);
+    }
+    .sp-name { font-size: .75rem; font-weight: 700; color: var(--off-white); }
+    .sp-msg  { font-size: .68rem; color: var(--gray); margin-top: 3px; }
+    .sp-time { font-size: .6rem; color: var(--gold); margin-top: 5px; letter-spacing: .08em; }
+
+    /* ─── Spots counter ──────────────────────────────────────────────── */
+    .spots-bar {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 18px; margin-top: 24px;
+      background: rgba(201,168,76,.05);
+      border: 1px solid rgba(201,168,76,.2);
+    }
+    .spots-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e; flex-shrink: 0;
+      animation: sdot 1.6s ease infinite;
+    }
+    @keyframes sdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.7)} }
+    .spots-text { font-size: .68rem; color: var(--off-white); letter-spacing: .05em; }
+    .spots-text strong { color: var(--gold); }
+
+    /* ─── Gold particle canvas ───────────────────────────────────────── */
+    #gold-canvas {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9990;
+      width: 100%; height: 100%;
+    }
+
     /* ─── Scroll reveal ──────────────────────────────────────────────── */
     .reveal {
       opacity: 0; transform: translateY(28px);
@@ -983,6 +1094,33 @@
   </style>
 </head>
 <body>
+
+  <!-- Custom cursor -->
+  <div class="c-dot" id="cDot"></div>
+  <div class="c-ring" id="cRing"></div>
+
+  <!-- Scroll progress -->
+  <div id="progress-bar"></div>
+
+  <!-- Gold particles canvas -->
+  <canvas id="gold-canvas"></canvas>
+
+  <!-- Social proof toast -->
+  <div class="sp-toast" id="spToast">
+    <div class="sp-avatar" id="spInit">M</div>
+    <div>
+      <div class="sp-name" id="spName">Mehmet · Hamburg</div>
+      <div class="sp-msg"  id="spMsg">hat sich gerade angemeldet</div>
+      <div class="sp-time">Gerade eben</div>
+    </div>
+  </div>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/4915212100465" class="wa-float" target="_blank" rel="noopener" title="WhatsApp">
+    <div class="wa-pulse"></div>
+    <span class="wa-label">Kostenlos anfragen</span>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <!-- NAV -->
   <nav>
@@ -1032,7 +1170,7 @@
 
       <h1>
         Werde<br />
-        <span class="line-gold">zum Star.</span>
+        <span class="line-gold" id="typewriter">zum Star.</span>
       </h1>
 
       <p class="hero-tagline">
@@ -1426,6 +1564,10 @@
           <p class="consult-note">
             Wir melden uns <strong>innerhalb von 24 Stunden</strong> bei dir zurück.
           </p>
+          <div class="spots-bar">
+            <div class="spots-dot"></div>
+            <div class="spots-text">Nur noch <strong>3 kostenlose</strong> Erstgespräche diese Woche</div>
+          </div>
         </div>
 
         <div class="consult-right">
@@ -1705,17 +1847,156 @@
   </footer>
 
   <script>
-    // Scroll reveal
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    /* ── Custom cursor ───────────────────────────────────────────── */
+    const cDot  = document.getElementById('cDot');
+    const cRing = document.getElementById('cRing');
+    let mx=0,my=0,dx=0,dy=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    (function loop(){
+      dx += (mx-dx)*.88; dy += (my-dy)*.88;
+      rx += (mx-rx)*.11; ry += (my-ry)*.11;
+      cDot.style.transform  = `translate(${dx}px,${dy}px)`;
+      cRing.style.transform = `translate(${rx}px,${ry}px)`;
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button,.pkg-cta,.svc-cta,.btn-gold,.btn-outline,.nav-cta').forEach(el => {
+      el.addEventListener('mouseenter', () => cRing.classList.add('big'));
+      el.addEventListener('mouseleave', () => cRing.classList.remove('big'));
+    });
 
-    document.querySelectorAll('.reveal, .reveal-left').forEach(el => io.observe(el));
+    /* ── Scroll progress bar ─────────────────────────────────────── */
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      progressBar.style.width = (pct * 100) + '%';
+    }, { passive: true });
+
+    /* ── Typewriter hero text ────────────────────────────────────── */
+    const twEl    = document.getElementById('typewriter');
+    const twWords = ['zum Star.', 'zur Marke.', 'zum Experten.', 'zum Phänomen.', 'zur Legende.'];
+    let twIdx = 0;
+    setInterval(() => {
+      twEl.style.opacity   = '0';
+      twEl.style.transform = 'translateY(14px)';
+      setTimeout(() => {
+        twIdx = (twIdx + 1) % twWords.length;
+        twEl.textContent   = twWords[twIdx];
+        twEl.style.opacity = '1';
+        twEl.style.transform = 'translateY(0)';
+      }, 360);
+    }, 2600);
+
+    /* ── Count-up stats ──────────────────────────────────────────── */
+    function countUp(el, target, fmt) {
+      const dur = 2200, start = performance.now();
+      const run = now => {
+        const t = Math.min((now-start)/dur, 1);
+        const e = 1 - Math.pow(1-t, 4);
+        el.textContent = fmt(Math.round(target * e));
+        if (t < 1) requestAnimationFrame(run);
+      };
+      requestAnimationFrame(run);
+    }
+    const zahlenSec = document.getElementById('zahlen');
+    const statsObs = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      const n = zahlenSec.querySelectorAll('.zahl-num');
+      countUp(n[0], 100, v => v + '%');
+      countUp(n[1], 4,   v => v + '');
+      countUp(n[2], 3,   v => v + '+');
+      countUp(n[3], 0,   v => '0 €');
+      statsObs.disconnect();
+    }, { threshold: .35 });
+    if (zahlenSec) statsObs.observe(zahlenSec);
+
+    /* ── Gold particle burst ─────────────────────────────────────── */
+    const canvas = document.getElementById('gold-canvas');
+    const ctx    = canvas.getContext('2d');
+    function resizeCanvas() { canvas.width=innerWidth; canvas.height=innerHeight; }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    const GOLDS = ['#c9a84c','#e8c97a','#8b6914','#f5d78e','#a07830'];
+    const parts  = [];
+    function burst(x, y, n) {
+      for (let i=0; i<n; i++) {
+        const angle = Math.random()*Math.PI*2;
+        const speed = 1.5 + Math.random()*6;
+        parts.push({
+          x, y,
+          vx: Math.cos(angle)*speed,
+          vy: Math.sin(angle)*speed - 1.5,
+          r:  2 + Math.random()*4,
+          life: 1,
+          color: GOLDS[Math.floor(Math.random()*GOLDS.length)],
+          shape: Math.random() > .5 ? 'circle' : 'star'
+        });
+      }
+    }
+    (function drawLoop() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for (let i=parts.length-1; i>=0; i--) {
+        const p = parts[i];
+        p.x  += p.vx; p.y += p.vy;
+        p.vy += .18; p.life -= .022;
+        if (p.life <= 0) { parts.splice(i,1); continue; }
+        ctx.globalAlpha = p.life;
+        ctx.fillStyle   = p.color;
+        if (p.shape === 'circle') {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r*p.life, 0, Math.PI*2);
+          ctx.fill();
+        } else {
+          const s = p.r * p.life * 1.5;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.life * 8);
+          ctx.fillRect(-s/2, -s/2, s, s);
+          ctx.restore();
+        }
+      }
+      requestAnimationFrame(drawLoop);
+    })();
+    document.querySelectorAll('.btn-gold,.pkg-cta-gold,.nav-cta,.wa-float').forEach(btn => {
+      btn.addEventListener('click', e => burst(e.clientX, e.clientY, 36));
+      btn.addEventListener('mouseenter', e => {
+        const r = btn.getBoundingClientRect();
+        burst(r.left+r.width/2, r.top+r.height/2, 12);
+      });
+    });
+
+    /* ── Social proof toasts ─────────────────────────────────────── */
+    const toastData = [
+      { i:'M', name:'Mehmet · Hamburg',    msg:'hat sich gerade angemeldet ✓' },
+      { i:'S', name:'Sarah · München',     msg:'fragt nach dem Business-Paket' },
+      { i:'J', name:'Jonas · Berlin',      msg:'hat das Erstgespräch gebucht ✓' },
+      { i:'A', name:'Ayşe · Frankfurt',    msg:'hat sich gerade gemeldet ✓' },
+      { i:'L', name:'Lena · Düsseldorf',   msg:'interessiert sich für Webseite' },
+      { i:'K', name:'Kevin · Stuttgart',   msg:'fragt nach App-Entwicklung' },
+      { i:'N', name:'Nadia · Köln',        msg:'hat das Erstgespräch gebucht ✓' },
+    ];
+    let tIdx = 0;
+    const toast   = document.getElementById('spToast');
+    const tInit   = document.getElementById('spInit');
+    const tName   = document.getElementById('spName');
+    const tMsg    = document.getElementById('spMsg');
+    function showToast() {
+      const d = toastData[tIdx++ % toastData.length];
+      tInit.textContent = d.i;
+      tName.textContent = d.name;
+      tMsg.textContent  = d.msg;
+      toast.classList.add('visible');
+      setTimeout(() => toast.classList.remove('visible'), 4200);
+    }
+    setTimeout(showToast, 5000);
+    setInterval(showToast, 13000);
+
+    /* ── Scroll reveal ───────────────────────────────────────────── */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold:.08, rootMargin:'0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal,.reveal-left').forEach(el => io.observe(el));
   </script>
 
 </body>
