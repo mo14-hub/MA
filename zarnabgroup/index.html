@@ -1281,9 +1281,103 @@
       .consult-wrap { padding: 48px 28px; }
       .hero-scroll { display: none; }
     }
+
+    /* ─── Preloader ──────────────────────────────────────────────────── */
+    #preloader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: #030303;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0;
+      transition: opacity .9s cubic-bezier(.4,0,.2,1) .1s,
+                  visibility .9s cubic-bezier(.4,0,.2,1) .1s;
+    }
+    #preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .pl-logo {
+      width: 200px; height: auto;
+      opacity: 0; transform: scale(.84) translateY(18px);
+      transition: opacity 1.1s cubic-bezier(.2,.8,.2,1),
+                  transform 1.1s cubic-bezier(.2,.8,.2,1);
+      mix-blend-mode: screen;
+    }
+    #preloader.ready .pl-logo { opacity: 1; transform: scale(1) translateY(0); }
+    .pl-line {
+      width: 0; height: 1px; margin-top: 32px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transition: width 1.5s cubic-bezier(.4,0,.2,1) .55s;
+    }
+    #preloader.ready .pl-line { width: 200px; }
+    .pl-label {
+      font-size: .48rem; letter-spacing: .5em; text-transform: uppercase;
+      color: var(--gold); margin-top: 18px;
+      opacity: 0; transition: opacity .8s ease 1.15s;
+    }
+    #preloader.ready .pl-label { opacity: 1; }
+
+    /* ─── Film grain ─────────────────────────────────────────────────── */
+    .grain {
+      position: fixed; inset: -40%; z-index: 9990; pointer-events: none;
+      width: 180%; height: 180%; opacity: .032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.74' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      animation: grain-shift .85s steps(1) infinite;
+    }
+    @keyframes grain-shift {
+      0%   { transform: translate(0,0); }
+      11%  { transform: translate(-1%,-2%); }
+      22%  { transform: translate(2%,1%); }
+      33%  { transform: translate(-1%,2%); }
+      44%  { transform: translate(1%,-1%); }
+      55%  { transform: translate(-2%,2%); }
+      66%  { transform: translate(2%,-2%); }
+      77%  { transform: translate(-1%,1%); }
+      88%  { transform: translate(1%,2%); }
+      100% { transform: translate(-2%,-1%); }
+    }
+
+    /* ─── Nav logo image ─────────────────────────────────────────────── */
+    .nav-logo-img {
+      height: 54px; width: auto;
+      mix-blend-mode: screen;
+      opacity: .96;
+      transition: opacity .3s;
+    }
+    .nav-logo-img:hover { opacity: .75; }
+
+    /* ─── Hero logo watermark ────────────────────────────────────────── */
+    .hero-logo-bg {
+      position: absolute;
+      right: 3%; top: 50%;
+      transform: translateY(-50%);
+      width: clamp(280px, 36vw, 560px);
+      opacity: .06;
+      pointer-events: none; user-select: none;
+      filter: blur(.4px);
+      will-change: transform;
+    }
+    @media (max-width: 900px) { .hero-logo-bg { display: none; } }
+
+    /* ─── Footer brand logo ──────────────────────────────────────────── */
+    .footer-brand-logo {
+      width: 110px; height: auto;
+      mix-blend-mode: screen;
+      opacity: .88;
+      margin-bottom: 16px;
+    }
+
+    /* ─── Magnetic btn override ──────────────────────────────────────── */
+    .btn-gold, .nav-cta { transition: transform .18s ease, background .3s, color .3s, border-color .3s; }
   </style>
 </head>
 <body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img class="pl-logo" src="logo.png" alt="Zarnab Group" />
+    <div class="pl-line"></div>
+    <span class="pl-label">Hamburg · Social Media Marketing</span>
+  </div>
+
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- Custom cursor -->
   <div class="c-dot" id="cDot"></div>
@@ -1332,27 +1426,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-brand">
-      <svg class="nav-logo-svg" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#8b6914"/>
-            <stop offset="40%" stop-color="#c9a84c"/>
-            <stop offset="70%" stop-color="#e8c97a"/>
-            <stop offset="100%" stop-color="#c9a84c"/>
-          </linearGradient>
-        </defs>
-        <!-- Z shape -->
-        <line x1="8" y1="4" x2="52" y2="4" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
-        <line x1="52" y1="4" x2="8" y2="46" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
-        <line x1="8" y1="46" x2="52" y2="46" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
-        <!-- G arm -->
-        <line x1="52" y1="4" x2="52" y2="25" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
-        <line x1="52" y1="25" x2="36" y2="25" stroke="url(#g1)" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-      <div class="nav-name">
-        <span class="top">ZARNAB</span>
-        <span class="bottom">GROUP</span>
-      </div>
+      <img class="nav-logo-img" src="logo.png" alt="Zarnab Group" />
     </a>
 
     <div class="nav-right">
@@ -1365,6 +1439,7 @@
 
   <!-- HERO -->
   <section id="hero">
+    <img id="hero-logo-bg" class="hero-logo-bg" src="logo.png" alt="" aria-hidden="true" />
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span>Social Media Marketing</span>
@@ -2105,26 +2180,7 @@
     <div class="footer-top">
 
       <div class="footer-brand">
-        <div class="brand-logo">
-          <svg width="32" height="27" viewBox="0 0 60 50" fill="none">
-            <defs>
-              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#8b6914"/>
-                <stop offset="50%" stop-color="#c9a84c"/>
-                <stop offset="100%" stop-color="#e8c97a"/>
-              </linearGradient>
-            </defs>
-            <line x1="8" y1="4" x2="52" y2="4" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
-            <line x1="52" y1="4" x2="8" y2="46" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
-            <line x1="8" y1="46" x2="52" y2="46" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
-            <line x1="52" y1="4" x2="52" y2="25" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
-            <line x1="52" y1="25" x2="36" y2="25" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
-          </svg>
-          <div class="brand-name-wrap">
-            <div class="brand-name">ZARNAB</div>
-            <div class="brand-sub">GROUP</div>
-          </div>
-        </div>
+        <img src="logo.png" alt="Zarnab Group" class="footer-brand-logo" />
         <p>Deine Marke. Deine Reichweite. Dein Erfolg. Strategisches Social Media Marketing für nachhaltiges Wachstum.</p>
       </div>
 
@@ -2329,6 +2385,39 @@
       });
     }, { threshold:.08, rootMargin:'0px 0px -50px 0px' });
     document.querySelectorAll('.reveal,.reveal-left').forEach(el => io.observe(el));
+
+    /* ── Preloader ───────────────────────────────────────────────── */
+    const preloader = document.getElementById('preloader');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => preloader.classList.add('ready'));
+    const hidePL = () => {
+      preloader.classList.add('done');
+      document.body.style.overflow = '';
+    };
+    if (document.readyState === 'complete') {
+      setTimeout(hidePL, 2700);
+    } else {
+      window.addEventListener('load', () => setTimeout(hidePL, 2700));
+    }
+
+    /* ── Hero logo parallax ──────────────────────────────────────── */
+    const heroBgImg = document.getElementById('hero-logo-bg');
+    if (heroBgImg) {
+      window.addEventListener('scroll', () => {
+        heroBgImg.style.transform = `translateY(calc(-50% + ${window.scrollY * .11}px))`;
+      }, { passive: true });
+    }
+
+    /* ── Magnetic buttons ────────────────────────────────────────── */
+    document.querySelectorAll('.btn-gold, .nav-cta').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width  / 2) * .22;
+        const y = (e.clientY - r.top  - r.height / 2) * .22;
+        btn.style.transform = `translate(${x}px,${y}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
 
     /* ── Hamburger menu ─────────────────────────────────────────── */
     const menuBtn   = document.getElementById('menuBtn');
