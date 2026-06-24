@@ -1379,6 +1379,75 @@
 
     /* ─── Magnetic btn override ──────────────────────────────────────── */
     .btn-gold, .nav-cta { transition: transform .18s ease, background .3s, color .3s, border-color .3s; }
+
+    /* ─── Gold cursor spotlight glow ────────────────────────────────── */
+    .spotlight {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(
+        circle 420px at var(--sx, -999px) var(--sy, -999px),
+        rgba(201,168,76,.055) 0%, transparent 70%
+      );
+    }
+
+    /* ─── Hero gold blob ─────────────────────────────────────────────── */
+    .hero-blob {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(360px, 55vw, 680px);
+      height: clamp(360px, 55vw, 680px);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      background: radial-gradient(circle at 40% 40%, var(--gold) 0%, var(--gold-dark) 50%, transparent 100%);
+      opacity: .038; pointer-events: none; z-index: 0;
+      animation: blob-morph 14s ease-in-out infinite;
+      will-change: border-radius;
+    }
+    @keyframes blob-morph {
+      0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      20%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+      40%  { border-radius: 40% 60% 30% 70% / 40% 40% 70% 30%; }
+      60%  { border-radius: 70% 30% 50% 60% / 30% 70% 40% 60%; }
+      80%  { border-radius: 30% 70% 60% 40% / 70% 40% 50% 30%; }
+      100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    }
+
+    /* ─── Scroll progress circle ─────────────────────────────────────── */
+    .scroll-circle {
+      position: fixed; bottom: 108px; right: 22px; z-index: 500;
+      width: 46px; height: 46px;
+      cursor: pointer; opacity: 0;
+      transition: opacity .4s ease;
+    }
+    .scroll-circle.vis { opacity: 1; }
+    .scroll-circle svg { width: 46px; height: 46px; transform: rotate(-90deg); }
+    .sc-track { fill: none; stroke: rgba(201,168,76,.18); stroke-width: 3; }
+    .sc-fill  { fill: none; stroke: var(--gold); stroke-width: 3;
+                stroke-linecap: round; stroke-dasharray: 113; stroke-dashoffset: 113;
+                transition: stroke-dashoffset .12s linear; }
+    .sc-up {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; color: var(--gold); pointer-events: none;
+    }
+
+    /* ─── Page transition curtain ────────────────────────────────────── */
+    #curtain {
+      position: fixed; inset: 0; z-index: 100000;
+      background: #030303;
+      display: flex; align-items: center; justify-content: center;
+      transform: translateY(100%);
+      transition: transform .7s cubic-bezier(.76,0,.24,1);
+      pointer-events: none;
+    }
+    #curtain.down { transform: translateY(0); pointer-events: all; }
+    #curtain img { width: 140px; opacity: 0; transition: opacity .4s ease .25s; mix-blend-mode: screen; }
+    #curtain.down img { opacity: 1; }
+
+    /* ─── 3D tilt cards ──────────────────────────────────────────────── */
+    .price-card, .ref-card, .tcard {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .5s ease;
+    }
   </style>
 </head>
 <body>
@@ -1392,6 +1461,23 @@
 
   <!-- Film grain overlay -->
   <div class="grain" aria-hidden="true"></div>
+
+  <!-- Gold cursor spotlight -->
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <!-- Page transition curtain -->
+  <div id="curtain">
+    <img src="https://raw.githubusercontent.com/mo14-hub/MA/claude/zarnabgroup-website-w1vrj4/zarnabgroup/logo.png" alt="" />
+  </div>
+
+  <!-- Scroll progress circle -->
+  <div class="scroll-circle" id="scrollCircle" title="Nach oben">
+    <svg viewBox="0 0 36 36">
+      <circle class="sc-track" cx="18" cy="18" r="18"/>
+      <circle class="sc-fill"  cx="18" cy="18" r="18" id="scFill"/>
+    </svg>
+    <span class="sc-up">↑</span>
+  </div>
 
   <!-- Custom cursor -->
   <div class="c-dot" id="cDot"></div>
@@ -1453,6 +1539,7 @@
 
   <!-- HERO -->
   <section id="hero">
+    <div class="hero-blob" aria-hidden="true"></div>
     <img id="hero-logo-bg" class="hero-logo-bg" src="https://raw.githubusercontent.com/mo14-hub/MA/claude/zarnabgroup-website-w1vrj4/zarnabgroup/logo.png" alt="" aria-hidden="true" />
     <div class="hero-content">
       <div class="hero-eyebrow">
@@ -1461,7 +1548,7 @@
       </div>
 
       <h1>
-        Werde<br />
+        <span id="hero-word">Werde</span><br />
         <span class="line-gold" id="typewriter">zum Star.</span>
       </h1>
 
@@ -2414,6 +2501,67 @@
     } else {
       window.addEventListener('load', () => setTimeout(hidePL, 3000));
     }
+
+    /* ── Gold cursor spotlight ───────────────────────────────────── */
+    document.addEventListener('mousemove', e => {
+      document.documentElement.style.setProperty('--sx', e.clientX + 'px');
+      document.documentElement.style.setProperty('--sy', e.clientY + 'px');
+    }, { passive: true });
+
+    /* ── Text scramble on hero word ──────────────────────────────── */
+    function scramble(el, finalText, delay) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#@$%&';
+      const total = 40;
+      let f = 0;
+      setTimeout(() => {
+        const iv = setInterval(() => {
+          el.textContent = finalText.split('').map((ch, i) =>
+            f / total > i / finalText.length ? ch
+              : chars[Math.floor(Math.random() * chars.length)]
+          ).join('');
+          if (++f > total) { el.textContent = finalText; clearInterval(iv); }
+        }, 30);
+      }, delay);
+    }
+    scramble(document.getElementById('hero-word'), 'WERDE', 3200);
+
+    /* ── 3D card tilt ────────────────────────────────────────────── */
+    document.querySelectorAll('.price-card, .ref-card, .tcard').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - .5;
+        const y = (e.clientY - r.top)  / r.height - .5;
+        card.style.transition = 'transform .06s';
+        card.style.transform = `perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) scale(1.025)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform .55s ease';
+        card.style.transform  = '';
+      });
+    });
+
+    /* ── Scroll progress circle ──────────────────────────────────── */
+    const scCircle = document.getElementById('scrollCircle');
+    const scFill   = document.getElementById('scFill');
+    const scCircumference = 113;
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      scFill.style.strokeDashoffset = scCircumference - pct * scCircumference;
+      scCircle.classList.toggle('vis', window.scrollY > 300);
+    }, { passive: true });
+    scCircle.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Page transition curtain ─────────────────────────────────── */
+    const curtain = document.getElementById('curtain');
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('tel') || href.startsWith('mailto') || link.target === '_blank') return;
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        curtain.classList.add('down');
+        setTimeout(() => { window.location.href = href; }, 750);
+      });
+    });
 
     /* ── Hero logo parallax ──────────────────────────────────────── */
     const heroBgImg = document.getElementById('hero-logo-bg');
