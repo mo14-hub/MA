@@ -1,385 +1,464 @@
-<!DOCTYPE html><html lang="de"><head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Datenschutz – Amiri Import &amp; Export</title>
-  <meta name="description" content="Datenschutzerklärung – Amiri Import &amp; Export, Ali Amiri, Billstraße 106, 20539 Hamburg. DSGVO-konforme Datenschutzinformationen."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung – Zarnab Group</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    /* ── Legal Content ── */
-    .legal-section {
-      padding: 80px 0 100px;
-      background: var(--dark);
+    :root {
+      --black:     #080808;
+      --black2:    #0e0e0e;
+      --black3:    #141414;
+      --gold:      #c9a84c;
+      --gold-light:#e8c97a;
+      --gold-dark: #8b6914;
+      --white:     #ffffff;
+      --off-white: #e8e8e8;
+      --gray:      #888888;
+      --gray2:     #555555;
+      --border:    rgba(201,168,76,0.2);
+      --border2:   rgba(201,168,76,0.08);
     }
-    .legal-wrap {
-      max-width: 700px;
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
     }
-    .legal-h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem; font-weight: 600;
-      color: var(--gold); margin-bottom: 16px; margin-top: 48px;
-      letter-spacing: -.01em;
+    a { color: var(--gold); text-decoration: none; transition: opacity .2s; }
+    a:hover { opacity: .75; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0 60px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-    .legal-h2:first-child { margin-top: 0; }
-    .legal-rule {
-      border: none;
-      border-top: 1px solid var(--hairline);
-      margin: 40px 0 0;
+    .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-name { display: flex; flex-direction: column; line-height: 1; }
+    .nav-name .top { font-size: .95rem; font-weight: 800; letter-spacing: .3em; color: var(--white); }
+    .nav-name .bottom { font-size: .55rem; font-weight: 400; letter-spacing: .35em; color: var(--gold); margin-top: 3px; }
+    .nav-back {
+      font-size: .7rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gray);
+      display: flex; align-items: center; gap: 8px;
+      transition: color .25s; text-decoration: none;
     }
-    .legal-wrap p {
-      color: var(--text-muted);
-      font-size: 14.5px;
-      line-height: 1.85;
-      margin-bottom: 14px;
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero {
+      padding: 140px 60px 80px;
+      border-bottom: 1px solid var(--border2);
+      position: relative; overflow: hidden;
     }
-    .legal-wrap p:last-child { margin-bottom: 0; }
-    .legal-wrap ul {
+    .page-hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .page-hero .label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.02em; line-height: .95;
+    }
+    .page-hero h1 span {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 24px 0;
+    }
+    .page-hero .stand { font-size: .75rem; color: var(--gray2); letter-spacing: .08em; }
+
+    /* TOC */
+    .toc {
+      max-width: 860px; margin: 0 auto;
+      padding: 48px 60px 0;
+    }
+    .toc-title {
+      font-size: .65rem; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .toc-list {
+      display: flex; flex-direction: column; gap: 6px;
       list-style: none;
-      margin-bottom: 14px;
-    }
-    .legal-wrap ul li {
-      color: var(--text-muted);
-      font-size: 14.5px;
-      line-height: 1.85;
-      padding: 4px 0 4px 20px;
-      position: relative;
-    }
-    .legal-wrap ul li::before {
-      content: '—';
-      position: absolute; left: 0;
-      color: var(--gold); font-size: 12px;
-    }
-    .legal-wrap a {
-      color: var(--gold);
-      text-decoration: underline;
-      text-decoration-color: rgba(200,169,110,.35);
-      transition: color .25s, text-decoration-color .25s;
-    }
-    .legal-wrap a:hover {
-      color: var(--gold-light);
-      text-decoration-color: var(--gold-light);
-    }
-    .legal-notice {
-      margin-top: 48px; padding: 24px 28px;
-      background: var(--dark2);
-      border: 1px solid var(--hairline);
+      padding: 20px 24px;
+      background: var(--black3);
+      border: 1px solid var(--border2);
       border-left: 3px solid var(--gold);
     }
-    .legal-notice p {
-      margin-bottom: 0;
-      font-size: 13.5px;
-      color: var(--text-muted);
+    .toc-list li a {
+      font-size: .78rem; color: var(--gray);
+      letter-spacing: .04em; transition: color .2s;
     }
-    .legal-stand {
-      margin-top: 52px; padding-top: 28px;
-      border-top: 1px solid var(--hairline);
-      font-size: 12px; color: var(--text-dim);
-      letter-spacing: .3px;
+    .toc-list li a:hover { color: var(--gold); }
+    .toc-list li::before {
+      content: attr(data-num) ' ';
+      color: var(--gold); font-weight: 700; margin-right: 6px;
+      font-size: .7rem;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px; margin: 0 auto;
+      padding: 64px 60px 120px;
+    }
+
+    .block {
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border2);
+      scroll-margin-top: 100px;
+    }
+    .block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .block h2 {
+      font-size: .75rem; font-weight: 800; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .block h2 .num {
+      font-size: .65rem; color: var(--gray2);
+    }
+
+    .block h3 {
+      font-size: .8rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--off-white);
+      margin: 28px 0 12px;
+    }
+
+    .block p {
+      font-size: .875rem; color: var(--gray);
+      line-height: 1.9; margin-bottom: 14px;
+    }
+    .block p:last-child { margin-bottom: 0; }
+
+    .block ul {
+      list-style: none; padding: 0;
+      margin: 12px 0;
+    }
+    .block ul li {
+      font-size: .875rem; color: var(--gray);
+      line-height: 1.8; padding-left: 16px;
+      position: relative;
+    }
+    .block ul li::before {
+      content: '·'; position: absolute; left: 0;
+      color: var(--gold); font-size: 1.2rem; line-height: 1.5;
+    }
+
+    .info-box {
+      background: var(--black3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .info-box p { font-size: .825rem; color: var(--gray); margin: 0; line-height: 1.7; }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border2);
+      margin: 20px 0;
+    }
+    .right-item {
+      background: var(--black3);
+      padding: 20px 20px;
+      transition: background .2s;
+    }
+    .right-item:hover { background: var(--black2); }
+    .right-item h4 {
+      font-size: .72rem; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--off-white);
+      margin-bottom: 8px;
+    }
+    .right-item p { font-size: .78rem; color: var(--gray2); line-height: 1.6; }
+
+    /* FOOTER */
+    .page-footer {
+      background: var(--black2);
+      border-top: 1px solid var(--border2);
+      padding: 40px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .page-footer p { font-size: .7rem; color: var(--gray2); letter-spacing: .06em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: .7rem; color: var(--gray2); letter-spacing: .08em;
+      text-transform: uppercase; font-weight: 600;
+      transition: color .25s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .page-hero { padding: 120px 24px 60px; }
+      .toc { padding: 40px 24px 0; }
+      .content { padding: 48px 24px 80px; }
+      .page-footer { padding: 32px 24px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Scroll-Progress-Balken -->
-<div id="progress"></div>
-
-
-<!-- ═══════════════════════════════════════════
-     NAVIGATION
-═══════════════════════════════════════════ -->
-<nav id="nav">
-  <a href="index.html" class="nav-brand">
-    <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="18" stroke-width="1.3"/>
-      <path d="M11 15.5H27.5" stroke-width="1.9" stroke-linecap="round"/>
-      <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M29 24.5H12.5" stroke-width="1.9" stroke-linecap="round"/>
-      <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span class="nav-name">
-      <b>Amiri</b> Import &amp; Export
-      <small>Groß- &amp; Außenhandel · Hamburg</small>
-    </span>
-  </a>
-
-  <div style="display:flex;align-items:center;gap:36px;">
-    <nav class="nav-links">
-      <a href="leistungen.html">Leistungen</a>
-      <a href="produkte.html">Produkte</a>
-      <a href="ueber-uns.html">Über Uns</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-    <a href="kontakt.html" class="nav-btn">
-      <span class="dot"></span>Jetzt anfragen
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="27" viewBox="0 0 60 50" fill="none">
+        <defs>
+          <linearGradient id="gnav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b6914"/>
+            <stop offset="50%" stop-color="#c9a84c"/>
+            <stop offset="100%" stop-color="#e8c97a"/>
+          </linearGradient>
+        </defs>
+        <line x1="8" y1="4" x2="52" y2="4" stroke="url(#gnav)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="52" y1="4" x2="8" y2="46" stroke="url(#gnav)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="8" y1="46" x2="52" y2="46" stroke="url(#gnav)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="52" y1="4" x2="52" y2="25" stroke="url(#gnav)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="52" y1="25" x2="36" y2="25" stroke="url(#gnav)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-name">
+        <span class="top">ZARNAB</span>
+        <span class="bottom">GROUP</span>
+      </div>
     </a>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-
-<!-- ═══════════════════════════════════════════
-     MOBILE DRAWER NAVIGATION
-═══════════════════════════════════════════ -->
-<div id="drawer-overlay" role="presentation"></div>
-<aside id="drawer" aria-label="Navigation" role="dialog" aria-modal="true">
-  <div class="drawer-head">
-    <span class="drawer-logo"><b>Amiri</b> Import &amp; Export</span>
-    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">✕</button>
-  </div>
-  <nav class="drawer-nav">
-    <a href="leistungen.html"><em>Leistungen</em><span>01</span></a>
-    <a href="produkte.html"><em>Produkte</em><span>02</span></a>
-    <a href="ueber-uns.html"><em>Über Uns</em><span>03</span></a>
-    <a href="kontakt.html"><em>Kontakt</em><span>04</span></a>
+    <a href="index.html" class="nav-back">
+      ← Zurück zur Startseite
+    </a>
   </nav>
-  <div class="drawer-footer">
-    <a href="kontakt.html" class="drawer-cta">Jetzt anfragen →</a>
-    <p class="drawer-addr">📍 Billstraße 106 · 20539 Hamburg</p>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <span class="label">Rechtliche Informationen</span>
+    <h1>Daten<span>schutz</span></h1>
+    <div class="divider"></div>
+    <p class="stand">Stand: Juni 2025 &nbsp;·&nbsp; DSGVO-konform</p>
   </div>
-</aside>
 
-
-<!-- ═══════════════════════════════════════════
-     PAGE HERO
-═══════════════════════════════════════════ -->
-<div class="page-hero">
-  <div class="container">
-    <div class="page-hero-inner reveal">
-      <div class="kicker">
-        <span class="kicker-rule"></span>
-        <span class="kicker-num">—</span>
-        <span class="kicker-label">Rechtliches</span>
-      </div>
-      <h1 class="page-hero-title">Datenschutzerklärung</h1>
-    </div>
+  <!-- TOC -->
+  <div class="toc">
+    <p class="toc-title">Inhalt</p>
+    <ul class="toc-list">
+      <li data-num="1."><a href="#verantwortlicher">Verantwortlicher</a></li>
+      <li data-num="2."><a href="#grundsaetze">Grundsätze der Datenverarbeitung</a></li>
+      <li data-num="3."><a href="#website">Datenerfassung auf unserer Website</a></li>
+      <li data-num="4."><a href="#kontakt">Kontaktaufnahme</a></li>
+      <li data-num="5."><a href="#social-media">Social Media</a></li>
+      <li data-num="6."><a href="#hosting">Hosting</a></li>
+      <li data-num="7."><a href="#cookies">Cookies</a></li>
+      <li data-num="8."><a href="#rechte">Ihre Rechte</a></li>
+      <li data-num="9."><a href="#beschwerden">Beschwerderecht</a></li>
+      <li data-num="10."><a href="#aenderungen">Änderungen dieser Datenschutzerklärung</a></li>
+    </ul>
   </div>
-</div>
 
+  <!-- CONTENT -->
+  <div class="content">
 
-<!-- ═══════════════════════════════════════════
-     DATENSCHUTZ CONTENT
-═══════════════════════════════════════════ -->
-<section class="legal-section">
-  <div class="container">
-    <div class="legal-wrap reveal">
-
-      <h2 class="legal-h2">1. Verantwortlicher</h2>
-      <p>
-        Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer
-        nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
-      </p>
-      <p>
-        Amiri Import &amp; Export<br/>
-        Inhaber: Ali Amiri<br/>
-        Billstraße 106<br/>
-        20539 Hamburg<br/>
-        Deutschland<br/>
-        E-Mail: <a href="mailto:info@amiri-import-export.de">info@amiri-import-export.de</a>
-      </p>
-
-      <hr class="legal-rule"/>
-
-      <h2 class="legal-h2">2. Erhebung und Speicherung personenbezogener Daten</h2>
-
-      <p><strong style="color:var(--text);font-size:14.5px;">Kontaktformular</strong></p>
-      <p>
-        Wenn Sie uns über das Kontaktformular auf dieser Website eine Anfrage zukommen
-        lassen, werden die von Ihnen angegebenen Daten (Name bzw. Firmenname, E-Mail-Adresse,
-        Betreff und Nachrichteninhalt) bei uns gespeichert, um Ihre Anfrage zu bearbeiten und
-        bei Anschlussfragen darauf zurückgreifen zu können. Diese Daten geben wir nicht ohne
-        Ihre Einwilligung weiter.
-      </p>
-      <p>
-        Rechtsgrundlage für die Verarbeitung dieser Daten ist Art. 6 Abs. 1 lit. b DSGVO,
-        sofern Ihre Anfrage mit der Erfüllung eines Vertrages zusammenhängt, oder Art. 6
-        Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Bearbeitung Ihrer
-        Anfrage.
-      </p>
-
-      <p><strong style="color:var(--text);font-size:14.5px;">Server-Log-Dateien</strong></p>
-      <p>
-        Beim Besuch dieser Website erhebt und speichert der Hosting-Anbieter automatisch
-        Informationen in sogenannten Server-Log-Dateien. Dazu gehören: Browsertyp und
-        Browserversion, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden
-        Rechners, Uhrzeit der Serveranfrage sowie die IP-Adresse. Diese Daten sind nicht
-        anderen Datenquellen zuführbar und werden nach 7 Tagen automatisch gelöscht.
-        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
-      </p>
-
-      <hr class="legal-rule"/>
-
-      <h2 class="legal-h2">3. Cookies</h2>
-      <p>
-        Diese Website verwendet keine Tracking-Cookies und setzt keine Analyse- oder
-        Werbecookies ein. Es werden ausschließlich technisch notwendige Cookies verwendet,
-        sofern dies für den Betrieb der Website erforderlich ist.
-      </p>
-
-      <hr class="legal-rule"/>
-
-      <h2 class="legal-h2">4. Weitergabe von Daten</h2>
-      <p>
-        Eine Weitergabe Ihrer persönlichen Daten an Dritte zu anderen als den im Folgenden
-        aufgeführten Zwecken findet nicht statt. Wir geben Ihre persönlichen Daten nur an
-        Dritte weiter, wenn:
-      </p>
-      <ul>
-        <li>Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,</li>
-        <li>dies zur Abwicklung eines Vertrages mit Ihnen erforderlich ist,</li>
-        <li>eine gesetzliche Verpflichtung zur Weitergabe besteht,</li>
-        <li>die Weitergabe zur Geltendmachung oder Verteidigung von Rechtsansprüchen erforderlich ist.</li>
-      </ul>
-
-      <hr class="legal-rule"/>
-
-      <h2 class="legal-h2">5. Ihre Rechte nach DSGVO (Art. 15–21)</h2>
-      <p>
-        Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden
-        personenbezogenen Daten:
-      </p>
-      <ul>
-        <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
-        <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
-        <li>Recht auf Löschung (Art. 17 DSGVO)</li>
-        <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-        <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
-        <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
-      </ul>
-      <p>
-        Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die
-        Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Zuständige
-        Aufsichtsbehörde in Hamburg ist der Hamburgische Beauftragte für Datenschutz und
-        Informationsfreiheit (HmbBfDI).
-      </p>
-
-      <hr class="legal-rule"/>
-
-      <h2 class="legal-h2">6. Datensicherheit</h2>
-      <p>
-        Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre durch
-        uns verwalteten Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust,
-        Zerstörung oder gegen den Zugriff unberechtigter Personen zu schützen. Unsere
-        Sicherheitsmaßnahmen werden entsprechend der technologischen Entwicklung
-        fortlaufend verbessert.
-      </p>
-
-      <hr class="legal-rule"/>
-
-      <h2 class="legal-h2">7. Kontakt zum Datenschutz</h2>
-      <p>
-        Bei Fragen zum Datenschutz wenden Sie sich bitte direkt an uns:
-      </p>
-      <p>
-        E-Mail: <a href="mailto:info@amiri-import-export.de">info@amiri-import-export.de</a><br/>
-        Amiri Import &amp; Export · Ali Amiri · Billstraße 106 · 20539 Hamburg
-      </p>
-
-      <div class="legal-notice">
+    <!-- 1 -->
+    <div class="block" id="verantwortlicher">
+      <h2><span class="num">1.</span> Verantwortlicher</h2>
+      <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:</p>
+      <div class="info-box" style="margin-top:16px;">
         <p>
-          Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
-          aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen
-          umzusetzen. Es gilt dann die neue Datenschutzerklärung bei Ihrem nächsten Besuch.
+          <strong style="color:var(--off-white);">Zarnab Habibi</strong><br />
+          Zarnab Group – Social Media Marketing<br />
+          Neuer Wall 50<br />
+          20354 Hamburg<br />
+          Deutschland<br /><br />
+          Telefon: 040 ******<br />
+          Mobil: +49 1521 2100465<br />
+          E-Mail: <a href="mailto:zarnab-group@outlook.de">zarnab-group@outlook.de</a><br />
+          Web: <a href="https://www.zarnabgroup.de" target="_blank">www.zarnabgroup.de</a>
         </p>
       </div>
-
-      <p class="legal-stand">Stand: Mai 2026</p>
-
     </div>
-  </div>
-</section>
 
+    <!-- 2 -->
+    <div class="block" id="grundsaetze">
+      <h2><span class="num">2.</span> Grundsätze der Datenverarbeitung</h2>
+      <p>Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist. Die Verarbeitung personenbezogener Daten unserer Nutzer erfolgt regelmäßig nur nach Einwilligung des Nutzers. Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.</p>
+      <p>Sofern wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage. Bei der Verarbeitung von personenbezogenen Daten, die zur Erfüllung eines Vertrages erforderlich ist, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage. Zur Erfüllung rechtlicher Verpflichtungen dient Art. 6 Abs. 1 lit. c DSGVO. Im Falle lebenswichtiger Interessen dient Art. 6 Abs. 1 lit. d DSGVO. Zur Wahrung berechtigter Interessen dient Art. 6 Abs. 1 lit. f DSGVO.</p>
+    </div>
 
-<!-- ═══════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════ -->
-<footer>
-  <div class="footer-wm" aria-hidden="true">AMIRI</div>
-  <div class="container">
+    <!-- 3 -->
+    <div class="block" id="website">
+      <h2><span class="num">3.</span> Datenerfassung auf unserer Website</h2>
 
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-brand">
-          <svg class="nav-mark" viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18" stroke="#c8a96e" stroke-width="1.3"/>
-            <path d="M11 15.5H27.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
-            <path d="M23.5 11.5L27.8 15.5L23.5 19.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M29 24.5H12.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round"/>
-            <path d="M16.5 20.5L12.2 24.5L16.5 28.5" stroke="#c8a96e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="nav-name"><b>Amiri</b> Import &amp; Export<small>Groß- &amp; Außenhandel · Hamburg</small></span>
-        </a>
-        <p class="footer-stmt">
-          Verlässlichkeit, Qualität und partnerschaftliche
-          Zusammenarbeit – die Grundpfeiler unseres globalen Handels.
+      <h3>Server-Logfiles</h3>
+      <p>Beim Aufruf unserer Website werden automatisch Informationen in sogenannten Server-Logfiles gespeichert. Diese Informationen werden vom Browser Ihres Endgeräts automatisch übermittelt. Dies sind:</p>
+      <ul>
+        <li>Browsertyp und Browserversion</li>
+        <li>Verwendetes Betriebssystem</li>
+        <li>Referrer URL (die zuvor besuchte Seite)</li>
+        <li>Hostname des zugreifenden Rechners</li>
+        <li>Uhrzeit der Serveranfrage</li>
+        <li>IP-Adresse (anonymisiert)</li>
+      </ul>
+      <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. f DSGVO. Die Logfiles werden nach spätestens 7 Tagen automatisch gelöscht.</p>
+
+      <h3>Keine automatische Datenerhebung</h3>
+      <p>Unsere Website erhebt ohne Ihr aktives Zutun keine weiteren personenbezogenen Daten. Es werden keine Tracking-Tools, Analysetools (wie Google Analytics) oder Werbe-Cookies eingesetzt.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="block" id="kontakt">
+      <h2><span class="num">4.</span> Kontaktaufnahme</h2>
+
+      <h3>Per E-Mail oder Telefon</h3>
+      <p>Wenn Sie uns per E-Mail oder telefonisch kontaktieren, werden Ihre Angaben inklusive der von Ihnen dort angegebenen Kontaktdaten zum Zweck der Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+      <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+      <h3>Per Social Media (TikTok, Instagram, Facebook)</h3>
+      <p>Wenn Sie uns über unsere Social-Media-Kanäle kontaktieren, verarbeiten wir die dabei anfallenden personenbezogenen Daten (z. B. Ihren Nutzernamen, den Inhalt Ihrer Nachricht) ausschließlich zur Bearbeitung Ihrer Anfrage. Bitte beachten Sie, dass die Betreiber dieser Plattformen eigene Datenschutzbestimmungen haben, die wir nicht beeinflussen können.</p>
+      <p>Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind – in der Regel nach vollständiger Klärung Ihrer Anfrage, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="block" id="social-media">
+      <h2><span class="num">5.</span> Social Media</h2>
+
+      <h3>Unsere Social-Media-Präsenzen</h3>
+      <p>Wir betreiben Präsenzen auf folgenden sozialen Netzwerken:</p>
+      <ul>
+        <li><strong style="color:var(--off-white);">Instagram</strong> – betrieben von Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland</li>
+        <li><strong style="color:var(--off-white);">TikTok</strong> – betrieben von TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Irland</li>
+        <li><strong style="color:var(--off-white);">Facebook</strong> – betrieben von Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland</li>
+      </ul>
+
+      <h3>Verarbeitung durch die Plattformbetreiber</h3>
+      <p>Beim Besuch unserer Social-Media-Seiten werden Ihre Daten unmittelbar von den Plattformbetreibern erhoben und verarbeitet. Auf diese Datenverarbeitung haben wir keinen Einfluss. Bitte beachten Sie die Datenschutzerklärungen der jeweiligen Plattformbetreiber:</p>
+      <ul>
+        <li>Instagram / Facebook: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">www.facebook.com/privacy/policy</a></li>
+        <li>TikTok: <a href="https://www.tiktok.com/legal/page/eea/privacy-policy/de" target="_blank" rel="noopener">www.tiktok.com/legal/privacy-policy</a></li>
+      </ul>
+
+      <h3>Kostenloses Erstgespräch über Social Media</h3>
+      <p>Wenn Sie uns über TikTok, Instagram oder Facebook kontaktieren, um ein kostenloses Erstgespräch zu vereinbaren, verarbeiten wir die dafür notwendigen Daten (Name, Kontaktdaten, Anliegen) auf Basis von Art. 6 Abs. 1 lit. b DSGVO zur Durchführung vorvertraglicher Maßnahmen sowie Art. 6 Abs. 1 lit. a DSGVO auf Grundlage Ihrer Einwilligung. Die Daten werden ausschließlich für die Vorbereitung und Durchführung des Gesprächs verwendet und nicht an Dritte weitergegeben.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="block" id="hosting">
+      <h2><span class="num">6.</span> Hosting</h2>
+      <p>Diese Website wird bei einem professionellen Hosting-Anbieter in Deutschland oder innerhalb der Europäischen Union gehostet. Der Hosting-Anbieter verarbeitet personenbezogene Daten nur in dem Maße, wie es für die Bereitstellung der Website erforderlich ist. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren Webauftritt) sowie Art. 28 DSGVO (Auftragsverarbeitung).</p>
+      <p>Mit dem Hosting-Anbieter wurde ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO abgeschlossen. Der Anbieter verarbeitet die Daten ausschließlich auf unsere Weisung und garantiert ausreichende technische und organisatorische Schutzmaßnahmen.</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="block" id="cookies">
+      <h2><span class="num">7.</span> Cookies</h2>
+      <p>Unsere Website verwendet ausschließlich technisch notwendige Cookies, die für den Betrieb der Website unerlässlich sind. Es werden keine Tracking-Cookies, Analyse-Cookies oder Werbe-Cookies gesetzt.</p>
+      <p>Technisch notwendige Cookies dienen dazu, grundlegende Funktionen der Website zu ermöglichen (z. B. Session-Verwaltung). Diese Cookies werden nach dem Ende Ihrer Browser-Sitzung automatisch gelöscht (Session-Cookies) oder nach einer kurzen Frist (maximal 30 Tage).</p>
+      <p>Da wir ausschließlich technisch notwendige Cookies verwenden, ist eine Einwilligung nach § 25 Abs. 2 TTDSG nicht erforderlich. Sie können Cookies über Ihre Browser-Einstellungen jederzeit löschen oder deaktivieren.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="block" id="rechte">
+      <h2><span class="num">8.</span> Ihre Rechte</h2>
+      <p>Sie haben als betroffene Person gemäß DSGVO folgende Rechte gegenüber uns:</p>
+
+      <div class="rights-grid">
+        <div class="right-item">
+          <h4>Auskunft</h4>
+          <p>Art. 15 DSGVO – Sie können Auskunft über Ihre gespeicherten Daten verlangen.</p>
+        </div>
+        <div class="right-item">
+          <h4>Berichtigung</h4>
+          <p>Art. 16 DSGVO – Sie können unrichtige Daten berichtigen lassen.</p>
+        </div>
+        <div class="right-item">
+          <h4>Löschung</h4>
+          <p>Art. 17 DSGVO – Sie können die Löschung Ihrer Daten verlangen ("Recht auf Vergessenwerden").</p>
+        </div>
+        <div class="right-item">
+          <h4>Einschränkung</h4>
+          <p>Art. 18 DSGVO – Sie können die Einschränkung der Verarbeitung Ihrer Daten verlangen.</p>
+        </div>
+        <div class="right-item">
+          <h4>Datenübertragbarkeit</h4>
+          <p>Art. 20 DSGVO – Sie können Ihre Daten in einem gängigen Format erhalten.</p>
+        </div>
+        <div class="right-item">
+          <h4>Widerspruch</h4>
+          <p>Art. 21 DSGVO – Sie können der Verarbeitung Ihrer Daten widersprechen.</p>
+        </div>
+        <div class="right-item">
+          <h4>Widerruf</h4>
+          <p>Art. 7 Abs. 3 DSGVO – Eine erteilte Einwilligung kann jederzeit widerrufen werden.</p>
+        </div>
+        <div class="right-item">
+          <h4>Beschwerde</h4>
+          <p>Art. 77 DSGVO – Sie können sich bei der zuständigen Aufsichtsbehörde beschweren.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:20px;">Um Ihre Rechte geltend zu machen, wenden Sie sich bitte an: <a href="mailto:zarnab-group@outlook.de">zarnab-group@outlook.de</a></p>
+      <p>Wir werden Ihr Anliegen unverzüglich, spätestens jedoch innerhalb eines Monats bearbeiten.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="block" id="beschwerden">
+      <h2><span class="num">9.</span> Beschwerderecht</h2>
+      <p>Sie haben das Recht, sich bei der zuständigen Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.</p>
+      <p>Die für uns zuständige Aufsichtsbehörde ist:</p>
+      <div class="info-box">
+        <p>
+          <strong style="color:var(--off-white);">Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit</strong><br />
+          Ludwig-Erhard-Str. 22<br />
+          20459 Hamburg<br />
+          Tel.: +49 40 42854-4040<br />
+          E-Mail: <a href="mailto:mailbox@datenschutz.hamburg.de">mailbox@datenschutz.hamburg.de</a><br />
+          Web: <a href="https://www.datenschutz-hamburg.de" target="_blank" rel="noopener">www.datenschutz-hamburg.de</a>
         </p>
       </div>
-
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="leistungen.html">Leistungen</a></li>
-          <li><a href="produkte.html">Produkte</a></li>
-          <li><a href="ueber-uns.html">Über Uns</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="datenschutz.html">Datenschutz</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="kontakt.html">Billstraße 106, Hamburg</a></li>
-          <li><a href="mailto:info@amiri-import-export.de">info@amiri-import-export.de</a></li>
-          <li><a href="kontakt.html">+49 (0)40 – XXXXXXXX</a></li>
-        </ul>
-      </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Amiri Import &amp; Export · Ali Amiri · Hamburg</p>
-      <span class="footer-made">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
-        Made in Hamburg
-      </span>
+    <!-- 10 -->
+    <div class="block" id="aenderungen">
+      <h2><span class="num">10.</span> Änderungen dieser Datenschutzerklärung</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung gelegentlich anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z. B. bei der Einführung neuer Services.</p>
+      <p>Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Das Datum der letzten Aktualisierung ist am Anfang dieser Seite vermerkt.</p>
+      <div class="info-box">
+        <p>Bei Fragen zum Datenschutz wenden Sie sich jederzeit an: <a href="mailto:zarnab-group@outlook.de">zarnab-group@outlook.de</a></p>
+      </div>
     </div>
 
   </div>
-</footer>
 
-
-<!-- ═══════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════ -->
-<script>
-  const prog=document.getElementById('progress');
-  const nav=document.getElementById('nav');
-  function onScroll(){const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';nav.classList.toggle('scrolled',window.scrollY>60);}
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.10,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-  // Drawer
-  const burger=document.getElementById('burger'),drawer=document.getElementById('drawer'),overlay=document.getElementById('drawer-overlay'),dClose=document.getElementById('drawer-close');
-  function openDrawer(){overlay.classList.add('show');requestAnimationFrame(()=>{overlay.classList.add('visible');drawer.classList.add('open');});burger.classList.add('open');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-  function closeDrawer(){overlay.classList.remove('visible');drawer.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>overlay.classList.remove('show'),380);}
-  burger.addEventListener('click',()=>drawer.classList.contains('open')?closeDrawer():openDrawer());
-  dClose.addEventListener('click',closeDrawer);overlay.addEventListener('click',closeDrawer);
-  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
-  // Active nav
-  const page=location.pathname.split('/').pop()||'index.html';
-  document.querySelectorAll('.nav-links a, .drawer-nav a').forEach(a=>{if(a.getAttribute('href')===page)a.classList.add('active');});
-</script>
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>&copy; 2025 Zarnab Group – Alle Rechte vorbehalten.</p>
+    <div class="footer-links">
+      <a href="index.html">Startseite</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </footer>
 
 </body>
 </html>
