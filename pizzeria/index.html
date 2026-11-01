@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pizzeria Bella Napoli – Echte Steinofenpizza</title>
+  <meta name="description" content="Pizzeria Bella Napoli: neapolitanische Steinofenpizza, hausgemachte Pasta und frische Salate. Im Restaurant, zum Abholen oder per Lieferung."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand"><span class="brand-ico">🍕</span> Bella Napoli</a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen"/>
+    <label for="menu-toggle" class="burger"><span></span><span></span><span></span></label>
+    <nav class="nav-links">
+      <a href="#speisekarte">Speisekarte</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#oeffnungszeiten">Öffnungszeiten</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+4940000000" class="btn btn-sm">Jetzt bestellen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Seit 1998 · Steinofen · Hausgemacht</span>
+        <h1>Pizza wie in <em>Neapel</em>, direkt aus dem Steinofen.</h1>
+        <p>Teig mit 48 Stunden Ruhezeit, San-Marzano-Tomaten und Fior di Latte. Bei 450 °C in 90 Sekunden gebacken.</p>
+        <div class="hero-cta">
+          <a href="tel:+4940000000" class="btn">📞 Telefonisch bestellen</a>
+          <a href="#speisekarte" class="btn btn-ghost">Zur Speisekarte</a>
+        </div>
+        <ul class="hero-facts">
+          <li><strong>4,8 ★</strong> Bewertung</li>
+          <li><strong>30 Min</strong> Lieferzeit</li>
+          <li><strong>ab 15 €</strong> Lieferung</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 400" class="pizza-svg">
+          <circle cx="200" cy="200" r="190" fill="#d9a35b"/>
+          <circle cx="200" cy="200" r="168" fill="#c0392b"/>
+          <circle cx="200" cy="200" r="160" fill="#d64b35"/>
+          <g fill="#fbf3e4">
+            <ellipse cx="150" cy="130" rx="34" ry="28"/><ellipse cx="260" cy="150" rx="30" ry="26"/>
+            <ellipse cx="130" cy="240" rx="32" ry="27"/><ellipse cx="230" cy="260" rx="36" ry="29"/>
+            <ellipse cx="200" cy="195" rx="26" ry="22"/><ellipse cx="290" cy="230" rx="24" ry="20"/>
+          </g>
+          <g fill="#2f7d32">
+            <path d="M170 170c10-20 30-20 36-8-14 4-24 10-36 8z"/><path d="M245 205c12-16 30-12 32 0-12 2-22 4-32 0z"/>
+            <path d="M175 290c6-18 26-22 34-10-14 2-22 8-34 10z"/><path d="M110 190c10-16 28-14 32-2-12 2-20 4-32 2z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEISEKARTE -->
+  <section id="speisekarte" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Speisekarte</span>
+        <h2>Unsere Klassiker und Spezialitäten</h2>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="pizza" role="tab">Pizza</button>
+        <button class="tab" data-tab="pasta" role="tab">Pasta</button>
+        <button class="tab" data-tab="salat" role="tab">Salate &amp; Vorspeisen</button>
+        <button class="tab" data-tab="dessert" role="tab">Desserts &amp; Getränke</button>
+      </div>
+
+      <div class="menu-panel active" id="pizza">
+        <div class="menu-grid">
+          <div class="dish"><div><h3>Margherita</h3><p>Tomaten, Fior di Latte, Basilikum, Olivenöl</p></div><span class="price">9,50 €</span></div>
+          <div class="dish"><div><h3>Marinara <span class="tag veg">vegan</span></h3><p>Tomaten, Knoblauch, Oregano, Olivenöl</p></div><span class="price">8,00 €</span></div>
+          <div class="dish"><div><h3>Salame Piccante</h3><p>Tomaten, Mozzarella, scharfe Salami, Chili</p></div><span class="price">12,50 €</span></div>
+          <div class="dish"><div><h3>Prosciutto e Funghi</h3><p>Tomaten, Mozzarella, Kochschinken, Champignons</p></div><span class="price">12,90 €</span></div>
+          <div class="dish"><div><h3>Quattro Formaggi <span class="tag">vegetarisch</span></h3><p>Mozzarella, Gorgonzola, Parmesan, Taleggio</p></div><span class="price">13,50 €</span></div>
+          <div class="dish"><div><h3>Tonno e Cipolla</h3><p>Tomaten, Mozzarella, Thunfisch, rote Zwiebeln</p></div><span class="price">12,90 €</span></div>
+          <div class="dish"><div><h3>Diavola Speciale <span class="tag hot">scharf</span></h3><p>Tomaten, Mozzarella, Nduja, Peperoni, Honig</p></div><span class="price">14,50 €</span></div>
+          <div class="dish"><div><h3>Bella Napoli <span class="tag star">Haus-Pizza</span></h3><p>Büffelmozzarella, Parmaschinken, Rucola, Kirschtomaten, Parmesan</p></div><span class="price">15,90 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="pasta">
+        <div class="menu-grid">
+          <div class="dish"><div><h3>Spaghetti Carbonara</h3><p>Guanciale, Eigelb, Pecorino, schwarzer Pfeffer</p></div><span class="price">12,90 €</span></div>
+          <div class="dish"><div><h3>Penne all'Arrabbiata <span class="tag veg">vegan</span></h3><p>Tomaten, Knoblauch, Chili, Petersilie</p></div><span class="price">10,50 €</span></div>
+          <div class="dish"><div><h3>Tagliatelle al Ragù</h3><p>Hausgemachte Bandnudeln, Rinderragout nach Bologneser Art</p></div><span class="price">13,90 €</span></div>
+          <div class="dish"><div><h3>Lasagne della Casa</h3><p>Aus dem Ofen, mit Béchamel und Parmesan</p></div><span class="price">13,50 €</span></div>
+          <div class="dish"><div><h3>Gnocchi Sorrentina <span class="tag">vegetarisch</span></h3><p>Tomatensauce, Mozzarella, Basilikum, überbacken</p></div><span class="price">12,50 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="salat">
+        <div class="menu-grid">
+          <div class="dish"><div><h3>Bruschetta <span class="tag veg">vegan</span></h3><p>Geröstetes Brot, Tomaten, Knoblauch, Basilikum</p></div><span class="price">6,50 €</span></div>
+          <div class="dish"><div><h3>Caprese <span class="tag">vegetarisch</span></h3><p>Büffelmozzarella, Tomaten, Basilikum-Pesto</p></div><span class="price">9,50 €</span></div>
+          <div class="dish"><div><h3>Insalata Mista <span class="tag veg">vegan</span></h3><p>Gemischter Salat, Gurke, Tomaten, Hausdressing</p></div><span class="price">7,50 €</span></div>
+          <div class="dish"><div><h3>Insalata Rucola</h3><p>Rucola, Kirschtomaten, Parmesan, Balsamico</p></div><span class="price">9,90 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="dessert">
+        <div class="menu-grid">
+          <div class="dish"><div><h3>Tiramisù della Nonna</h3><p>Hausgemacht nach Familienrezept</p></div><span class="price">6,50 €</span></div>
+          <div class="dish"><div><h3>Panna Cotta</h3><p>Mit Waldbeerensauce</p></div><span class="price">5,90 €</span></div>
+          <div class="dish"><div><h3>Softdrinks 0,33 l</h3><p>Cola, Fanta, Sprite, Wasser</p></div><span class="price">3,00 €</span></div>
+          <div class="dish"><div><h3>Hauswein 0,2 l</h3><p>Rot oder Weiß, aus Kampanien</p></div><span class="price">5,50 €</span></div>
+        </div>
+      </div>
+      <p class="menu-note">Alle Preise inkl. MwSt. Informationen zu Allergenen und Zusatzstoffen bekommst du bei unserem Personal.</p>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber-uns" class="section section-alt">
+    <div class="container about">
+      <div>
+        <span class="eyebrow">Über uns</span>
+        <h2>Familientradition aus Napoli</h2>
+        <p>Was mit einem kleinen Holzofen und dem Rezept unserer Nonna begann, ist heute ein Treffpunkt für alle, die echte italienische Küche lieben. Wir verwenden nur ausgewählte Zutaten, viele davon direkt aus Italien importiert.</p>
+        <p>Ob Familienessen, Date oder schnelle Mittagspause: Bei uns bist du immer willkommen.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><span>🔥</span><h3>Steinofen</h3><p>Gebacken bei 450 °C</p></div>
+        <div class="feature"><span>🌾</span><h3>48 h Teig</h3><p>Leicht und bekömmlich</p></div>
+        <div class="feature"><span>🍅</span><h3>Italienische Zutaten</h3><p>San Marzano &amp; Fior di Latte</p></div>
+        <div class="feature"><span>🛵</span><h3>Lieferservice</h3><p>Heiß bis an deine Tür</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÖFFNUNGSZEITEN & KONTAKT -->
+  <section id="oeffnungszeiten" class="section">
+    <div class="container info-grid">
+      <div class="info-card">
+        <h2>Öffnungszeiten</h2>
+        <ul class="hours">
+          <li><span>Montag</span><span>Ruhetag</span></li>
+          <li><span>Dienstag – Donnerstag</span><span>11:30 – 22:00</span></li>
+          <li><span>Freitag – Samstag</span><span>11:30 – 23:00</span></li>
+          <li><span>Sonntag &amp; Feiertage</span><span>12:00 – 22:00</span></li>
+        </ul>
+        <p class="small">Küche schließt 30 Minuten vor Ladenschluss.</p>
+      </div>
+      <div class="info-card" id="kontakt">
+        <h2>Kontakt &amp; Anfahrt</h2>
+        <ul class="contact">
+          <li>📍 <span>Musterstraße 1, 20000 Hamburg</span></li>
+          <li>📞 <a href="tel:+4940000000">040 000 000</a></li>
+          <li>✉️ <a href="mailto:info@bella-napoli.de">info@bella-napoli.de</a></li>
+        </ul>
+        <div class="hero-cta">
+          <a href="tel:+4940000000" class="btn">Tisch reservieren</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Musterstra%C3%9Fe+1+Hamburg" target="_blank" rel="noopener" class="btn btn-ghost">Route planen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="year">2026</span> Pizzeria Bella Napoli</span>
+    <nav><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.menu-panel').forEach(function (p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { document.getElementById('menu-toggle').checked = false; });
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
